@@ -13,6 +13,7 @@ export const Navbar = () => {
   return (
     <>
     
+
       <div className="navbaody">
       
         <div className="navtopbody">
@@ -31,6 +32,7 @@ export const Navbar = () => {
               {/* <h1 className="acountbuton2"><Link to="/login"><AiOutlineUser /></Link></h1> */}
             
             {/* <h1 className="acountbuton2"><Link to="/cart"><FaShoppingBag /></Link></h1> */}
+            
             
           </div>
         </div>
@@ -122,3 +124,5 @@ export const Navbar = () => {
     </>
   );
 };
+
+      
