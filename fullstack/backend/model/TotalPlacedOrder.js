@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const productSchema = mongoose.Schema(
+const TotalPlaceOrderSchema = mongoose.Schema(
   {
     name: String,
     image: Array,
@@ -16,11 +16,11 @@ const productSchema = mongoose.Schema(
     rating: Number,
     flavour:String,
     description: Object,
-    category:String
+    category:String,
   },
   { versionKey: false }
 );
 
-const ProductModel = mongoose.model("products", productSchema);
+const TotalPlaceOrderModel = mongoose.model("totalplaceorder", TotalPlaceOrderSchema);
 
-module.exports = { ProductModel };
+module.exports = { TotalPlaceOrderModel };

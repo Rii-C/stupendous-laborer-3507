@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const productSchema = mongoose.Schema(
+const wishlistSchema = mongoose.Schema(
   {
     name: String,
     image: Array,
@@ -16,11 +16,12 @@ const productSchema = mongoose.Schema(
     rating: Number,
     flavour:String,
     description: Object,
-    category:String
+    category:String,
+    user: String
   },
   { versionKey: false }
 );
 
-const ProductModel = mongoose.model("products", productSchema);
+const WishlistModel = mongoose.model("wishlist", wishlistSchema);
 
-module.exports = { ProductModel };
+module.exports = { WishlistModel };
