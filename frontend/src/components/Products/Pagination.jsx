@@ -21,20 +21,20 @@ arr.push(i+1)
     <div className={styles.container}>
   
   {
-    page==1 ? <FontAwesomeIcon style={{background:page===1?"#c2edee":"#00b5b7",borderColor:page===1?"#c2edee":"#00b5b7"}} className={styles.btn} type="button"  icon={faChevronLeft}  /> :
+    page==1 ? <FontAwesomeIcon style={{background:page==1?"#c2edee":"#00b5b7",borderColor:page==1?"#c2edee":"#00b5b7"}} className={styles.btn} type="button"  icon={faChevronLeft}  /> :
 
-<FontAwesomeIcon style={{background:page===1?"#c2edee":"#00b5b7",borderColor:page==1?"#c2edee":"#00b5b7"}} className={styles.btn} type="button"  icon={faChevronLeft} onClick={()=>setPage(page-1)} />
+<FontAwesomeIcon style={{background:page==1?"#c2edee":"#00b5b7",borderColor:page==1?"#c2edee":"#00b5b7"}} className={styles.btn} type="button"  icon={faChevronLeft} onClick={()=>setPage(page-1)} />
   }
 
    
 {arr.map((el)=>{
-return <button key={el}  style={{background:page===el?"#00b5b7":"white",borderColor:page===el?"#00b5b7":"#00b5b7"}} className={styles.current}>{el}</button>
+return <button key={el}  style={{background:page==el?"#00b5b7":"white",borderColor:page==el?"#00b5b7":"#00b5b7"}} className={styles.current}>{el}</button>
 })}
 
 {
-    page==x? <FontAwesomeIcon style={{background:page===x?"#c2edee":"#00b5b7",borderColor:page===x?"#00b5b7":"#c2edee"}} className={styles.btn} icon={faChevronRight} />
+    page==x? <FontAwesomeIcon style={{background:page==x?"#c2edee":"#00b5b7",borderColor:page==x?"#00b5b7":"#c2edee"}} className={styles.btn} icon={faChevronRight} />
  :
-    <FontAwesomeIcon style={{background:page===x?"#c2edee":"#00b5b7",borderColor:page===x?"#00b5b7":"#c2edee"}} className={styles.btn} icon={faChevronRight} onClick={()=>setPage(page+1)}/>
+    <FontAwesomeIcon style={{background:page==x?"#c2edee":"#00b5b7",borderColor:page==x?"#00b5b7":"#c2edee"}} className={styles.btn} icon={faChevronRight} onClick={()=>setPage(page+1)}/>
 }
     </div>
 

@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 
 // https://static1.hkrtcdn.com/hknext/static/media/common/variant/Vegetarian.svg
 
-export const ProductCard = ({id,name,image,stock,mrp,price,discount,reviews,rating,quantity,premium}) => {
+export const ProductCard = ({_id,name,image,stock,mrp,price,discount,reviews,rating,quantity,premium}) => {
 
 
 const [heart,setHeart] = React.useState(true)
@@ -20,7 +20,7 @@ const[cartButton,setCartButton] = React.useState(false)
   return (
     <div className={styles.container}>
         <div className={styles.top}>
-            <Link className={styles.top} to="/">
+            <Link className={styles.top} to={`/products/wheyproteins/${_id}`}>
 
             <img  src={image[0]} alt={name}/>
             </Link>

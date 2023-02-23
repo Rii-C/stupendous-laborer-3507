@@ -19,7 +19,7 @@ const {isLoading,products} = useSelector((store)=>{
 
  {isLoading? <img src='https://media.tenor.com/CHJqqkScLZMAAAAM/loading.gif' alt='Loading...'/>:(products.map((el)=>(
    
-   <ProductCard key={el.id} {...el}/>
+   <ProductCard key={el._id} {...el}/>
    
    )))}  
 
