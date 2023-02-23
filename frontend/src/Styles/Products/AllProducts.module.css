@@ -1,0 +1,19 @@
+.container{margin-top: 40px;margin-left: 10px;}
+.container{display:grid; grid-template-columns: repeat(3,1fr); gap:20px;}
+
+
+
+
+@media screen and (min-width:850px) and (max-width:970px){
+    .container{grid-template-columns: repeat(2,1fr);}
+}
+
+
+@media screen and (min-width:100px) and (max-width:700px){
+    .container{grid-template-columns: repeat(2,1fr);}
+}
+
+
+@media screen and (min-width:100px) and (max-width:450px){
+    .container{grid-template-columns: repeat(1,1fr);}
+}

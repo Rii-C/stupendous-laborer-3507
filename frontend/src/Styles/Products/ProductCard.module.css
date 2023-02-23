@@ -1,0 +1,50 @@
+.mark{width:14px;}
+.container{border:1px solid rgb(221, 221, 221);border-radius: 5px;}
+
+
+.heart,.solidheart{font-size: 24px;position: absolute; right:14px; top:12px;cursor: pointer;}
+.heart{ color:red}
+.top{display: flex; justify-content: center;position: relative;}
+.top img{width: 65%; margin-top: 42px;}
+.details{margin: 15px;}
+
+.ratingReviews{display: flex; justify-content: space-between; align-items: center;margin-top: 10px;}
+.one{display: flex; gap:10px}
+.ratebox{background: #00b5b7;width:50px;display: flex; align-items: center; justify-content: center; padding-top: 2px; padding-bottom: 2px;border-radius: 3px;}
+.ratebox span{margin-right: 4px; font-size: 14px; font-weight: 500;color:white;}
+.star{color:white;font-size: 11px;}
+.reviews{font-size: 14px;}
+.name{margin-top: 10px;font-size: 15px;}
+
+
+.priceDiscount{display: flex;gap:10px; margin-top: 10px; align-items: center;}
+.price{font-size: 17px; font-weight: 500;}
+.mrp{text-decoration: line-through; color:rgb(188, 188, 188);}
+.discount{color:#1ab167;font-size: 14px;}
+
+
+.premiumBox{display:flex; gap:10px;background:#f5f5f5; justify-content: center; padding-top:7px; padding-bottom: 7px;margin-top: 15px;}
+.premiumBox img{margin-left: 10px;}
+.premiumBox span{font-size: 14px;margin-right: 10px;}
+
+
+.cartContainer{display: flex; align-items: center;justify-content: center; gap:10px; padding-top: 10px; padding-bottom: 10px; background:#fff9f4;margin-top: 15px;  border:1px solid #ff952b; border-radius: 7px;cursor: pointer;}
+.cartContainer>span{font-size: 16px;color:#ff952b; font-weight: 500;}
+    .cart{color:#ff952b; font-size: 17px;}
+
+
+.container:hover{box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border:1px solid transparent; }
+.container:hover .cartContainer{border-color: #ff8000; background-color: #ff8000;}
+.container:hover .cartContainer>span{color:white}
+.container:hover .cart{color:white}
+
+
+.goContainer{display: flex; align-items: center;justify-content: center; gap:10px; padding-top: 10px; padding-bottom: 10px; background:#00b5b7;margin-top: 15px;  border:1px solid #00b5b7; border-radius: 7px;cursor: pointer;}
+.goContainer>span{font-size: 16px;color:white; font-weight: 500;}
+    .gocart{color:white; font-size: 17px;}
+
+
+
+
+
+    

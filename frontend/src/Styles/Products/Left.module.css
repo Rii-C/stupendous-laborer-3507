@@ -1,0 +1,68 @@
+/* .container{background: orange;} */
+.up{
+    color:rgb(96, 96, 96);font-size: 10px; cursor: pointer;
+}
+.child{padding:10px;border:1px solid rgb(151, 151, 151); border-radius: 10px; margin-top: 20px;color:rgb(137, 137, 137);}
+.head{font-size: 19px;font-weight: 500;color:rgb(143, 143, 143); }
+.align{margin-bottom: 20px; display: flex;justify-content: space-between;}
+.align div{display: flex; gap:20px; align-items: center;}
+.align h2{font-size: 18px; font-weight: 500;color:black;}
+.child input{transform: scale(1.2); margin-right: 10px;}
+.itemAlign>div,.childx{ display: flex; gap:10px; font-size: 15px;}
+.itemAlign,.brandAlign {display: flex; flex-direction: column; gap:10px;  height:190px;overflow:auto;padding-left: 5px;}
+.clear{color:#00b1b4; font-size: 14px; cursor: pointer;}
+
+
+.itemAlign::-webkit-scrollbar,.brandAlign::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+ .itemAlign ::-webkit-scrollbar-track, .brandAlign ::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+   
+ 
+  .itemAlign::-webkit-scrollbar-thumb , .brandAlign::-webkit-scrollbar-thumb {
+      background: #888; 
+      border-radius:10px;
+
+  }
+
+  .itemAlign::-webkit-scrollbar-thumb:hover,.brandAlign::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+
+  .filter{display: flex; justify-content: space-between; margin-top: 30px;margin-bottom:15px;}
+  .filter span:nth-child(1){font-size: 18px;color:rgb(104, 104, 104);font-weight: 500;}
+  .filter span:nth-child(2){font-size: 16px; font-weight:500; color:#00b5b7;}
+
+  .input {width:100%;margin-bottom: 30px; display: flex; justify-content: center;}
+  .input input{border:1px solid rgb(141, 141, 141);font-size: 14px; 
+    outline:none;border-radius: 5px;padding:4px; padding-left: 7px;}
+
+.brandAlign>div{ display: flex; gap:10px; font-size: 15px; justify-content: space-between; padding-right: 10px;}
+/* .branndAlign>div>div{display:flex; } */
+   
+    /* .itemAlign {display: flex; flex-direction: column; gap:10px;  height:190px;overflow:auto;padding-left: 5px;} */
+
+
+    /* .child{padding:10px;border:1px solid rgb(151, 151, 151); border-radius: 10px; margin-top: 20px;color:rgb(137, 137, 137);} */
+
+    .discount{
+        margin-top: 30px;
+    }
+
+
+    .discountAlign>div{ display: flex; gap:10px; font-size: 15px;}
+.discountAlign {display: flex; flex-direction: column; gap:10px;  padding-left: 5px;}
+
+
+
+
+
+.lifestyle{margin-top: 30px;}
+
+.lifeAlign>div{ display: flex; gap:10px; justify-content: space-between; font-size: 15px;padding-right: 10px;}
+.lifeAlign {display: flex; flex-direction: column; gap:10px;  overflow:auto;padding-left: 5px;}

@@ -6,6 +6,7 @@ const { CartRouter } = require("./routes/Cart.routes");
 const { authorization } = require("./middleware/auth.middleware");
 const { WishlistRouter } = require("./routes/Wishlist.routes");
 const { ProductRouter } = require("./routes/Product.routes");
+const {AddressRouter} =require("./routes/Address.route")
 
 const cors = require("cors");
 const { ProductDetailRouter } = require("./routes/Productdetails.routes");
@@ -28,7 +29,9 @@ app.use("/product",ProductRouter);
 
 app.use("total/place/order",TotalPlaceOrderRouter);
 
-app.use("/cart",authorization,CartRouter);
+app.use("/cart",CartRouter);
+
+app.use("/address",AddressRouter)
 
 app.use("/wishlist",authorization,WishlistRouter);
 
