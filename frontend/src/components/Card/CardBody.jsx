@@ -4,7 +4,7 @@ import { Box,HStack,Heading,Flex} from '@chakra-ui/react'
 import CartItem from './CarTItem'
 import TotalPrice from"./TotalPrice"
 import {useSelector,useDispatch} from "react-redux"
-import { addToCart, getCardData } from '../../redux/Cart/action'
+import {  getCardData } from '../../redux/Cart/action'
 
 
 

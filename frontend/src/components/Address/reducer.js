@@ -21,6 +21,14 @@ const reducer=(state,{type,payload})=>{
             return {...state,pincode:payload}
 
         }
+        case "CITY":{
+            return {...state,city:payload}
+
+        }
+        case "STATE":{
+            return {...state,state:payload}
+
+        }
     }
 }
 

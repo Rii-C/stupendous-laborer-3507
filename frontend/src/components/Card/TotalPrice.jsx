@@ -1,7 +1,7 @@
 import React from 'react'
 import {BiMap} from "react-icons/bi"
 import { Box,Flex,HStack,VStack,Heading, Divider,Text,Icon,Input,Button,InputGroup,InputRightElement} from '@chakra-ui/react'
-
+import OrderSummary from './OrderSummary'
 const sumPrice=(data)=>{
 
 const res=  Math.round(data&&data.reduce((a,c)=>a+ Number(c.price*c.quantity),0))
@@ -52,46 +52,10 @@ const Totalprice = ({data}) => {
 
   <Button  w="100%" bg="#00b5b7" >Proceed to Pay ₹{totalprice}</Button>
   </Box>
-  <Box w="100%" boxShadow='base' p='6' rounded='md' bg='white'>
-<HStack mt={2}>
-<Heading as="h3" size="sm">Order Summary</Heading>
-<Text>({data.length} items)</Text>
-</HStack>
-<HStack mt={2} justifyContent="space-between">
-<Text>
-Total MRP
-</Text>
-<Text color="green.400">
-₹ {totalmrp}
-</Text>
-</HStack>
-<HStack mt={2} justifyContent="space-between">
-<Text>
-Total Discount
-</Text>
-<Text color="green.400">
- ₹ {discount}
-</Text>
-</HStack>
-<HStack mt={2} justifyContent="space-between">
-<Text>
-Shipping Charges
-</Text>
-<Text color="green.400">
-FREE
-</Text>
-</HStack>
-<Divider m={3} />
-<HStack mt={2} justifyContent="space-between">
-<Heading as="h3" size="md">
-Payable Amount
-</Heading>
-<Heading as="h3" size="md" >
-₹ {totalprice}
-</Heading>
-</HStack>
-<Text color="green.400" mt={2}>You will Save ₹{discount} on this order</Text>
+  <Box>
+<OrderSummary/>
   </Box>
+
   </Flex>
   )
 }
