@@ -8,6 +8,8 @@ import {ProductDetails} from '../pages/ProductDetails'
 import {Products} from '../pages/Products'
 import {Wishlist} from '../pages/Wishlist'
 import {Cart} from '../pages/Cart'
+import AdminDashboard from '../pages/Admin/AdminDashboard'
+import AddProducts from '../pages/Admin/AddProducts'
 
 const AllRoutes = ()=>{
 
@@ -22,6 +24,8 @@ return (
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/wishlist" element={<Wishlist/>}/>
         <Route path="/payment" element={<Payment/>}/>
+        <Route path="/admin/dashboard" element={<AdminDashboard/>} />
+        <Route path="/admin/add" element={<AddProducts/>} />
         <Route path="*" element={<NotFound/>}/>
     </Routes>
 )
