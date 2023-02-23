@@ -6,6 +6,7 @@ import { Right } from '../components/Products/Right'
 import { useSelector,useDispatch } from 'react-redux'
 import { GetData } from '../redux/Products/action'
 import axios from 'axios'
+import { Desclaimer } from '../components/Products/Desclaimer'
 
 
 export const Products = () => {
@@ -55,6 +56,7 @@ const {products,isLoading} = useSelector((store)=>{
 <Right totalItem={totalItem} page={page} limit={limit} setPage={setPage} setLimit={setLimit} />
 </div>
 
+<Desclaimer/>
     </>
   )
 }
