@@ -1,15 +1,25 @@
-import React from "react";
+import {Log_in, Log_out} from "./actionType";
 
-const InitialState = {
+const initState = {
+  login: false,
+};
 
-}
-
-export const reducer = (state=InitialState,{type,paylaod})=>{
-
-    return (
-        <div>
-            reducer
-        </div>
-    )
-
-}
+export const IsAuth = (state = initState, {type, payload}) => {
+  switch (type) {
+    case Log_in: {
+      return {
+        ...state,
+        login: payload,
+      };
+    }
+    case Log_out: {
+      return {
+        ...state,
+        login: payload,
+      };
+    }
+    default: {
+      return state;
+    }
+  }
+};
