@@ -1,0 +1,36 @@
+.container{height:100%;border:1px solid black;}
+.head{color:#1fbdc6;font-size: 15px;}
+
+.name{font-size: 22px; font-weight: 500; margin-top: 10px;}
+
+.bygnc{display: flex; align-items: center; gap:5px;}
+.bygnc span {font-size: 18px;}
+.gnc{color:#1fbdc6;font-weight:500;}
+.by {color:#7e8395;}
+.rightIcon{color:#1fbdc6; font-size: 10px;}
+
+/* .staring span{margin-left:10px;} */
+.staringContainer{display: flex; gap:10px; margin-top: 5px; margin-bottom: 10px;}
+.staringContainer img{cursor: pointer;width:34px;}
+.staringImage{margin-left: 4%; }
+.staring{display: flex; align-items: center; gap:10px;}
+.rating{font-weight: 500;font-size: 17px;}
+
+.mrp{font-size: 17px; color:rgb(93, 93, 93);margin-top: 7px; margin-bottom: 2px;}
+.mr{text-decoration: line-through;}
+
+.priceContainer{display: flex; gap:20px;align-items: center; }
+.priceContainer span:nth-child(1){font-size: 17px; font-weight: 500;}
+.priceContainer span:nth-child(2){color:#049a6a}
+.priceContainer span:nth-child(3){font-size: 12px;}
+.coin{margin-left: 10px;color:#f0b818;}
+.taxes{font-size: 12px; color:#049265;margin-bottom: 15px;}
+
+.date{display: flex; gap:5px; font-size: 14px;margin-bottom: 12px;}
+.date span:nth-child(1){color:rgb(100, 100, 100);}
+.date span:nth-child(3),.date span:nth-child(2){font-weight: 500;}
+
+.premiumBox{display: flex; gap:10px; align-items: center;padding-top: 8px; padding-bottom: 8px; background-color:#f5f5f5; width:260px; padding-left: 10px; padding-right: 10px;}
+.premiumBox span{font-size: 14px; border-radius: 3px;}
+
+.chevronRight{margin-left: 5px; font-size: 10px;}

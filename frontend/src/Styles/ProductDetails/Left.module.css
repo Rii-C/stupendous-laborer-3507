@@ -1,0 +1,13 @@
+.container{height:100%;display: grid; grid-template-columns: 90px 1fr; gap:10px;}
+
+.carouselBox{display: flex; flex-direction: column;gap:10px;height:310px;overflow: hidden;width:90px; scroll-behavior: smooth;}
+.carouselBox img{width:80px; height:70px;cursor: pointer;}
+
+.carousel{position:relative; height:310px;margin-top: 20px;}
+.up,.down{position:absolute;cursor: pointer; color:white; 
+   padding:3px 5px; border-radius: 50%; font-size: 10px; background-color: rgba(0, 0, 0,1);}
+.up{top:0; left:33px;}
+.down{bottom:0; left:33px;}
+
+
+.imageContainer img{width:90%;}

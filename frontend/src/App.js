@@ -7,8 +7,8 @@ import { Navbar } from './components/Navbar/Navbar';
 function App() {
   return (
     <div className="App">
-   {/* <AllRoutes/> */}
-   <Navbar/>
+   <AllRoutes/>
+   {/* <Navbar/> */}
 
     </div>
   );
