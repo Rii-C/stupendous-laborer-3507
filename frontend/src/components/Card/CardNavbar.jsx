@@ -7,6 +7,7 @@ import {MdPayment} from "react-icons/md"
 
 
 const CardNavbar = () => {
+
   return (
    
     <Box  h={50} mb={30}  >
