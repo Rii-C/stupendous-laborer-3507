@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./Navbar.css";
 import { Link ,useNavigate} from "react-router-dom";
-import weblogo from "./webLogo.png"
+// import weblogo from "./webLogo.png"
 import {AiOutlineUser} from "react-icons/ai"
 import {CiShoppingCart} from "react-icons/ci"
 import {IoReorderFourSharp} from "react-icons/io5"
@@ -19,7 +19,7 @@ export const Navbar = () => {
         <div className="navtopbody">
           
           <div className="mainlogo" >
-          <div className="opencrson" onClick={()=>setisMobail(!isMobail)}><IoReorderFourSharp/></div> <img src={weblogo} alt="" onClick={()=>navigate("/")}/>
+          <div className="opencrson" onClick={()=>setisMobail(!isMobail)}><IoReorderFourSharp/></div> <img src={""} alt="" onClick={()=>navigate("/")}/>
           </div>
           <div className="searchboxdic">
             <input type="text" placeholder="Search for products  brands..."/>
