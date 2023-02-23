@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "./Navbar.css";
+import  "./Navbar.css";
 import { Link ,useNavigate} from "react-router-dom";
 // import weblogo from "./webLogo.png"
 import {AiOutlineUser} from "react-icons/ai"

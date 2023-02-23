@@ -1,0 +1,5 @@
+.container{width:92%; margin:auto;margin-bottom: 30px;}
+.head{display: flex; justify-content: center; gap:20px;cursor: pointer;align-items: center;padding-bottom: 5px;}
+.head span{font-size: 18px;font-weight: 500;}
+.b{font-weight: 500;}
+
