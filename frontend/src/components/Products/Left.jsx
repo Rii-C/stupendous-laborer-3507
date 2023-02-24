@@ -267,20 +267,20 @@ const [gender,setGender] = React.useState(false)
 
 {
     discount?null:
-    
+       
 <div className={styles.discountAlign}>
 <div>
-<input type="radio"/>
+<input name="discountRange" type="radio"/>
 <span>20% And Above</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name="discountRange" type="radio"/>
 <span>40% And Above</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name="discountRange" type="radio"/>
 <span>60% And Above</span>
 </div>
 
@@ -320,22 +320,22 @@ const [gender,setGender] = React.useState(false)
     
 <div className={styles.discountAlign}>
 <div>
-<input type="radio"/>
+<input name="rating" type="radio"/>
 <span>4 Ratinhg & Above</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input name="rating" type="radio"/>
 <span>3 Ratinhg & Above</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input name="rating" type="radio"/>
 <span>2 Ratinhg & Above</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input name="rating" type="radio"/>
 <span>1 Ratinhg & Above</span>
 </div>
 

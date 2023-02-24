@@ -1,13 +1,38 @@
-.container{height:100%;display: grid; grid-template-columns: 90px 1fr; gap:10px;}
+.container{height:100%;display: grid; grid-template-columns: 90px 1fr; gap:10px; align-items: flex-start;}
 
-.carouselBox{display: flex; flex-direction: column;gap:10px;height:310px;overflow: hidden;width:90px; scroll-behavior: smooth;}
-.carouselBox img{width:80px; height:70px;cursor: pointer;}
+.carouselBox{display: flex; flex-direction: column;gap:10px;height:370px;overflow: auto;width:90px; scroll-behavior: smooth;}
+.carouselBox::-webkit-scrollbar {
+   display: none;
+ }
+.carouselBox img{width:80px; height:100px;cursor: pointer;border-radius: 10px; border: 1px solid rgb(194, 194, 194);}
 
-.carousel{position:relative; height:310px;margin-top: 20px;}
-.up,.down{position:absolute;cursor: pointer; color:white; 
-   padding:3px 5px; border-radius: 50%; font-size: 10px; background-color: rgba(0, 0, 0,1);}
+.carousel{position:relative; height:370px;margin-top: 20px;}
+.up,.down{position:absolute;cursor: pointer;
+   padding:3px 5px; border-radius: 50%; font-size: 24px; }
 .up{top:0; left:33px;}
-.down{bottom:0; left:33px;}
+.down{bottom:-34px; left:27px;}
 
 
-.imageContainer img{width:90%;}
+.imageContainer{display: flex; align-items: center; flex-direction: column;}
+.imageContainer img{width:400px; border: 1px solid rgb(194, 194, 194); border-radius: 10px; min-width:250px;height:400px;}
+
+
+/* @media screen and (min-width:600px) and (max-width:800px){
+
+} */
+
+.benefit{ width:97%;  margin-top: 30px; margin-left:0px;  padding:20px;border: 1px solid rgb(214, 214, 214);border-radius: 7px;}
+.benefit p{font-size: 18px; font-weight: 500; margin-bottom: 5px;}
+.benefit div{ display: flex; gap:20px; align-items: center;}
+.benefit span{color:rgb(120, 120, 120);}
+
+
+@media screen and (min-width:100px) and (max-width:600px){
+   .imageContainer img{width:100%; height:100%;}
+   .carouselBox{height:270px;}
+   .up,.down{left:15px; font-size: 18px;bottom:-25px;}
+   .carousel{height:270px;}
+   .carouselBox img{height:60px;width:60px;}
+
+   .benefit{margin-left: 0;}
+}

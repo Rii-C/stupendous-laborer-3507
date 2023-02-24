@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../../Styles/ProductDetails/Left.module.css'
 import {useSelector} from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronUp,faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronUp,faChevronDown,faCheck } from '@fortawesome/free-solid-svg-icons'
 
 
 export const Left = () => {
@@ -39,10 +39,10 @@ const HandleDown  = ()=>{
         {
             data.image && 
             <div className={styles.carousel}>
-                {
+                {/* {
                     data.image.length>3 && 
 <FontAwesomeIcon onClick={HandleUp}  id='up' className={styles.up} icon={faChevronUp}/>
-                }
+                } */}
         <div id='main' className={styles.carouselBox}>
             {
                 data.image.map((el,index)=>{
@@ -64,8 +64,16 @@ const HandleDown  = ()=>{
     data.image && 
         <div className={styles.imageContainer}>
 <img src={mainImage===""?data.image[0]:mainImage} className={styles.productImage} alt="product image"/>
+<div className={styles.benefit}>
+<p>Product Benefits</p>
+<div>
+    <FontAwesomeIcon icon={faCheck}/>
+    <span>{data.product_benefits}</span>
+</div>
+</div>
         </div>
 }
+
         </div>
   )
 }

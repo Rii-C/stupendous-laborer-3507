@@ -25,7 +25,7 @@ dispatch(GetData(page,limit))
 
 
 const ItemCountData = ()=>{
-axios.get("http://localhost:1010/products")
+axios.get("http://localhost:8000/product")
 .then((res)=>{
 // console.log(res.data.length)
 setTotalItem(res.data.length)

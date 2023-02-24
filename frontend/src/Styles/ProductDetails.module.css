@@ -1,4 +1,10 @@
-.Box{display: grid; grid-template-columns: 1fr 1.2fr;gap:20px;
-    height:500px;
+.Box{display: grid; grid-template-columns: 1fr 1.2fr;gap:40px;
+
     width:92%; margin:auto;margin-top: 50px;
     }
+
+
+@media screen and (min-width:100px) and (max-width:800px){
+    .Box{grid-template-columns: 1fr;gap:30px;}
+    
+}
