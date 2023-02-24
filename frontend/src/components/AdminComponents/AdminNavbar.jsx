@@ -47,7 +47,7 @@ export default function AdminNavbar() {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} paddingY={2}>
+      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} paddingY={2} boxShadow={"md"} zIndex={999} pos={"fixed"} top={0} left={0} right={0} >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}  border={"0px solid red"} >
           <IconButton
             size={'md'}

@@ -1,0 +1,34 @@
+import axios from 'axios';
+//GET-API
+export const getAdminProductAPI=async()=>{
+ let res = await axios.get('http://localhost:8000/total/product');
+ return res.data;
+}
+
+export const getAdminUsersAPI=async()=>{
+ let res = await axios.get('http://localhost:8000/user');
+ return res.data;
+}
+
+//POST-API
+export const postAdminProductAPI=async(Product)=>{
+let res = await axios.post('http://localhost:8000/product/add',Product);
+console.log(res.data);
+return res.data;
+}
+
+//UPDATE-FUNCTION
+export const updateAdminProductAPI=async(id,newPrice,newDiscount,newMrp)=>{
+    let res = await axios.patch(`http://localhost:8000/product/update${id}`,{
+        discount:newPrice,
+        price:newDiscount,
+        mrp:newMrp
+    });
+    return res.data;
+    }
+
+//DELETE-FUNCTION
+export const deleteAdminProductAPI=async(id)=>{
+    let res = await axios.delete(`http://localhost:8000/product/delete${id}`);
+    return res.data;
+    }

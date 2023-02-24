@@ -1,37 +1,20 @@
 import { HStack,Input,FormControl,FormLabel, Textarea,Button, Stack, Box,Flex } from '@chakra-ui/react'
 import React, { useReducer } from 'react'
 import reducer from './reducer'
-import { addAddress } from '../../redux/Address/action'
-import { useDispatch} from "react-redux"
 
 
-const initialAddress={
-    name:"",
-    mobile:"",
-    address:"",
-    landmark:"",
-    pincode:"",
-    city:"",
-    state:""
-
-}
 
 
-const AddressForm = () => {
+
+
+const AddressForm = ({handleSubmit,initialAddress}) => {
  const [addressForm,dispatch]=useReducer(reducer,initialAddress)
 
- const dispatch1=useDispatch()
-
- const handleSubmit=(e)=>{
-  e.preventDefault()
- dispatch1(addAddress(addressForm))
-  
-  }
-
- const {name,mobile,address,landmark,pincode,city,state}=addressForm
+ 
+const {name,mobile,address,landmark,pincode,city,state}=addressForm
   return (
    <Box maxW="90%" m="auto" boxShadow='base' p='6' rounded='md' bg='white'>
-   <form onSubmit={handleSubmit} >
+   <form onSubmit={(e)=>handleSubmit(e,addressForm)} autoComplete="on" >
    <Stack gap={2} >
    <Flex gap={2} direction={{base:"column",md:"row"}}>
    <FormControl isRequired>
@@ -54,20 +37,20 @@ const AddressForm = () => {
 </FormControl>
 <FormControl isRequired>
   <FormLabel>Pincode</FormLabel>
-  <Input placeholder='Enter pincode' type="number" value={pincode} onChange={(e)=>dispatch({type:"PINCODE",payload:e.target.value})} />
+  <Input placeholder='Enter pincode' type="number" value={pincode} onChange={(e)=>dispatch({type:"PINCODE",payload:e.target.value})}/>
 </FormControl>
    </HStack>
    <Flex gap={2} direction={{base:"column",md:"row"}}>
    <FormControl isRequired>
   <FormLabel>City </FormLabel>
-  <Input placeholder='Enter City' value={city} onChange={(e)=>dispatch({type:"CITY",payload:e.target.value})} />
+  <Input placeholder='Enter City'  value={city} onChange={(e)=>dispatch({type:"CITY",payload:e.target.value})} />
 </FormControl>
 <FormControl isRequired>
   <FormLabel>State</FormLabel>
   <Input placeholder='Enter State'  value={state} onChange={(e)=>dispatch({type:"STATE",payload:e.target.value})} />
 </FormControl>
    </Flex>
-   <Button type="submit" w={40}>Save & Deliver</Button>
+   <Button type="submit" w={40} bg="#00b5b7" >Save & Deliver</Button>
    </Stack>
    </form>
    </Box>

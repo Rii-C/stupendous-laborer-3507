@@ -24,8 +24,8 @@ const CartBody = () => {
     
   return (
     
-    <Flex justifyContent="space-around" direction={{base:"column-reverse",lg:"row"}}  >
-   <Box  >
+    <Flex justifyContent="space-around" direction={{base:"column",lg:"row"}}  >
+   <Box w={{base:"100%",lg:"60%"}} >
    <HStack justifyContent="space-between" p={2}>
    <Heading as="h3" size="sm">Shopping Cart ( {data.length} items )</Heading>
    <Heading as="h6" size="xm" color="#00b5b7">My Wishlist</Heading>
@@ -36,8 +36,8 @@ const CartBody = () => {
  ))}
    
 </Box>
-</Box>
-   <Box p={5}>
+</Box >
+   <Box p={5} w={{base:"90%" ,lg:"40%"}}>
    <TotalPrice data={data}/>
    </Box>
    </Flex>

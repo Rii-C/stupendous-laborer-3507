@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { Box,HStack,Heading, Divider,Text,} from '@chakra-ui/react'
-import {useSelector} from "react-redux"
+import {useDispatch,useSelector} from "react-redux"
+import { getCardData } from '../../redux/Cart/action'
+
 const sumPrice=(data)=>{
 
 const res=  Math.round(data&&data.reduce((a,c)=>a+ Number(c.price*c.quantity),0))
@@ -15,6 +17,12 @@ const summrp=(data)=>{
 }
 const OrderSummary = () => {
 
+   const dispatch=useDispatch()
+
+  
+   useEffect(()=>{
+    dispatch(getCardData())
+ },[])
 
     const data=useSelector(store=>store.cartReducer.cart)||[]
 
@@ -56,7 +64,7 @@ const OrderSummary = () => {
     </HStack>
     <Divider m={3} />
     <HStack mt={2} justifyContent="space-between">
-    <Heading as="h3" size="md">
+    <Heading as="h3" size="sm">
     Payable Amount
     </Heading>
     <Heading as="h3" size="md" >

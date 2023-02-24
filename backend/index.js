@@ -12,6 +12,7 @@ const cors = require("cors");
 const { ProductDetailRouter } = require("./routes/Productdetails.routes");
 const { PlaceOrderRouter } = require("./routes/PlaceOrder.routes");
 const { TotalPlaceOrderRouter } = require("./routes/TotalPlacedOrder.routes");
+const { TotalRouter } = require("./routes/total.routes");
 
 const app = express();
 
@@ -27,11 +28,13 @@ app.use("/user",UserRouter);
 
 app.use("/product",ProductRouter);
 
+app.use("/total/product",TotalRouter);
+
 app.use("total/place/order",TotalPlaceOrderRouter);
 
 app.use("/cart",CartRouter);
 
-app.use("/address",AddressRouter)
+app.use("/address",authorization,AddressRouter)
 
 app.use("/wishlist",authorization,WishlistRouter);
 
