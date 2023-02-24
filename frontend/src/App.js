@@ -1,7 +1,8 @@
 
 import './App.css';
 import AllRoutes from './components/AllRoutes';
-//import { Navbar } from './components/Navbar/Navbar';
+import Footer from './components/footer/Footer';
+import { Navbar } from './components/Navbar/Navbar';
 
 
 
@@ -12,7 +13,8 @@ function App() {
     
 
    <AllRoutes/>
-   {/* <Navbar/> */}
+   <Navbar/>
+   <Footer/>
 
 
     </div>
