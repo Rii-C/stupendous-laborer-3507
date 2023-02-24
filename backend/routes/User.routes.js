@@ -5,6 +5,15 @@ const { UserModel } = require("../Model/User.model");
 
 const UserRouter = express.Router();
 
+UserRouter.get("/",async(req,res)=>{
+  try {
+    const Users = await UserModel.find();
+    res.send(Users);
+  } catch (error) {
+    res.send({message:"Cannot get Users",error:error.message})
+  }
+})
+
 UserRouter.post("/register", async (req, res) => {
   const { name, username, email, password, phone,gender } = req.body;
   try {
