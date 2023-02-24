@@ -12,6 +12,7 @@ const cors = require("cors");
 const { ProductDetailRouter } = require("./routes/Productdetails.routes");
 const { PlaceOrderRouter } = require("./routes/PlaceOrder.routes");
 const { TotalPlaceOrderRouter } = require("./routes/TotalPlacedOrder.routes");
+const { TotalRouter } = require("./routes/total.routes");
 
 const app = express();
 
@@ -26,6 +27,8 @@ app.get("/",(req,res)=>{
 app.use("/user",UserRouter);
 
 app.use("/product",ProductRouter);
+
+app.use("/total/product",TotalRouter);
 
 app.use("total/place/order",TotalPlaceOrderRouter);
 

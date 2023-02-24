@@ -11,7 +11,7 @@ const q = query.q || ""
 
 const sort = query._sort || null
 const order = query._order || null
-const limit = query._limit || 12
+const limit = query._limit || null
 const page = query._page || 1
 let discount = query.discount || 0
 let rating = query.rating || 0
