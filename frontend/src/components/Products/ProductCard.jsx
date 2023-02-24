@@ -1,12 +1,11 @@
 import React from 'react'
 import styles from '../../Styles/Products/ProductCard.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons'
 import { faStar,faHeart,faCartShopping,faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { SolidHeart } from './SolidHeart'
+// import { SolidHeart } from './SolidHeart'
 import {Link} from 'react-router-dom'
 
-// https://static1.hkrtcdn.com/hknext/static/media/common/variant/Vegetarian.svg
 
 export const ProductCard = ({_id,name,image,stock,mrp,price,discount,reviews,rating,quantity,premium}) => {
 
@@ -24,9 +23,16 @@ const[cartButton,setCartButton] = React.useState(false)
 
             <img  src={image[0]} alt={name}/>
             </Link>
-            {heart?
-            <SolidHeart setHeart={setHeart} />:
+            {heart?<div style={{position:"relative"}}>
+            {/* <SolidHeart setHeart={setHeart} /> */}
+    <FontAwesomeIcon onClick={()=>setHeart(false)} className={styles.solidheart} icon={faRegularHeart}/>
+
+             <span  className={styles.tooltiptext}>Add to wishlist</span>
+            </div>:
+            <div  style={{position:"relative"}}>
          <FontAwesomeIcon onClick={()=>setHeart(true)} className={styles.heart} icon={faHeart}/>
+         <span  className={styles.tooltiptext}>Added to wislist</span>
+         </div>
         }
 
         </div>
@@ -66,7 +72,7 @@ const[cartButton,setCartButton] = React.useState(false)
 <div className={styles.premiumBox}>
   <img  src="https://static1.hkrtcdn.com/hknext/static/media/common/premium_member.svg" alt="star"/>
 
-<span>₹{price} for Premium Member</span>
+<span>₹{premium} for Premium Member</span>
 </div>
 
 

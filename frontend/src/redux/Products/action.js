@@ -22,7 +22,7 @@ export const GetData = (page,limit) => (dispatch) => {
 //   axios.get(`http://localhost:1010/products`)
 axios({
     method:"get",
-    baseURL:"http://localhost:1010/products",
+    baseURL:"http://localhost:8000/product",
     params:{_page:page,_limit:limit}
 })
 .then((res)=>{

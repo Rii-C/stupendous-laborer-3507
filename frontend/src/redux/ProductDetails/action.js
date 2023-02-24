@@ -22,11 +22,18 @@ export const GetData = (id) => (dispatch) => {
 
 axios({
     method:"get",
-    baseURL:"http://localhost:1010/products",
-url:`/${id}`
+    baseURL:"http://localhost:8000/product"
+// url:`/${id}`
 })
 .then((res)=>{
-dispatch(SuccessAction(res.data))
+    // console.log(res)
+   res = res.data
+    for(let i=0; i<res.length;i++){
+        if(res[i]._id==id){
+            dispatch(SuccessAction(res[i]))
+            break;
+        }
+    }
 })
 .catch((err)=>{
     console.log(err)
