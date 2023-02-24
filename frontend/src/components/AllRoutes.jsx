@@ -10,6 +10,7 @@ import {Wishlist} from '../pages/Wishlist'
 import {Cart} from '../pages/Cart'
 import AdminDashboard from '../pages/Admin/AdminDashboard'
 import AddProducts from '../pages/Admin/AddProducts'
+import Address from '../pages/Address'
 
 const AllRoutes = ()=>{
 
@@ -22,6 +23,7 @@ return (
         <Route path="/products/wheyproteins" element={<Products/>}/>
         <Route path="/products/wheyproteins/:id" element={<ProductDetails/>}/>
         <Route path="/cart" element={<Cart/>}/>
+        <Route path="/address" element={<Address/>}/>
         <Route path="/wishlist" element={<Wishlist/>}/>
         <Route path="/payment" element={<Payment/>}/>
         <Route path="/admin/dashboard" element={<AdminDashboard/>} />

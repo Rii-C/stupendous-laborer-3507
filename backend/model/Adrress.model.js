@@ -6,7 +6,11 @@ const addressSchema=mongoose.Schema({
     address:{type:String,isrequired:true},
     pincode:{type:Number,isrequired:true},
     landmark:{type:String,isrequired:false},
+    city:{type:String,isrequired:true},
+    state:{type:String,isrequired:false},
     user:{type:String,isrequired:true}
+},{
+    versionKey:false
 })
 const AddressModel=mongoose.model('addres',addressSchema)
 

@@ -1,19 +1,25 @@
 
 import './App.css';
+
 import AllRoutes from './components/AllRoutes';
-//import { Navbar } from './components/Navbar/Navbar';
-import AddressCard from './components/Address/AddressCard';
+
+import { Navbar } from './components/Navbar/Navbar';
+
+
 
 
 
 function App() {
   return (
     <div className="App">
+   
 
-    <AddressCard/>
 
-   <AllRoutes/>
-   {/* <Navbar/> */}
+    
+<Navbar/> 
+  <AllRoutes/>
+   
+ 
 
 
     </div>
