@@ -1,12 +1,14 @@
 import React from 'react'
-import { Heading,Text,Image,Card,CardBody,Stack,Icon,Button, HStack } from '@chakra-ui/react'
+import { Heading,Text,Image,Card,CardBody,Stack,Icon,Button, HStack,useDisclosure,Modal,ModalBody,ModalCloseButton,ModalFooter,ModalContent,ModalHeader,ModalOverlay } from '@chakra-ui/react'
 import {RiDeleteBinLine} from "react-icons/ri"
 import {GiSelfLove} from "react-icons/gi"
 import {GrFormAdd} from "react-icons/gr"
 import {BiMinus} from "react-icons/bi"
+import {TbAlertTriangle} from "react-icons/tb"
 import {useDispatch} from "react-redux"
 import { deleteItemFromCart ,updateCart} from '../../redux/Cart/action'
 const CartItem = ({ele}) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const dispatch=useDispatch()
 
@@ -79,9 +81,31 @@ const CartItem = ({ele}) => {
 </Stack>
 <HStack mt={-20} p={2}>
 
-<Icon as={RiDeleteBinLine} boxSize={6} m={1} onClick={()=>handleDelete(ele._id)}/>
+<Icon as={RiDeleteBinLine} boxSize={6} m={1} onClick={onOpen}/>
 
-
+<Modal isOpen={isOpen} onClose={onClose}>
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalHeader> <HStack>
+                    <Icon as={TbAlertTriangle} color="red"/> 
+                    <Text>Remove item</Text>
+                    </HStack>  </ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                    Are you sure you want to remove this item from cart?
+                    </ModalBody>
+          
+                    <ModalFooter justifyContent="flex-start" >
+                   
+                    <Button colorScheme='blue' mr={3}  onClick={()=>handleDelete(ele._id)} >
+                  Remove
+                   </Button>
+                   <Button variant='ghost' onClick={onClose}>Move to Wishlist</Button>
+                   
+                    
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
 
 <Icon as={GiSelfLove} boxSize={6} />
 

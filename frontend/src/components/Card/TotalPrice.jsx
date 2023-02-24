@@ -1,7 +1,13 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import { useSelector,useDispatch } from 'react-redux'
 import {BiMap} from "react-icons/bi"
-import { Box,Flex,HStack,VStack,Heading, Divider,Text,Icon,Input,Button,InputGroup,InputRightElement} from '@chakra-ui/react'
+import { Box,Flex,HStack,Text,Icon,Input,Button,InputGroup,InputRightElement} from '@chakra-ui/react'
 import OrderSummary from './OrderSummary'
+import { getAddress } from '../../redux/Address/action'
+import {Link} from "react-router-dom"
+
+
+
 const sumPrice=(data)=>{
 
 const res=  Math.round(data&&data.reduce((a,c)=>a+ Number(c.price*c.quantity),0))
@@ -17,11 +23,21 @@ const summrp=(data)=>{
 
 
 const Totalprice = ({data}) => {
+  const dispatch=useDispatch()
+  useEffect(()=>{
+    dispatch(getAddress())
+   
+  },[])
+
+  const Address=useSelector(store=>store.addressReducer.Address)
+
+
+  
 
   console.log(sumPrice(data),summrp(data))
   const totalprice=sumPrice(data)
-  const totalmrp=summrp(data)
-  const discount=totalmrp-totalprice
+  
+  
 
 
   return (
@@ -29,9 +45,9 @@ const Totalprice = ({data}) => {
   <Box  boxShadow='base' p='2' rounded='md' bg='white'>
  <Flex justifyContent="space-between" gap={5}>
   <HStack mt={2}>
-  <Icon as={BiMap}/> <Text> Delivery to</Text><Text fontWeight={500}> 227412, SULTANPUR </Text>
+  <Icon as={BiMap}/> <Text> Delivery to { Address[0]?.pincode}, {Address[0]?.city}, {Address[0]?.state}</Text>
   </HStack>
-  <Button bg="whiite" color="#00b5b7">Change</Button>
+  
   </Flex>
   </Box>
   <Box>
@@ -50,7 +66,7 @@ const Totalprice = ({data}) => {
   </Box>
   <Box bg="#00b5b7" p={2} borderRadius={5}>
 
-  <Button  w="100%" bg="#00b5b7" >Proceed to Pay ₹{totalprice}</Button>
+  <Button  w="100%" bg="#00b5b7" > <Link to="/address"/>  Proceed to Pay ₹{totalprice}</Button>
   </Box>
   <Box>
 <OrderSummary/>

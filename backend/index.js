@@ -34,7 +34,7 @@ app.use("total/place/order",TotalPlaceOrderRouter);
 
 app.use("/cart",CartRouter);
 
-app.use("/address",AddressRouter)
+app.use("/address",authorization,AddressRouter)
 
 app.use("/wishlist",authorization,WishlistRouter);
 
