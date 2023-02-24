@@ -22,7 +22,7 @@ export const DeleteAddress=()=>{
 export const AddAddress=()=>{
     return {type:ADD_ADDRESS}
 }
-export const updateAddres=()=>{
+export const UpdateAddres=()=>{
     return {type:UPDATE_ADDRESS}
 }
 
@@ -84,7 +84,30 @@ export const deleteAddress=(id)=>async(dispatch)=>{
         const res_1= await res.json();
        console.log(res_1)
        dispatch(DeleteAddress)
+       dispatch(getAddress())
        
+    }catch(err){
+        console.log(err)
+    }
+}
+
+
+export const updateAddress=(payload,id)=>async(dispatch)=>{
+
+    try{
+        
+        const res = await fetch(`http://localhost:8000/address/update/${id}`,{
+            method: "PATCH",
+            headers: {
+                "Content-type": "application/json",
+                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
+            },
+            body:JSON.stringify(payload)
+        });
+        const res_1= await res.json();
+       console.log(res_1)
+       dispatch(UpdateAddres)
+       dispatch(getAddress())
     }catch(err){
         console.log(err)
     }
