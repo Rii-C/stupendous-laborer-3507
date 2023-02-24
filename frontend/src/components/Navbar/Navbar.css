@@ -50,7 +50,7 @@
 .searchboxdic>input{
     width: 100%;
     height:40px;
- order: 1px solid grey;
+  border: 1px solid grey;
     padding-left: 25px;
     border-radius: 5px;
 }
