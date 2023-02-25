@@ -23,7 +23,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdminNavbar from "../../components/AdminComponents/AdminNavbar";
 import Tablecard from "../../components/AdminComponents/TableCard";
-import { getProductData } from "../../redux/Admin/Admin.action";
+import { deleteProductData, getProductData } from "../../redux/Admin/Admin.action";
  
   
   const AllProducts = () => {
@@ -40,7 +40,7 @@ import { getProductData } from "../../redux/Admin/Admin.action";
     }, []);
   
     const handleDelete = (id) => {
-      //dispatch(deleteMensData(id)).then(()=>dispatch(getMensData()))
+      dispatch(deleteProductData(id)).then(()=>dispatch(getProductData()))
     };
   
     const handleUpdate=()=> {
@@ -64,8 +64,8 @@ import { getProductData } from "../../redux/Admin/Admin.action";
               <Thead bg={"#025D84"}>
                 <Tr>
                   <Th color={"white"}>So No.</Th>
-                  <Th color={"white"}>Image</Th>
-                  <Th color={"white"}>Title</Th>
+                  <Th color={"white"}>Products</Th>
+                  {/* <Th color={"white"}>Title</Th>
                   <Th color={"white"}>Flavour</Th>
                   <Th color={"white"}>Category</Th>
                   <Th color={"white"}>MRP</Th>
@@ -73,7 +73,7 @@ import { getProductData } from "../../redux/Admin/Admin.action";
                   <Th color={"white"}>Discount</Th>
                   <Th color={"white"}>Stock</Th>
                   <Th color={"white"}>Edit</Th>
-                  <Th color={"white"}>Delete</Th>
+                  <Th color={"white"}>Delete</Th> */}
                 </Tr>
               </Thead>
               <Tbody>

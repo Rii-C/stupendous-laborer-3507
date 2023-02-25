@@ -19,7 +19,7 @@ return res.data;
 
 //UPDATE-FUNCTION
 export const updateAdminProductAPI=async(id,newPrice,newDiscount,newMrp)=>{
-    let res = await axios.patch(`http://localhost:8000/product/update${id}`,{
+    let res = await axios.patch(`http://localhost:8000/product/update/${id}`,{
         discount:newPrice,
         price:newDiscount,
         mrp:newMrp
@@ -29,6 +29,6 @@ export const updateAdminProductAPI=async(id,newPrice,newDiscount,newMrp)=>{
 
 //DELETE-FUNCTION
 export const deleteAdminProductAPI=async(id)=>{
-    let res = await axios.delete(`http://localhost:8000/product/delete${id}`);
+    let res = await axios.delete(`http://localhost:8000/product/delete/${id}`);
     return res.data;
     }

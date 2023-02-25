@@ -54,10 +54,23 @@ ProductRouter.patch("/update/:id", async (req, res) => {
   const id = req.params.id;
   try {
     await ProductModel.findByIdAndUpdate({ _id: id }, req.body);
-    res.send({ message: "Product's stock has been updated successfully" });
+    res.send({ message: "Product has been updated successfully" });
   } catch (error) {
     res.send({
-      message: "Cannot update the product's stock",
+      message: "Cannot update the product",
+      error: error.message,
+    });
+  }
+});
+
+ProductRouter.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    await ProductModel.findByIdAndDelete({ _id: id });
+    res.send({ message: "Product has been deleted successfully" });
+  } catch (error) {
+    res.send({
+      message: "Cannot delete the product",
       error: error.message,
     });
   }
