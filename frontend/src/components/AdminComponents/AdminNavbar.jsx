@@ -23,7 +23,7 @@ import {BsFillBellFill } from "react-icons/bs";
 import {RiAccountPinCircleFill,RiLogoutCircleFill} from "react-icons/ri";
 import Logo from "../asset/webLogo.png";
 
-const Links = [{path:'/admin/dashboard',name:'Dashboard'}, {path:'/admin/add',name:'Add-Products'}, {path:'/admin/products',name:'Products'},{path:'/admin/orders',name:'Orders'}];
+const Links = [{path:'/admin/dashboard',name:'Dashboard'}, {path:'/admin/add',name:'Add-Products'}, {path:'/admin/products',name:'Products'},{path:'/admin/place/orders',name:'Orders'}];
 
 const NavLink = ({ children }) => (
   <Link
@@ -68,14 +68,6 @@ export default function AdminNavbar() {
             </HStack>
           </HStack>
           <Flex alignItems={'center'}  border={"0px solid green"}>
-            {/* <Button
-              variant={'solid'}
-              colorScheme={'teal'}
-              size={'sm'}
-              mr={4}
-              leftIcon={<AddIcon />}>
-              Action
-            </Button> */}
             <IconButton
           size="lg"
           variant="ghost"

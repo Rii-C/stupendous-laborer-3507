@@ -14,7 +14,7 @@ import AllProducts from '../pages/Admin/AllProducts'
 import Address from '../pages/Address'
 import Registering from './Auth/Register'
 import Logging from './Auth/Login'
-
+import PlacedOrders from '../pages/Admin/PlacedOrders'
 
 
 const AllRoutes = ()=>{
@@ -34,6 +34,7 @@ return (
         <Route path="/admin/dashboard" element={<AdminDashboard/>} />
         <Route path="/admin/add" element={<AddProducts/>} />
         <Route path="/admin/products" element={<AllProducts/>} />
+        <Route path="/admin/place/orders" element={<PlacedOrders/>} />
         <Route path="*" element={<NotFound/>}/>
     </Routes>
 )
