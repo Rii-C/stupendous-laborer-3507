@@ -18,6 +18,7 @@ UserRouter.post("/register", async (req, res) => {
   const { name, username, email, password, phone,gender } = req.body;
   try {
     bcrypt.hash(password, 5, async (err, hash) => {
+      console.log(hash);
       if (err) {
         console.log({ error: err.message });
       } else {
