@@ -8,6 +8,9 @@ export const Right = ({totalItem,page,limit,setPage,setLimit}) => {
 
 const [sortData,setSortData] = React.useState("popularity")
 
+
+
+
   
 const HandleSortData = (e)=>{
   setSortData(e.target.value)
@@ -18,7 +21,7 @@ const dsn = ()=>{
 
 }
 
-
+console.log(sortData)
 
 
 
