@@ -16,9 +16,13 @@ import {
   import React, { useState } from 'react'
   
   const obj = {
+    name: '',
+    username: '',
     email: '',
     password: '',
-    name: '',
+    gender : "",
+    phone: '',
+
   }
   const Registering = () => {
     const toast = useToast()
@@ -31,20 +35,16 @@ import {
       setText({ ...text, [name]: value })
     }
   
-    const { email, password, name } = text
+    const { email, password, name, phone, username, gender } = text
   
-    console.log('ok', text)
+    // console.log('ok', text)
     const handleSubmit = async () => {
-      if (email !== '' && password !== '' && name !== '') {
+      if (email !== '' && password !== '' && name !== '' && username !== '' && gender !== '' && phone !== '' ) {
         setLoad(true)
-        await axios
-          .post('/api/auth/register', {
-            email: email,
-            password: password,
-            name: name,
-          })
+        await axios.post('http://localhost:8000/user/register', text)
           .then((res) => {
             setLoad(false)
+            console.log(res)
             toast({
               title: 'User registered',
               position: 'top-right',
@@ -52,7 +52,7 @@ import {
               duration: 2000,
               isClosable: true,
             })
-            // router.replace('/login')
+            // router.replace('/login') 
           })
           .catch((err) => {
             setLoad(false)
@@ -88,27 +88,60 @@ import {
               <Input
                 name="name"
                 onChange={handleChange}
-                value={name}
-                type="name"
+                value={text.name}
+                type="text"
+                isRequired={true}
+              />
+            </FormControl>
+            <FormControl id="username">
+              <FormLabel> username</FormLabel>
+              <Input
+                name="username"
+                onChange={handleChange}
+                value={text.username}
+                type="text"
+                isRequired={true}
               />
             </FormControl>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
               <Input
                 onChange={handleChange}
-                value={email}
+                value={text.email}
                 name="email"
                 type="email"
+                isRequired={true}
+                
               />
             </FormControl>
-  
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
               <Input
                 name="password"
                 onChange={handleChange}
-                value={password}
+                value={text.password}
                 type="password"
+                isRequired={true}
+              />
+            </FormControl>
+            <FormControl id="">
+              <FormLabel>gender</FormLabel>
+              <Input
+                name="gender"
+                onChange={handleChange}
+                value={text.gender}
+                type="text"
+                isRequired={true}
+              />
+            </FormControl>
+            <FormControl id="phone">
+              <FormLabel>phone </FormLabel>
+              <Input
+                name="phone"
+                onChange={handleChange}
+                value={text.phone}
+                type="number"
+                isRequired={true}
               />
             </FormControl>
   
