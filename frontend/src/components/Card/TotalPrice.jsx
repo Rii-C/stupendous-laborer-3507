@@ -34,8 +34,13 @@ const Totalprice = ({data}) => {
 
   
 
-  console.log(sumPrice(data),summrp(data))
+  // console.log(sumPrice(data),summrp(data))
   const totalprice=sumPrice(data)
+
+  let res=false
+  if(data.length===0){
+    res=true
+  }
   
   
 
@@ -66,7 +71,7 @@ const Totalprice = ({data}) => {
   </Box>
   <Box bg="#00b5b7" p={2} borderRadius={5}>
 
-  <Button  w="100%" bg="#00b5b7" > <Link to="/address"/>  Proceed to Pay ₹{totalprice}</Button>
+  <Button  w="100%" isDisabled={res} bg="#00b5b7" > <Link to="/address"/>  Proceed to Pay ₹{totalprice}</Button>
   </Box>
   <Box>
 <OrderSummary/>
