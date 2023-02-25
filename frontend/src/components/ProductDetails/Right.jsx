@@ -1,25 +1,42 @@
 import React from 'react'
 import styles from '../../Styles/ProductDetails/Right.module.css'
-import {useSelector} from 'react-redux'
+import {useSelector,useDispatch} from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight ,faHeart as faSolidHeart,faCoins,faCartShopping ,faBowlRice,faPercent} from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import StarRatings from 'react-star-ratings';
-
-
+import { DynamicDate } from './DynamicDate'
+import axios from 'axios'
+import { addToCart } from '../../redux/Cart/action'
+import { Link } from 'react-router-dom'
 
 
 export const Right = () => {
 
-const [add,setAdd] = React.useState(false)
-const [addMsg,setAddMsg] = React.useState("Add to wishlist")
-
+const [heart,setHeart] = React.useState(true)
+const [wishlistData,setWishlistData] = React.useState([])
+const [CartData,setCartData]  = React.useState([])
 
 const [showDay,setShowDay] = React.useState(4)
 const [showMonth,setShowMonth] = React.useState("January")
-
-
 const [prdQuantity,setPrdQuantity] = React.useState(1)
+const dispatch = useDispatch()
+
+
+const {data,isLoading,name}  = useSelector((store)=>{
+  return {data:store.productDetailsReducer.data,isLoading:store.productDetailsReducer.isLoading,name:store.productDetailsReducer.data.name}
+}) || {data:{},isLoading:false}
+
+const {token} = useSelector((store)=>{
+    return {token:store.authReducer.token}
+  })
+
+
+// const userLoggedId = useSelector((store)=>{
+//     return {userLoggedId:store.authReducer.userDetails._id}
+// })
+
+
 
 const HandleDecrement = ()=>{
 if(prdQuantity>1){
@@ -31,87 +48,201 @@ const HandleIncrement = ()=>{
   setPrdQuantity(prdQuantity + 1)
 }
 
-const HandleAddtoCart = ()=>{
-  setPrdQuantity(1)
-}
-
 
 
 React.useEffect(()=>{
 
-  let d = new Date()
-  let day = d.getDate()
-  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
-  let month = months[d.getMonth()];
-  let year = d.getFullYear()
-  
-
-  if(month ==months[3] || month==months[5] || month==months[8] || month==months[10]){
-    if(day>=29){
-      month = months[month+1]
-    }
-   day = (day+2)%30
-
-  }
-else if(month==months[1]){
-
-  
-
-  if(year%4==0){
-    if(day>=28){
-      month = months[month+1]
-    }
-day = (day+2)%29 
-  }else{
-    if(day>=27){
-      month = months[month+1]
-    }
-    day = (day+2)%28 
-  }
-}
-
-else{
- 
-
-  if(month==months[months.length-1] && day>29){
-    month = months[0]
-  }
-  else  if(day>29){
-    month = months[month+1]
-  }
-
-  day = (day+2)%31
-}
+  // Dynamic-Date------------------------------
+ const {day,month} = DynamicDate()
   setShowDay(day)
   setShowMonth(month)
+  // ------------------------------------------------------------
+
+// Wishlist-Add-and-Remove------------------------------
+
+  axios.get("http://localhost:8000/wishlist",{
+            headers:{
+                Authorization:token
+            }
+        })
+        .then((res)=>{
+            // console.log(res.data)
+            if(res.data[0]){
+                setWishlistData(res.data)
+                let x= false
+                for(let i =0; i<res.data.length; i++){
+                    if(res.data[i].name==name 
+                      // && res.data[i].user==userLoggedId
+                      ){
+                        setHeart(false)
+                        x = true
+                       
+                        break;
+                    }
+                }
+
+            }
+        })
+        .catch((err)=>console.log(err))
+// ------------------------------------------------------
+
+ axios.get("http://localhost:8000/cart",{
+            headers:{
+                Authorization:token
+            }
+        })
+        .then((res)=>{
+            // console.log(res.data)
+            if(res.data[0]){
+                setCartData(res.data)
+                let x= false
+                for(let i =0; i<res.data.length; i++){
+                    if(res.data[i].name==name 
+                      // && res.data[i].user==userLoggedId
+                      ){
+                        setHeart(false)
+                        x = true
+                        break;
+                    }
+                }
+
+            }
+        })
+        .catch((err)=>console.log(err))
+
 
 },[])
 
 
 
 
-const HandleAdd = ()=>{
 
-  let x = add
-  if(x===false){
-setAdd(true)
-setAddMsg("Add to wishlist")
+const HandleWishlist = ()=>{
+   if(token){
+
+        
+        let x = false
+        let deleteId = "nothing"
+        for(let i=0; i<wishlistData.length; i++){
+            if(wishlistData[i].name==name 
+              // && wishlistData[i].user == userLoggedId
+              ){
+x = true
+
+deleteId = wishlistData[i]._id
+    }
+}
+    if(x){
+axios({
+    method:"delete",
+    baseURL:`http://localhost:8000/wishlist/delete/${deleteId}`,
+    headers:{
+      Authorization:token
   }
-  else{
-setAdd(false)
-setAddMsg("Added to wishlist")
+})
+    }
+    else{
+        // let obj = {
+        //     name,image,stock,quantity,premium,mrp,price,discount,code,product_benefits,reviews,rating,flavour,description,category
+        // }
+        
+axios({
+    method:"post",
+    baseURL:"http://localhost:8000/wishlist/add",
+    data:data,
+    headers:{
+      Authorization:token
   }
+})
+
+
+
+.then((res)=>{
+// console.log(res)
+})
+.catch((err)=>{
+    console.log(err)
+})
+    }
+
+
+
+setHeart(!heart)
+
+}
+
 }
 
 
 
 
+// ---------------------------------------------------
 
+const HandleAddtoCart = ()=>{
 
-const {data,isLoading}  = useSelector((store)=>{
-  return {data:store.productDetailsReducer.data,isLoading:store.productDetailsReducer.isLoading}
+    if(token){
+        let x = false
+        let quantity;
+        let patchId = "nothing"
+        for(let i=0; i<CartData.length; i++){
+            if(CartData[i].name==name){
+x = true
+
+patchId = CartData[i]._id
+quantity = CartData[i].quantity
+    }
+}
+    if(x){
+        quantity  = +quantity + prdQuantity
+        console.log(quantity,"new quantity")
+axios({
+    method:"patch",
+    baseURL:`http://localhost:8000/cart/update/${patchId}`,
+    headers:{
+        Authorization:token
+    },
+    data:{quantity:quantity}
 })
+.then((res)=>{
+
+})
+.catch((err)=>console.log(err))
+    }
+    else{
+       
+        dispatch(addToCart({...data,quantity:1}))
+
+
+
+
+.then((res)=>{
+// console.log(res)
+})
+.catch((err)=>{
+    console.log(err)
+})
+    }
+
+
+
+}
+
+
+}
+// -----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -153,19 +284,18 @@ const {data,isLoading}  = useSelector((store)=>{
 </span>
 </div>
 
-{
-  add==false? 
+
+
 
 <div style={{position:"relative",paddingLeft:"5%"}}>
-<span  className={styles.tooltiptext}>Add to wislist</span>
-<img className={styles.staringImage} onClick={HandleAdd} src={"https://static1.hkrtcdn.com/hknext/static/media/pdp/unliked_product.svg"} alt="Add to wishlist"/>
+<span  className={styles.tooltiptext}>
+   {heart==true?"Add to wishlist":"Added to wishlist"}
+  </span>
+<img className={styles.staringImage} onClick={HandleWishlist} src={heart==true?"https://static1.hkrtcdn.com/hknext/static/media/pdp/unliked_product.svg":"https://static1.hkrtcdn.com/hknext/static/media/pdp/liked_product.svg"} alt="wishlist"/>
 </div>
-:
-<div style={{position:"relative",paddingLeft:"5%"}}>
-<span  className={styles.tooltiptext}>Added to wislist</span>
-<img className={styles.staringImage} onClick={HandleAdd} src={"https://static1.hkrtcdn.com/hknext/static/media/pdp/liked_product.svg"} alt="Add to wishlist"/>
-</div>
-}
+
+
+
 
 <img src="https://static1.hkrtcdn.com/hknext/static/media/pdp/share_icon.svg" alt='link'/>
     </div>
@@ -226,11 +356,31 @@ Inclusive of all taxes
   </div>
   <div onClick={HandleAddtoCart} className={styles.cartbtn}>
     <FontAwesomeIcon className={styles.carticon} icon={faCartShopping}/>
+    {
+      token?
+      <Link to='/cart'>
     <span>Add to Cart</span>
+    </Link>:
+    <Link to='/login'>
+    <span>Add to Cart</span>
+    </Link>
+    }
   </div>
+
+  {
+      token?
+      <Link to='/payment'>
+  <div onClick={HandleAddtoCart} className={styles.quickBuy}>
+    Quick Buy
+  </div>
+    </Link>:
+    <Link to='/login'>
   <div className={styles.quickBuy}>
     Quick Buy
   </div>
+    </Link>
+    }
+
 </div>
 
 

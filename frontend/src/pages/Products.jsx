@@ -24,6 +24,9 @@ dispatch(GetData(page,limit))
 },[page,limit])
 
 
+
+
+
 const ItemCountData = ()=>{
 axios.get("http://localhost:8000/product")
 .then((res)=>{
