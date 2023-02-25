@@ -11,7 +11,7 @@ const CardNavbar = () => {
   return (
    
    
-    <Flex justify={{base:"center"}} alignItems="center" m={5} h="100px" mt={5} >
+    <Flex justify="center" alignItems="center" m={5} h="100px" mt={5} >
     <Box >
     <Image src={logo} alt="logo" w={{base:"50%",md:"30%"}}/>
     </Box>
@@ -37,6 +37,7 @@ const CardNavbar = () => {
     
     </Flex>
     </Box>
+   
   
     </Flex>
   

@@ -32,7 +32,7 @@ app.use("/total/product",TotalRouter);
 
 app.use("total/place/order",TotalPlaceOrderRouter);
 
-app.use("/cart",CartRouter);
+app.use("/cart",authorization,CartRouter);
 
 app.use("/address",authorization,AddressRouter)
 

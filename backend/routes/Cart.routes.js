@@ -25,15 +25,35 @@ CartRouter.post("/add", async (req, res) => {
 
 CartRouter.delete("/delete/:id", async (req, res) => {
     const id = req.params.id;
+    
     try {
-      await CartModel.findByIdAndDelete({_id:id});
+     const data= await CartModel.findByIdAndDelete({_id:id});
+     console.log(data)
       res.send({ message: "Product has been deleted successfully from the cart" });
     } catch (error) {
       res.send({ message: "Cannot delete the product from the cart", error: error.message });
     }
 });
+
+CartRouter.delete("/deleteAll/:id", async (req, res) => {
+  const id = req.params.id;
+  console.log(id)
+
+  
+  try {
+    await CartModel.deleteMany({user:id});
+    res.send({ message: "Product has been deleted successfully from the cart" });
+  } catch (error) {
+    res.send({ message: "Cannot delete the product from the cart", error: error.message });
+  }
+ });
+
+
+
+
 CartRouter.patch("/update/:id", async (req, res) => {
   const id = req.params.id;
+ 
   const payload=req.body
   try {
     await CartModel.findByIdAndUpdate({_id:id},payload);
