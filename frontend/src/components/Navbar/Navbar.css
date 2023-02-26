@@ -1,6 +1,6 @@
 .navbaody{
     max-width: 100%;
-position: sticky; top:0; width:100%;
+position: sticky; top:0;
     /* height: px; */
     z-index:200;
     background-color: white;
