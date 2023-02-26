@@ -3,7 +3,7 @@ import styles from '../../Styles/Products/Left.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp,faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-export const Left = () => {
+export const Left = ({discountFilter,setDiscountFilter,ratingFilter,setRatingFilter,category,setCategory,HandleCategory}) => {
 
 const [offer,setOffer] = React.useState(false)
 const [brand,setBrand] = React.useState(false)
@@ -15,10 +15,28 @@ const [gender,setGender] = React.useState(false)
 
 
 
+const HandleDiscountFilter = (ischecked,value)=>{
+   setDiscountFilter({ischecked,value})
+}
+
+const ClearDiscountFilter = ()=>{
+    setDiscountFilter({ischecked:false,value:""})
+}
+
+const HandleRatingFilter = (ischecked,value)=>{
+    setRatingFilter({ischecked,value})
+ }
+ 
+ const ClearRatingFilter = ()=>{
+     setRatingFilter({ischecked:false,value:""})
+ }
+ 
 
 
 
-
+const ClearCategory = ()=>{
+setCategory([])
+}
 
 
 
@@ -53,42 +71,42 @@ const [gender,setGender] = React.useState(false)
 
 <div className={styles.itemAlign}>
 <div>
-<input type="radio"/>
+<input name='offer' type="radio"/>
 <span>Snack Bar 6 Bar Choco Almond @ Rs. 229</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name='offer' type="radio"/>
 <span>MuscleBlaze Fish Oil 60 Softgels @ Rs. 474</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name='offer' type="radio"/>
 <span>Get High Protein Muesli @Rs. 99</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name='offer' type="radio"/>
 <span>Extra 5% Off On Nutrabay</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name='offer' type="radio"/>
 <span>Get HealthKart Multivitamin 30 Tabs @Rs. 155</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name='offer' type="radio"/>
 <span>Get HealthKart Fish Oil 60 Tabs @Rs. 249</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name='offer' type="radio"/>
 <span>Get MuscleBlaze Fish Oil 30 Tabs @Rs. 299</span>
 </div>
 
 <div>
-<input type="radio"/>
+<input  name='offer' type="radio"/>
 <span>MB CreaPRO @Rs. 599 || Flat 33% Off</span>
 </div>
 
@@ -133,9 +151,9 @@ const [gender,setGender] = React.useState(false)
 
 
 
-<h2>By Brand</h2>
+<h2>By Category</h2>
 </div>
-<div className={styles.clear}>
+<div onClick={ClearCategory} className={styles.clear}>
     Clear
 </div>
 </div>
@@ -147,38 +165,38 @@ const [gender,setGender] = React.useState(false)
     life?null:
     <>
 <div className={styles.input}>
-<input  type="text" placeholder='Search By Brand' />
+<input  type="text" placeholder='Search By Category' />
 </div>
 
 
 <div className={styles.brandAlign}>
 <div>
     <div>
-<input type="checkbox"/>
-<span>HealthKart</span>
+<input onChange={HandleCategory} value="Whey Proteins" type="checkbox"/>
+<span>Whey Proteins</span>
         </div>
         <div>
-1
+
             </div>
 </div>
 
 <div>
     <div>
-<input type="checkbox"/>
-<span>MuscleBlaze</span>
+<input onChange={HandleCategory}  value="Pre-Workout" type="checkbox"/>
+<span>Pre-Workout</span>
 </div>
 <div>
-    147
+    
     </div>
 </div>
 
 <div>
     <div>
-<input type="checkbox"/>
-<span>ON</span>
+<input  onChange={HandleCategory} value="Fish Oil" type="checkbox"/>
+<span>Fish Oil</span>
 </div>
 <div>
-    20
+    
     </div>
 </div>
 
@@ -187,12 +205,12 @@ const [gender,setGender] = React.useState(false)
 
 <div>
 <div>
-<input type="checkbox"/>
-<span>Ultimate Nutrition</span>
+<input onChange={HandleCategory}  value="Raw Whey Proteins" type="checkbox"/>
+<span>Raw Whey Proteins</span>
 </div>
 
 <div>
-    1
+    
     </div>
 </div>
 
@@ -203,21 +221,21 @@ const [gender,setGender] = React.useState(false)
 
 <div>
     <div>
-<input type="checkbox"/>
-<span>Myprotein</span>
+<input  onChange={HandleCategory} value="Oats" type="checkbox"/>
+<span>Oats</span>
 </div>
 <div>
-    16
+    
     </div>
 </div>
 
 <div>
     <div>
-<input type="checkbox"/>
-<span>Muscle Tech</span>
+<input onChange={HandleCategory}  value="Peanut Butter" type="checkbox"/>
+<span>Peanut Butter</span>
 </div>
 <div>
-    23
+    
     </div>
 </div>
 
@@ -226,23 +244,157 @@ const [gender,setGender] = React.useState(false)
 
 <div>
 <div>
-<input type="checkbox"/>
+<input  onChange={HandleCategory} value="Muesli" type="checkbox"/>
 <span>Dymatize</span>
 </div>
 <div>
-    4
+    
 </div>
 </div>
 
 <div>
 <div>
-<input type="checkbox"/>
-<span>Labrada</span>
+<input  onChange={HandleCategory} value="Protein Bars" type="checkbox"/>
+<span>Protein Bars</span>
 </div>
+<div>  
+</div>
+</div>
+
+
 <div>
-    1
+<div>
+<input onChange={HandleCategory}  value="Raw Whey Proteins" type="checkbox"/>
+<span>Raw Whey Proteinss</span>
+</div>
+<div>  
 </div>
 </div>
+
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="Mass Gainers" type="checkbox"/>
+<span>Mass Gainers</span>
+</div>
+<div>  
+</div>
+</div>
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="collagen" type="checkbox"/>
+<span>Collagen</span>
+</div>
+<div>  
+</div>
+</div>
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="Whey Protein Isolate" type="checkbox"/>
+<span>Whey Protein Isolate</span>
+</div>
+<div>  
+</div>
+</div>
+
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="L-Arginine" type="checkbox"/>
+<span>L-Arginine</span>
+</div>
+<div>  
+</div>
+</div>
+
+
+<div>
+<div>
+<input  onChange={HandleCategory} value="Multivitamins - General" type="checkbox"/>
+<span>Multivitamins - General</span>
+</div>
+<div>  
+</div>
+</div>
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="Vitamin D" type="checkbox"/>
+<span>Vitamin D</span>
+</div>
+<div>  
+</div>
+</div>
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="Whey Protein for Beginners" type="checkbox"/>
+<span>Whey Protein for Beginners</span>
+</div>
+<div>  
+</div>
+</div>
+
+
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="Creatine" type="checkbox"/>
+<span>Creatine</span>
+</div>
+<div>  
+</div>
+</div>
+
+
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="Amino Acids / BCAAs" type="checkbox"/>
+<span>Amino Acids / BCAAs</span>
+</div>
+<div>  
+</div>
+</div>
+
+
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="Speciality Shampoo" type="checkbox"/>
+<span>Speciality Shampoo</span>
+</div>
+<div>  
+</div>
+</div>
+
+
+
+
+
+<div>
+<div>
+<input  onChange={HandleCategory} value="Biotin" type="checkbox"/>
+<span>Biotin</span>
+</div>
+<div>  
+</div>
+</div>
+
+
+
+<div>
+<div>
+<input onChange={HandleCategory}  value="Speciality Shampoo" type="checkbox"/>
+<span>Speciality Shampoo</span>
+</div>
+<div>  
+</div>
+</div>
+
+
 
 
 </div>
@@ -268,7 +420,7 @@ const [gender,setGender] = React.useState(false)
 
 <h2>Discount</h2>
 </div>
-<div className={styles.clear}>
+<div onClick={ClearDiscountFilter} className={styles.clear}>
     Clear
 </div>
 
@@ -279,17 +431,23 @@ const [gender,setGender] = React.useState(false)
        
 <div className={styles.discountAlign}>
 <div>
-<input name="discountRange" type="radio"/>
+<input 
+onClick={()=>HandleDiscountFilter(true,20)}
+checked={discountFilter.ischecked==true?(discountFilter.value==20?true:false):false} type="radio"/>
 <span>20% And Above</span>
 </div>
 
 <div>
-<input  name="discountRange" type="radio"/>
+<input  
+onClick={()=>HandleDiscountFilter(true,40)}
+ checked={discountFilter.ischecked==true?(discountFilter.value==40?true:false):false} type="radio"/>
 <span>40% And Above</span>
 </div>
 
 <div>
-<input  name="discountRange" type="radio"/>
+<input  
+onClick={()=>HandleDiscountFilter(true,60)}
+checked={discountFilter.ischecked==true?(discountFilter.value==60?true:false):false} type="radio"/>
 <span>60% And Above</span>
 </div>
 
@@ -318,7 +476,7 @@ const [gender,setGender] = React.useState(false)
 
 <h2>Ratings</h2>
 </div>
-<div className={styles.clear}>
+<div onClick={ClearRatingFilter} className={styles.clear}>
     Clear
 </div>
 
@@ -329,22 +487,34 @@ const [gender,setGender] = React.useState(false)
     
 <div className={styles.discountAlign}>
 <div>
-<input name="rating" type="radio"/>
+<input
+onClick={()=>HandleRatingFilter(true,4)}
+checked={ratingFilter.ischecked==true?(ratingFilter.value==4?true:false):false}
+ type="radio"/>
 <span>4 Rating & Above</span>
 </div>
 
 <div>
-<input name="rating" type="radio"/>
+<input
+onClick={()=>HandleRatingFilter(true,3)}
+checked={ratingFilter.ischecked==true?(ratingFilter.value==3?true:false):false}
+ type="radio"/>
 <span>3 Rating & Above</span>
 </div>
 
 <div>
-<input name="rating" type="radio"/>
+<input
+onClick={()=>HandleRatingFilter(true,2)}
+checked={ratingFilter.ischecked==true?(ratingFilter.value==2?true:false):false}
+name="rating" type="radio"/>
 <span>2 Rating & Above</span>
 </div>
 
 <div>
-<input name="rating" type="radio"/>
+<input
+onClick={()=>HandleRatingFilter(true,1)}
+checked={ratingFilter.ischecked==true?(ratingFilter.value==1?true:false):false}
+ type="radio"/>
 <span>1 Rating & Above</span>
 </div>
 
@@ -367,7 +537,7 @@ const [gender,setGender] = React.useState(false)
 <div className={styles.align}>
 <div>
     {
-        price ? <FontAwesomeIcon onClick={()=>setPrice(!price)} className={styles.up} icon={faChevronDown}/>: <FontAwesomeIcon onClick={()=>setPrice(!price)}  className={styles.up} icon={faChevronUp}/>
+        price ? <FontAwesomeIcon  onClick={()=>setPrice(!price)} className={styles.up} icon={faChevronDown}/>: <FontAwesomeIcon onClick={()=>setPrice(!price)}  className={styles.up} icon={faChevronUp}/>
     }
 
 

@@ -17,6 +17,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { isAuth } from "../../redux/Authentication/action";
+import { Link } from "react-router-dom";
 const obj = {
   email: "",
     password: "",
@@ -120,13 +121,16 @@ const Logging = () => {
                 Forgot password?
               </Link> */}
             </Stack>
+            <Link to='/products/wheyproteins'>
+
             <Button
               onClick={handleSubmit}
               colorScheme={"blue"}
               variant={"solid"}
-            >
+              >
               {load ? <Spinner /> : "Sign in"}
             </Button>
+              </Link>
           </Stack>
         </Stack>
       </Flex>

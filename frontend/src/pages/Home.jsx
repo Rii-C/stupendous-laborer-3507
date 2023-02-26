@@ -8,9 +8,18 @@ import WhyHealth from '../components/Home/WhyHealth'
 import Footer from '../components/footer/Footer'
 import Download from '../components/Home/Download'
 import HKprim from '../components/Home/HKprim'
-
+import {useDispatch} from 'react-redux'
+import { GetData } from '../redux/Carousel/action'
 
 export const Home = () => {
+
+const dispatch = useDispatch()
+
+React.useEffect(()=>{
+dispatch(GetData)
+},[])
+
+
   return (
     <>
     <Navbar/>

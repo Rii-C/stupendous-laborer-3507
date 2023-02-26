@@ -4,8 +4,10 @@
 .post img{width:100%;}
 .powder{display: flex; justify-content: space-between;margin-top: 30px;}
 
+.poster img{width:100%;}
 .powder >div:nth-child(2){display: flex; gap:10px;align-items: center;}
 .powder>div:nth-child(1){font-size: 25px;font-weight: 500;}
+/* .powder img{width:100%;} */
 
 .staring{display: flex; gap:10px;align-items: center;margin-top: 10px; flex-wrap: wrap;}
 

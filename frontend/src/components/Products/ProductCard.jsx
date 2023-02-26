@@ -3,6 +3,7 @@ import styles from '../../Styles/Products/ProductCard.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons'
 import { faStar,faHeart,faCartShopping,faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import {Text} from '@chakra-ui/react'
 
 import {Link, Navigate} from 'react-router-dom'
 import {useSelector,useDispatch} from 'react-redux'
@@ -31,7 +32,7 @@ const {token} = useSelector((store)=>{
     return {token:store.authReducer.token}
   })
   
-
+console.log(token)
 // const userLoggedId = useSelector((store)=>{
 //     return {userLoggedId:store.authReducer.userDetails._id}
 // })
@@ -277,9 +278,15 @@ else{
                <img className={styles.mark} src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/Vegetarian.svg" alt='mark'/>
             </div>
 
-<div className={styles.name}>
+{/* <div> */}
+    <Text noOfLines={[2,2,2,2,2]}>
+    {/* //  className={styles.name} */}
+    
+
     {name}
-</div>
+
+    </Text>
+{/* </div> */}
 
 
 
@@ -287,7 +294,7 @@ else{
 {/* ₹ */}
 <span className={styles.price}>₹{price}</span>
 <span className={styles.mrp}>₹{mrp}</span>
-<span className={styles.discount}>{discount}% off</span>
+<span className={styles.discount} style={{whiteSpace:"nowrap"}}>{discount}% off</span>
 
 </div>
 
