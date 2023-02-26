@@ -13,7 +13,7 @@ import HKprim from '../components/Home/HKprim'
 export const Home = () => {
   return (
     <>
-    <Navbar/>
+    // <Navbar/>
     <div className={style.div}>
       <div className={style.text}>App Sale Is Now Live</div>
       <div>

@@ -11,10 +11,9 @@ const PaymentTab = () => {
     <HStack justify="flex-start">
   <TabList>
   <VStack>
-    
+  <Tab fontSize={{base:"xs",md:"sm"}}>Cash On Delivery</Tab>
     <Tab fontSize={{base:"xs",md:"sm"}}>Debit Card</Tab>
     <Tab fontSize={{base:"xs",md:"sm"}}>Credit Card</Tab>
-    <Tab fontSize={{base:"xs",md:"sm"}}>Cash On Delivery</Tab>
     <Tab fontSize={{base:"xs",md:"sm"}}>Pay using UPI</Tab>
     <Tab fontSize={{base:"xs",md:"sm"}}>Wallets</Tab>
     <Tab fontSize={{base:"xs",md:"sm"}}>Internet Banking</Tab>
@@ -24,15 +23,14 @@ const PaymentTab = () => {
 
   <TabPanels>
   <TabPanel>
-    <CreditCard/>
-    </TabPanel>
-    <TabPanel>
-    <CreditCard/>
-    </TabPanel>
-    <TabPanel>
   <CashOnDel/>
   </TabPanel>
-  
+  <TabPanel>
+    <CreditCard/>
+    </TabPanel>
+    <TabPanel>
+    <CreditCard/>
+    </TabPanel>
     <TabPanel>
       <CreditCard/>
     </TabPanel>

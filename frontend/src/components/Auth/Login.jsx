@@ -12,6 +12,7 @@ import {
   useToast
 } from "@chakra-ui/react";
 import axios from "axios";
+
   // import Link from "next/link";
 //   import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -27,6 +28,7 @@ const Logging = () => {
   const dispatch = useDispatch();
   const [load, setLoad] = useState(false);
   const [text, setText] = useState(obj);
+
 //   const router =useRouter()
   const handleChange = (e) => {
       const { type, checked, value, name } = e.target;
@@ -53,7 +55,8 @@ const Logging = () => {
           localStorage.setItem("token",res.data.token)
           console.log(res.data.token)
           dispatch(isAuth(res.data.token));
-          // router.back()
+          
+         // router.back()
         })
         .catch((err) => {
           setLoad(false);

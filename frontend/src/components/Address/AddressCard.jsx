@@ -1,10 +1,11 @@
 
-import { HStack,Card,CardBody,Box,Stack,Icon,Text,Heading,Divider,CardFooter,Button,useDisclosure,Modal,ModalBody,ModalCloseButton,ModalFooter,ModalContent,ModalHeader,ModalOverlay} from '@chakra-ui/react'
+import { HStack,Card,CardBody,Box,Stack,Icon,Text,useToast,Heading,Divider,CardFooter,Button,useDisclosure,Modal,ModalBody,ModalCloseButton,ModalFooter,ModalContent,ModalHeader,ModalOverlay} from '@chakra-ui/react'
 import React, { useEffect ,useState} from 'react'
 import {BiHomeCircle}  from "react-icons/bi"
 import {RiDeleteBin6Line} from "react-icons/ri"
 import {BiPencil} from "react-icons/bi"
 import {TbAlertTriangle} from "react-icons/tb"
+import { useNavigate } from 'react-router-dom'
 
 import {useDispatch,useSelector} from "react-redux"
 import {  deleteAddress, getAddress, updateAddress } from '../../redux/Address/action'
@@ -26,12 +27,17 @@ const AddressCard = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { isOpen:isO, onOpen:onO, onClose:onC } = useDisclosure()
+  const toast=useToast()
+  const navigate=useNavigate()
   
   const dispatch=useDispatch()
 
+  const token=useSelector(store=>store.authReducer.token)
+  console.log(token)
+
 
   useEffect(()=>{
-    dispatch(getAddress())
+    dispatch(getAddress(token))
    
   },[])
 
@@ -41,14 +47,32 @@ console.log(Address)
  
 const handleSubmit=(e,data)=>{
   e.preventDefault()
- dispatch(updateAddress(data,Address[0]._id))
+ dispatch(updateAddress(data,Address[0]._id,token))
 
  onC()
+ toast({
+  title: 'Address Updated Successfully',
+  description: "Thanku",
+  status: 'success',
+  duration: 1000,
+  isClosable: true,
+})
+navigate("/payment")
   
+  }
+  const handleClick=()=>{
+    navigate("/payment")
   }
   
   function handleDelete(id) {
-    dispatch(deleteAddress(id))
+    dispatch(deleteAddress(id,token))
+    toast({
+      title: 'Address Deleted Successfully',
+      description: "Please add another address",
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    })
   }
   
   const{name,address,city,state,mobile,pincode,_id,landmark
@@ -137,7 +161,7 @@ console.log(state,city,mobile)
             <Divider />
             <CardFooter>
               
-                <Button variant='solid' colorScheme='blue' w="100%" bg="#00b5b7" >
+                <Button variant='solid' colorScheme='blue' w="100%" bg="#00b5b7" onClick={handleClick}>
                Deliver Here
                 </Button>
               

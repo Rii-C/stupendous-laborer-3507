@@ -1,10 +1,10 @@
 import React,{useEffect} from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import {BiMap} from "react-icons/bi"
-import { Box,Flex,HStack,Text,Icon,Input,Button,InputGroup,InputRightElement} from '@chakra-ui/react'
+import { Box,Flex,HStack,Text,Icon,Input,Button,InputGroup,InputRightElement,useToast} from '@chakra-ui/react'
 import OrderSummary from './OrderSummary'
 import { getAddress } from '../../redux/Address/action'
-import {Link} from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -23,15 +23,22 @@ const summrp=(data)=>{
 
 
 const Totalprice = ({data}) => {
+  const toast=useToast()
+  const navigate=useNavigate()
   const dispatch=useDispatch()
+   const token=useSelector(store=>store.authReducer.token)
+  // const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2Nzc0MTUyMTN9.oZkzJSpa-K3tpJOzpx1GwJgf8Q53oZUEZ818XXyev70"
+  // console.log(token)
   useEffect(()=>{
-    dispatch(getAddress())
+    dispatch(getAddress(token))
    
   },[])
 
   const Address=useSelector(store=>store.addressReducer.Address)
 
-
+const handleClick=()=>{
+  navigate("/address")
+}
   
 
   // console.log(sumPrice(data),summrp(data))
@@ -71,7 +78,7 @@ const Totalprice = ({data}) => {
   </Box>
   <Box bg="#00b5b7" p={2} borderRadius={5}>
 
-  <Button  w="100%" isDisabled={res} bg="#00b5b7" > <Link to="/address"/>  Proceed to Pay ₹{totalprice}</Button>
+  <Button  w="100%" isDisabled={res} bg="#00b5b7" onClick={handleClick} >   Proceed to Pay ₹{totalprice}</Button>
   </Box>
   <Box>
 <OrderSummary/>
