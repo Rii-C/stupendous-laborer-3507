@@ -32,7 +32,7 @@ const {token} = useSelector((store)=>{
     return {token:store.authReducer.token}
   })
   
-console.log(token)
+// console.log(token,"this is token")
 // const userLoggedId = useSelector((store)=>{
 //     return {userLoggedId:store.authReducer.userDetails._id}
 // })
@@ -172,7 +172,7 @@ quantity = CartData[i].quantity
 }
     if(x){
         quantity  = +quantity + 1
-        console.log(quantity,"new quantity")
+        // console.log(quantity,"new quantity")
 axios({
     method:"patch",
     baseURL:`http://localhost:8000/cart/update/${patchId}`,
@@ -190,16 +190,22 @@ axios({
         let obj = {
             name,image,stock,quantity:1,premium,mrp,price,discount,code,product_benefits,reviews,rating,flavour,description,category
         }
-        dispatch(addToCart(obj))
-
-
-
+        // dispatch(addToCart(obj))
+        axios({
+            method:"post",
+            baseURL:`http://localhost:8000/cart/add`,
+            headers:{
+                Authorization:token
+            },
+            data:obj
+        })
 
 .then((res)=>{
-// console.log(res)
+console.log(res,"Item has been added")
 })
 .catch((err)=>{
     console.log(err)
+    console.log("did not add the item")
 })
     }
 

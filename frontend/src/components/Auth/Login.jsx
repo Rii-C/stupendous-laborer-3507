@@ -135,7 +135,6 @@ const Logging = () => {
               <Text textAlign={"end"} fontWeight={400} color={"blue"}>Click here to Register</Text>
             </Link>
             </Stack>
-            <Link to='/products/wheyproteins'>
 
             <Button
               onClick={handleSubmit}
@@ -145,7 +144,6 @@ const Logging = () => {
               {load ? <Spinner /> : "Sign in"}
             </Button>
 
-              </Link>
 
           </Stack>
         </Stack>

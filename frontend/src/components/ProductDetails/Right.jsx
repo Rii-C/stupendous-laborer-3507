@@ -204,14 +204,21 @@ axios({
     data:{quantity:quantity}
 })
 .then((res)=>{
-
+console.log("quantity is increased",quantity)
 })
 .catch((err)=>console.log(err))
     }
     else{
        
-        dispatch(addToCart({...data,quantity:1}))
-
+        // dispatch(addToCart({...data,quantity:1}))
+        axios({
+          method:"post",
+          baseURL:`http://localhost:8000/cart/add`,
+          headers:{
+              Authorization:token
+          },
+          data:{...data,quantity:1}
+      })
 
 
 
