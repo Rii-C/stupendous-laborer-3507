@@ -1,0 +1,43 @@
+.carousel{  margin:auto;display: flex; background:white;overflow: auto; 
+    /* scroll-snap-type: x mandatory; */
+     scroll-behavior: smooth; align-items: center; gap:1%;}
+    .carousel>div{width:24%; flex:none; height:100%; }
+ .carousel>div:hover{
+    border:1px solid rgb(220, 220, 220);
+ } 
+
+ .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .head{margin-left: 3%; margin-top: 40px; margin-bottom:20px; font-size: 30px; font-weight: 500;}
+
+
+    .container{display: flex;   align-items: center;width:95%;margin:auto;position: relative; margin-bottom: 50px;}
+    /* .carousel{display: flex;} */
+    /* .caoursel> */
+    .left{position: absolute;left:10px;}
+    .right{position: absolute; right:10px;}
+ .left,.right{background-color: black;color:white;padding:10px 14px;  border-radius: 50%;cursor: pointer; z-index: 99; }
+ .left:hover, .right:hover {background-color: red; color:white}
+
+ @media screen and (min-width:670px) and (max-width:870px){
+.left,.right{display: block;}
+/* .carousel>div{display: grid; grid-template-columns: (4,33%);} */
+.carousel>div{width:32.5%;}
+/* .carousel{gap:} */
+ }
+
+
+ @media screen and (min-width:430px) and (max-width:670px){
+    .left,.right{display: block;}
+    .carousel>div{width:49.5%}
+ }
+
+ @media screen and (min-width:100px) and (max-width:430px){
+    .left,.right{display: block;}
+    .carousel>div{width:98%}
+    .carousel{gap:2%}
+    .container{width:90%;}
+    .head{font-size: 22px;}
+    .left,.right{padding:5px 8px; font-size: 14px;}
+ }

@@ -10,7 +10,7 @@ const q = query.q || ""
 
 const sort = query._sort || null
 const order = query._order || null
-const limit = query._limit || 12
+const limit = query._limit || null
 const page = query._page || 1
 let discount = query.discount || 0
 let rating = query.rating || 0
@@ -39,6 +39,20 @@ const ProductData = await ProductModel.find({name:{$regex:q},...query,discount:{
  res.send({message:"Cannot get the products data",error:error.message}) 
 }
 });
+
+
+ProductRouter.get("/carousel", async (req, res) => {
+
+  try {
+  const ProductData = await ProductModel.find()
+   res.send(ProductData) 
+  } catch (error) {
+   res.send({message:"Cannot get the products data",error:error.message}) 
+  }
+  });
+  
+
+
 
 ProductRouter.post("/add", async (req, res) => {
   try {

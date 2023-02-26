@@ -114,7 +114,7 @@ React.useEffect(()=>{
 },[])
 
 
-
+console.log(CartData,"this is Cart Data")
 
 
 const HandleWishlist = ()=>{
@@ -291,7 +291,13 @@ axios({
 <span  className={styles.tooltiptext}>
    {heart==true?"Add to wishlist":"Added to wishlist"}
   </span>
+  {
+    token ?
 <img className={styles.staringImage} onClick={HandleWishlist} src={heart==true?"https://static1.hkrtcdn.com/hknext/static/media/pdp/unliked_product.svg":"https://static1.hkrtcdn.com/hknext/static/media/pdp/liked_product.svg"} alt="wishlist"/>
+: <Link to='/login'>
+  <img className={styles.staringImage} onClick={HandleWishlist} src={heart==true?"https://static1.hkrtcdn.com/hknext/static/media/pdp/unliked_product.svg":"https://static1.hkrtcdn.com/hknext/static/media/pdp/liked_product.svg"} alt="wishlist"/>
+</Link>
+}
 </div>
 
 

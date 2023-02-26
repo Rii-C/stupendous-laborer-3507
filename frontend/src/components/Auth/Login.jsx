@@ -15,6 +15,7 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { isAuth , isNotAuth} from "../../redux/Authentication/action";
 
@@ -132,13 +133,17 @@ const Logging = () => {
               <Text textAlign={"end"} fontWeight={400} color={"blue"}>Click here to Register</Text>
             </Link>
             </Stack>
+            <Link to='/products/wheyproteins'>
+
             <Button
               onClick={handleSubmit}
               colorScheme={"blue"}
               variant={"solid"}
-            >
+              >
               {load ? <Spinner /> : "Sign in"}
             </Button>
+
+              </Link>
 
           </Stack>
         </Stack>

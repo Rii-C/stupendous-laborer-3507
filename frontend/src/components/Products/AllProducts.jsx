@@ -27,7 +27,9 @@ const {isLoading,products} = useSelector((store)=>{
    )))}  
 
     </div>
+    {isLoading?null: 
 <Pagination totalItem={totalItem} page={page} limit={limit} setPage={setPage} setLimit={setLimit} />
+    }
     
    </>
   )

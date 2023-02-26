@@ -1,6 +1,6 @@
 import { legacy_createStore,combineReducers,applyMiddleware } from "redux";
 import thunk from 'redux-thunk'
-
+import {reducer as carouselReducer} from './Carousel/reducer'
 import {IsAuth as authReducer} from './Authentication/reducer'
 import {reducer as productsReducer} from './Products/reducer'
 import {reducer as productDetailsReducer} from './ProductDetails/reducer'
@@ -10,7 +10,7 @@ import {reducer as addressReducer} from "./Address/reducer"
 import {adminReducer} from "../redux/Admin/Admin.reducer"
 
 
-const rootReducer = combineReducers({authReducer,productsReducer,productDetailsReducer,cartReducer,wishlistReducer,addressReducer,adminReducer})
+const rootReducer = combineReducers({authReducer,productsReducer,productDetailsReducer,cartReducer,wishlistReducer,addressReducer,adminReducer,carouselReducer})
 
 
 export const store = legacy_createStore(rootReducer,applyMiddleware(thunk))

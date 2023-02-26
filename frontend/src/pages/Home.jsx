@@ -8,6 +8,9 @@ import WhyHealth from '../components/Home/WhyHealth'
 import Footer from '../components/footer/Footer'
 import Download from '../components/Home/Download'
 import HKprim from '../components/Home/HKprim'
+
+
+
 import { Link } from 'react-router-dom'
 import { Dropdown } from '../components/Navbar/DropDown'
 import {useDispatch} from 'react-redux'
@@ -20,6 +23,7 @@ export const Home = () => {
   React.useEffect(()=>{
 dispatch(GetData)
 },[])
+
   return (
     <>
     <Navbar/>
