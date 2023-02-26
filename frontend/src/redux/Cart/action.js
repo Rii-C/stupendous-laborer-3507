@@ -37,7 +37,8 @@ export const getCardData=()=>async (dispatch)=>{
         const res = await fetch("http://localhost:8000/cart/", {
             method: "GET",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
             },
         });
         const res_1 = await res.json();
@@ -56,7 +57,8 @@ export const deleteItemFromCart=(id)=>async(dispatch)=>{
         const res = await fetch(`http://localhost:8000/cart/delete/${id}`,{
             method: "DELETE",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
             },
         });
         const res_1= await res.json();
@@ -75,7 +77,8 @@ export const addToCart=(payload)=>async(dispatch)=>{
         const res = await fetch(`http://localhost:8000/cart/add`,{
             method: "POST",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
             },
             body:JSON.stringify(payload)
         });
@@ -95,7 +98,8 @@ export const updateCart=(payload,id)=>async(dispatch)=>{
         const res = await fetch(`http://localhost:8000/cart/update/${id}`,{
             method: "PATCH",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
             },
             body:JSON.stringify(payload)
         });

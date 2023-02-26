@@ -1,15 +1,17 @@
 import {Log_in, Log_out} from "./actionType";
 
 const initState = {
-  login: false,
+  token: null,
+  userDetails:{}
 };
 
 export const IsAuth = (state = initState, {type, payload}) => {
   switch (type) {
     case Log_in: {
+      console.log("payload:-",payload)
       return {
         ...state,
-        login: payload,
+        token: payload,
       };
     }
     case Log_out: {

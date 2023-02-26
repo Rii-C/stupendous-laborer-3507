@@ -33,7 +33,7 @@ const OrderSummary = () => {
 
   return (
     <>
-    <Box w="90%" m="auto" boxShadow='base' p='6' rounded='md' bg='white'>
+    <Box  m="auto" boxShadow='base' p='6' rounded='md' bg='white'>
     <HStack mt={2}>
     <Heading as="h3" size="sm">Order Summary</Heading>
     <Text>({data.length} items)</Text>

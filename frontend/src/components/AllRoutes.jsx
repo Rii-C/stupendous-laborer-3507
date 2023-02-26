@@ -12,6 +12,8 @@ import AdminDashboard from '../pages/Admin/AdminDashboard'
 import AddProducts from '../pages/Admin/AddProducts'
 import AllProducts from '../pages/Admin/AllProducts'
 import Address from '../pages/Address'
+import Registering from './Auth/Register'
+import Logging from './Auth/Login'
 import PlacedOrders from '../pages/Admin/PlacedOrders'
 
 
@@ -21,8 +23,8 @@ const AllRoutes = ()=>{
 return (
     <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/signup" element={<Signup/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<Registering/>}/>
+        <Route path="/login" element={<Logging/>}/>
         <Route path="/products/wheyproteins" element={<Products/>}/>
         <Route path="/products/wheyproteins/:id" element={<ProductDetails/>}/>
         <Route path="/cart" element={<Cart/>}/>

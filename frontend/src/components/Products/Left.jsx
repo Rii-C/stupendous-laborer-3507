@@ -14,6 +14,15 @@ const [life,setLife] = React.useState(false)
 const [gender,setGender] = React.useState(false)
 
 
+
+
+
+
+
+
+
+
+
   return (
     <>
     <div className={styles.container}>
@@ -321,22 +330,22 @@ const [gender,setGender] = React.useState(false)
 <div className={styles.discountAlign}>
 <div>
 <input name="rating" type="radio"/>
-<span>4 Ratinhg & Above</span>
+<span>4 Rating & Above</span>
 </div>
 
 <div>
 <input name="rating" type="radio"/>
-<span>3 Ratinhg & Above</span>
+<span>3 Rating & Above</span>
 </div>
 
 <div>
 <input name="rating" type="radio"/>
-<span>2 Ratinhg & Above</span>
+<span>2 Rating & Above</span>
 </div>
 
 <div>
 <input name="rating" type="radio"/>
-<span>1 Ratinhg & Above</span>
+<span>1 Rating & Above</span>
 </div>
 
 

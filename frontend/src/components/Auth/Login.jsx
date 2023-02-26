@@ -12,11 +12,11 @@ import {
   useToast
 } from "@chakra-ui/react";
 import axios from "axios";
-//   import Link from "next/link";
+  // import Link from "next/link";
 //   import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { isAuth } from "../../redux/reducer";
+import { isAuth } from "../../redux/Authentication/action";
 const obj = {
   email: "",
     password: "",
@@ -40,7 +40,7 @@ const Logging = () => {
   const handleSubmit = async() => {
     if (email !== "" && password !== "") {
       setLoad(true);
-    await axios.post("/api/auth/login",{email:email,password:password,status:status})
+    await axios.post("http://localhost:8000/user/login",{email:email,password:password,status:status})
         .then((res) => {
           setLoad(false);
           toast({
@@ -50,8 +50,10 @@ const Logging = () => {
             duration: 3000,
             isClosable: true,
           });
-          dispatch(isAuth());
-          router.back()
+          localStorage.setItem("token",res.data.token)
+          console.log(res.data.token)
+          dispatch(isAuth(res.data.token));
+          // router.back()
         })
         .catch((err) => {
           setLoad(false);
@@ -114,9 +116,9 @@ const Logging = () => {
               >
                 Remember me
               </Checkbox>
-              <Link href={"#"} color={"blue.500"}>
+              {/* <Link href={"#"} color={"blue.500"}>
                 Forgot password?
-              </Link>
+              </Link> */}
             </Stack>
             <Button
               onClick={handleSubmit}
