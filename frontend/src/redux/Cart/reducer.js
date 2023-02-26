@@ -5,7 +5,8 @@ import { CARTGET_REQUEST,CARTGET_SUCCESS,CARTGET_FAILURE, DELETE_DATA, ADDTOCART
 const InitialState = {
 cart:[],
 isLoading:false,
-isError:false
+isError:false,
+cartCount:0
 }
 
 export const reducer = (state=InitialState,{type,payload})=>{
@@ -14,7 +15,7 @@ export const reducer = (state=InitialState,{type,payload})=>{
     case CARTGET_REQUEST: {return {...state,isLoading:true}};
     case CARTGET_SUCCESS: {
       
-      return {...state,cart:payload,isLoading:false}};
+      return {...state,cart:payload.CartData,cartCount:payload.CartCount,isLoading:false}};
     case CARTGET_FAILURE: {return {...state,isError:true}};
 
     case DELETE_DATA:{return {...state,isLoading:false,isError:false}}

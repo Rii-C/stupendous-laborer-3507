@@ -44,8 +44,8 @@ const TotalOrdersData = await TotalPlaceOrderModel.find({name:{$regex:q},...quer
 
 TotalPlaceOrderRouter.post("/add", async (req, res) => {
   try {
-    const TotalOrdersData = new TotalPlaceOrderModel(req.body);
-    await TotalOrdersData.save();
+    const TotalOrdersData = await TotalPlaceOrderModel.insertMany(req.body);
+   
     res.send({ message: "Order has been added successfully to the total place order's database" });
   } catch (error) {
     res.send({ message: "Cannot add the place order to the total place order's database", error: error.message });

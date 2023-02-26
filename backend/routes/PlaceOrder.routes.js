@@ -8,7 +8,7 @@ PlaceOrderRouter.get("/", async (req, res) => {
   const user = req.body.user;
     try {
       const PlaceOrdersData = await PlaceOrderModel.find({ user });
-      res.send(PlaceOrdersData);
+      res.send({"msg":"success",length:PlaceOrdersData.length,PlaceOrdersData});
     } catch (error) {
       res.send({ message: "Cannot get place orders", error: error.message });
     }
@@ -16,8 +16,8 @@ PlaceOrderRouter.get("/", async (req, res) => {
 
 PlaceOrderRouter.post("/add", async (req, res) => {
   try {
-    const PlaceOrdersData = new PlaceOrderModel(req.body);
-    await PlaceOrdersData.save();
+    const PlaceOrdersData = await  PlaceOrderModel.insertMany(req.body);
+  
     res.send({ message: "Order has been placed successfully" });
   } catch (error) {
     res.send({ message: "Cannot place the order", error: error.message });

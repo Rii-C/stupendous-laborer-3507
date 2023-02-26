@@ -8,9 +8,13 @@ import {reducer as cartReducer} from './Cart/reducer'
 import {reducer as wishlistReducer} from './Wishlist/reducer'
 import {reducer as addressReducer} from "./Address/reducer"
 import {adminReducer} from "../redux/Admin/Admin.reducer"
+import {reducer as orderReducer} from "../redux/Order/reducer"
 
 
-const rootReducer = combineReducers({authReducer,productsReducer,productDetailsReducer,cartReducer,wishlistReducer,addressReducer,adminReducer,carouselReducer})
+
+
+const rootReducer = combineReducers({authReducer,productsReducer,productDetailsReducer,cartReducer,wishlistReducer,addressReducer,adminReducer,carouselReducer,orderReducer})
+
 
 
 export const store = legacy_createStore(rootReducer,applyMiddleware(thunk))

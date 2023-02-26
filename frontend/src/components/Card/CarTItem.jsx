@@ -1,21 +1,48 @@
 import React from 'react'
-import { Heading,Text,Image,Card,CardBody,Stack,Icon,Button, HStack,useDisclosure,Modal,ModalBody,ModalCloseButton,ModalFooter,ModalContent,ModalHeader,ModalOverlay } from '@chakra-ui/react'
+import { Heading,Text,Image,Card,CardBody,useToast,Stack,Icon,Button, HStack,useDisclosure,Modal,ModalBody,ModalCloseButton,ModalFooter,ModalContent,ModalHeader,ModalOverlay } from '@chakra-ui/react'
 import {RiDeleteBinLine} from "react-icons/ri"
 import {GiSelfLove} from "react-icons/gi"
 import {GrFormAdd} from "react-icons/gr"
 import {BiMinus} from "react-icons/bi"
 import {TbAlertTriangle} from "react-icons/tb"
-import {useDispatch} from "react-redux"
+import {useDispatch,useSelector} from "react-redux"
 import { deleteItemFromCart ,updateCart} from '../../redux/Cart/action'
 const CartItem = ({ele}) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const toast=useToast()
 
   const dispatch=useDispatch()
+   const token=useSelector(store=>store.authReducer.token)
+  // const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2Nzc0MTUyMTN9.oZkzJSpa-K3tpJOzpx1GwJgf8Q53oZUEZ818XXyev70"
+ 
+  console.log(token)
 
   const handleDelete=(id)=>{
-    console.log(id)
+    
 
-     dispatch(deleteItemFromCart(id))
+     dispatch(deleteItemFromCart(id,token))
+     toast({
+      title: 'Product deleted from the cart',
+      description: "Thanku",
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    })
+    
+  }
+
+  const MoveToWishlist=(id)=>{
+   
+
+     dispatch(deleteItemFromCart(id,token))
+     toast({
+      title: 'Product added in the Wishlist ',
+      description: "Thanku",
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    })
+    onClose()
     
   }
 
@@ -24,7 +51,15 @@ const CartItem = ({ele}) => {
          const payload={
           "quantity":(data.quantity+1)
          }
-         dispatch(updateCart(payload,id))
+         dispatch(updateCart(payload,id,token))
+         toast({
+          title: 'Quantity incresed by one',
+          description: "Thanku",
+          status: 'success',
+          duration: 1000,
+          isClosable: true,
+        })
+
   }
 
   const decreaseQuantity=(data)=>{
@@ -32,7 +67,14 @@ const CartItem = ({ele}) => {
     const payload={
      "quantity":(data.quantity-1)
     }
-    dispatch(updateCart(payload,id))
+    dispatch(updateCart(payload,id,token))
+    toast({
+      title: 'Quantity decreased by one',
+      description: "Thanku",
+      status: 'success',
+      duration: 1000,
+      isClosable: true,
+    })
 
   }
   const res=(ele.quantity===1)
@@ -100,14 +142,14 @@ const CartItem = ({ele}) => {
                     <Button colorScheme='blue' mr={3}  onClick={()=>handleDelete(ele._id)} >
                   Remove
                    </Button>
-                   <Button variant='ghost' onClick={onClose}>Move to Wishlist</Button>
+                   <Button variant='ghost' onClick={()=>MoveToWishlist(ele._id)}>Move to Wishlist</Button>
                    
                     
                     </ModalFooter>
                   </ModalContent>
                 </Modal>
 
-<Icon as={GiSelfLove} boxSize={6} />
+<Icon as={GiSelfLove} boxSize={6} onClick={()=>MoveToWishlist(ele._id)} />
 
 </HStack>
 </Card>

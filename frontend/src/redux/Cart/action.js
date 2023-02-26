@@ -1,5 +1,5 @@
 import { CARTGET_REQUEST,CARTGET_SUCCESS,CARTGET_FAILURE,DELETE_DATA,ADDTOCART,UPDATE_CART } from "./actionTypes";
-import axios from "axios";
+
 
 
 
@@ -31,14 +31,15 @@ export const update=()=>{
 
 
 
-export const getCardData=()=>async (dispatch)=>{
+export const getCardData=(token)=>async (dispatch)=>{
+    console.log(token)
     dispatch(CartgetRequestAction)
   try {
         const res = await fetch("http://localhost:8000/cart/", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
-                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
+                "authorization":token 
             },
         });
         const res_1 = await res.json();
@@ -50,7 +51,7 @@ export const getCardData=()=>async (dispatch)=>{
     }
 }
 
-export const deleteItemFromCart=(id)=>async(dispatch)=>{
+export const deleteItemFromCart=(id,token)=>async(dispatch)=>{
 
     try{
        
@@ -58,19 +59,39 @@ export const deleteItemFromCart=(id)=>async(dispatch)=>{
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
-                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
+                "authorization":token 
             },
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(DeleteItemCart)
-       dispatch(getCardData())
+       dispatch(getCardData(token))
     }catch(err){
         console.log(err)
     }
 }
 
-export const addToCart=(payload)=>async(dispatch)=>{
+export const deleteAllItemFromCart=(id,token)=>async(dispatch)=>{
+console.log(id)
+    try{
+       
+        const res = await fetch(`http://localhost:8000/cart/deleteAll/${id}`,{
+            method: "DELETE",
+            headers: {
+                "Content-type": "application/json",
+                "authorization":token 
+            }
+        });
+        const res_1= await res.json();
+       console.log(res_1)
+       dispatch(DeleteItemCart)
+       dispatch(getCardData(token))
+    }catch(err){
+        console.log(err)
+    }
+}
+
+export const addToCart=(payload,token)=>async(dispatch)=>{
 
     try{
       
@@ -78,20 +99,20 @@ export const addToCart=(payload)=>async(dispatch)=>{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
+                "authorization":token 
             },
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(AddtoCart)
-       dispatch(getCardData())
+       dispatch(getCardData(token))
     }catch(err){
         console.log(err)
     }
 }
 
-export const updateCart=(payload,id)=>async(dispatch)=>{
+export const updateCart=(payload,id,token)=>async(dispatch)=>{
 
     try{
         
@@ -99,14 +120,14 @@ export const updateCart=(payload,id)=>async(dispatch)=>{
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",
-                "authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2NzcwOTQ1NTd9.sH6X-IuzkMRE9H76BIS_PX-DdSgGD3NBBwGgo9i_E-k"
+                "authorization":token 
             },
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(update)
-       dispatch(getCardData())
+       dispatch(getCardData(token))
     }catch(err){
         console.log(err)
     }

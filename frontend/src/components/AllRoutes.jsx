@@ -13,6 +13,7 @@ import Address from '../pages/Address'
 import Registering from './Auth/Register'
 import Logging from './Auth/Login'
 import PlacedOrders from '../pages/Admin/PlacedOrders'
+import PrivateRoute from './PrivateRoute'
 
 
 const AllRoutes = ()=>{
@@ -25,10 +26,10 @@ return (
         <Route path="/login" element={<Logging/>}/>
         <Route path="/products/wheyproteins" element={<Products/>}/>
         <Route path="/products/wheyproteins/:id" element={<ProductDetails/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/address" element={<Address/>}/>
+        <Route path="/cart" element={<PrivateRoute> <Cart/></PrivateRoute>}/>
+        <Route path="/address" element={<PrivateRoute> <Address/></PrivateRoute>}/>
         <Route path="/wishlist" element={<Wishlist/>}/>
-        <Route path="/payment" element={<Payment/>}/>
+        <Route path="/payment" element={ <PrivateRoute><Payment/></PrivateRoute>}/>
         <Route path="/admin/dashboard" element={<AdminDashboard/>} />
         <Route path="/admin/add" element={<AddProducts/>} />
         <Route path="/admin/products" element={<AllProducts/>} />

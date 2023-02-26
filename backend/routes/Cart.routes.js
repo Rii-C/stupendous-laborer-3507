@@ -6,8 +6,9 @@ const CartRouter = express.Router();
 CartRouter.get("/", async (req, res) => {
   const user = req.body.user;
     try {
+      const CartCount= await CartModel.countDocuments();
       const CartData = await CartModel.find({ user });
-      res.send(CartData);
+      res.send({CartData,CartCount});
     } catch (error) {
       res.send({ message: "Cannot get cart products", error: error.message });
     }
@@ -42,7 +43,7 @@ CartRouter.delete("/deleteAll/:id", async (req, res) => {
   
   try {
     await CartModel.deleteMany({user:id});
-    res.send({ message: "Product has been deleted successfully from the cart" });
+    res.send({ message: "Product has been deleted successfully in the cart" });
   } catch (error) {
     res.send({ message: "Cannot delete the product from the cart", error: error.message });
   }
