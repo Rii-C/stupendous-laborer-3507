@@ -1,14 +1,18 @@
 import {Log_in, Log_out} from "./actionType";
 
+const count = localStorage.getItem("token")
+
 const initState = {
-  token: null,
+  
+  token: count || null,
   userDetails:{}
 };
 
 export const IsAuth = (state = initState, {type, payload}) => {
+  // console.log("tokenR:-",initState.token)
   switch (type) {
     case Log_in: {
-      console.log("payload:-",payload)
+      // console.log("payload:-",payload)
       return {
         ...state,
         token: payload,
@@ -17,7 +21,7 @@ export const IsAuth = (state = initState, {type, payload}) => {
     case Log_out: {
       return {
         ...state,
-        login: payload,
+        token: payload,
       };
     }
     default: {

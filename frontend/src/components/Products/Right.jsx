@@ -4,9 +4,8 @@ import StarRatings from 'react-star-ratings';
 import { AllProducts } from './AllProducts';
 import { useDispatch } from 'react-redux';
 
-export const Right = ({totalItem,page,limit,setPage,setLimit}) => {
+export const Right = ({totalItem,page,limit,setPage,setLimit,sortData,setSortData}) => {
 
-const [sortData,setSortData] = React.useState("popularity")
 
 
 
@@ -21,7 +20,6 @@ const dsn = ()=>{
 
 }
 
-console.log(sortData)
 
 
 
@@ -36,8 +34,8 @@ console.log(sortData)
 
 <div className={styles.powder}>
   <div>Whey Protein Powder</div>
-  <div>
-    <img src='https://static1.hkrtcdn.com/hknext/static/media/common/misc/authentic-plp.svg' alt='tag'/>
+  <div >
+    <img  src='https://static1.hkrtcdn.com/hknext/static/media/common/misc/authentic-plp.svg' alt='tag'/>
  <span> 100% Original & Authentic</span>
   </div>
 </div>
@@ -65,7 +63,7 @@ Whey protein provides all the necessary protein and nutrients, helps in improvin
   <span className={styles.ra}>{"("}{totalItem} items{")"}</span>
   <div className={styles.sortBox}>
     <span className={styles.sortBy}>Sort by:</span> 
-    <select  onChange={HandleSortData}>
+    <select value={sortData} onChange={HandleSortData}>
       <option value="popularity">Popularity</option>
       <option value="pricelth">Price -- Low to High</option>
       <option value="pricehtl">Price -- High to Low</option>

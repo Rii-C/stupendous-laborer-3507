@@ -1,5 +1,13 @@
-import { Button, Td, Tr, Image, Divider, CardFooter, ButtonGroup, Heading, Stack, CardBody, Card, Text, HStack, Box } from "@chakra-ui/react";
-import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
+import {
+  Button,
+  Image,
+  Box,
+  Divider,
+  Stack,
+  Text,
+  HStack,
+} from "@chakra-ui/react";
+
 const Tablecard = ({
   _id,
   ind,
@@ -13,88 +21,348 @@ const Tablecard = ({
   mrp,
   handleDelete,
   handleOpen,
+  page,
 }) => {
   //console.log(_id);
   return (
-    <Tr key={_id} style={ind%2===0?{backgroundColor:"#00B8B9"}:{backgroundColor:"#EDF2F7"}} >
-       <Td>{ind + 1}</Td>
-      {/* <Td>{ind + 1}</Td>
+    <>
+     <Box
+     key={_id}
+     style={
+       ind % 2 === 0
+         ? { backgroundColor: "#28bdb7",padding:"15px"}
+         : { backgroundColor: "#EDF2F7",padding:"15px"}
+     }
+   >
+   
+       <Stack bg={"white"} border={"0px solid green"} justifyContent={"center"} borderRadius={10} px={5} boxShadow={"lg"} display={{base:"block",sm:"block",md:"block",lg:"none"}}  >
+           <Stack
+             spacing={5}
+             py={3}
+             border={"0px solid red"}
+             alignItems={"flex-start"}
+           >
+            <HStack  alignItems={"flex-start"} width={"100%"} justifyContent={"space-between"} border={"0px solid red"} >
+               <Image
+                 src={image[0]}
+                 alt={name}
+                 width={{sm:"300px",md:"300px",lg:"200px"}}
+                 borderRadius={5}
+                 ring={3}
+                 ringColor={"#025D84"}
+               />
+               <Stack spacing={{base:0,sm:5,md:5,lg:3}} display={{base:"none",md:"flex",sm:"flex"}}  boxShadow={"md"} p={2} >
+                <Text as='cite' color={"#FF8F20"} noOfLines={2} fontSize={18} fontWeight={"semibold"}>
+                 {name}
+               </Text>
+               <Divider bg="#025D84" h={"1px"} />
+               <HStack justifyContent={"space-between"} display={{base:"none",sm:"flex",md:"flex",lg:"none"}} border={"0px solid black"}>
+                  <Stack>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Category
+                   </Text>
+                   <Text color={"#025D84"} fontWeight={"semibold"}>{category}</Text>
+                   </Stack>
+                   <Stack>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Flavour
+                   </Text>
+                   <Text color={"#025D84"} fontWeight={"semibold"}>{flavour}</Text>
+                   </Stack>
+                   <Stack>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Stock
+                   </Text>
+                   <Text color={"#025D84"} fontWeight={"semibold"}>{stock}</Text>
+                   </Stack>
+                 </HStack>
+                 <HStack justifyContent={"space-between"} display={{base:"none",sm:"none",md:"none",lg:"flex"}} border={"0px solid black"}>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Category :{" "}
+                     <span
+                       style={{
+                         color: "#025D84",
+                       }}
+                     >
+                       {category}
+                     </span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Flavour :{" "}
+                     <span style={{ color: "#025D84" }}>{flavour}</span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Stock :{" "}
+                     <span style={{ color: "#025D84" }}>{stock}</span>
+                   </Text>
+                 </HStack>
+                 <Divider bg="#025D84" h={"1px"} />
+                 <HStack justifyContent={"space-between"} border={"0px solid black"}>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     MRP :{" "}
+                     <span
+                       style={{
+                         textDecoration: "line-through",
+                         color: "#025D84",
+                       }}
+                     >
+                       ₹ {mrp}
+                     </span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Price :{" "}
+                     <span style={{ color: "#025D84" }}>₹ {price}</span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Discount :{" "}
+                     <span style={{ color: "#025D84" }}>{discount}%</span>
+                   </Text>
+                 </HStack>
+                 <Divider bg="#025D84" h={"1px"} />
+                 <HStack border={"0px solid black"}  justifyContent={"space-between"}  pb={0} >
+             <Button
+               bg={"white"}
+               width={100}
+               border={"2px solid #FF8F20"}
+               color={"#FF8F20"}
+               borderRadius={5}
+               _hover={{ bg: "#FF8F20", color: "white" }}
+               onClick={() => handleOpen(_id)}
+             >
+               UPDATE
+             </Button>
 
-      <Td>
-        <Image
-          src={image[0]}
-          alt={name}
-          borderRadius={5}
-          ring={3}
-          ringColor={"#025D84"}
-        />
-      </Td>
-      <Td>{name}</Td>
-      <Td>{flavour}</Td>
-      <Td>{category}</Td>
-      <Td textDecoration={"line-through"}>₹ {mrp}</Td>
-      <Td>{price}</Td>
-      <Td>`${discount}%`</Td>
-      <Td>{stock}</Td>
-      <Td>
-        <Button
-          bg={"#72749B"}
-          color={"white"}
-          _hover={{ color: "black", backgroundColor: "gray.200" }}
-          onClick={() => handleOpen(_id)}
-        >
-          <EditIcon />
-        </Button>
-      </Td>
-      <Td>
-        <Button
-          bg={"#72749B"}
-          color={"white"}
-          _hover={{ color: "black", backgroundColor: "gray.200" }}
-          onClick={() => handleDelete(_id)}
-        >
-          <DeleteIcon />
-        </Button>
-      </Td> */}
-      <Td>
-      <Card w={"100%"} boxShadow={"lg"} >
+             <Button
+               bg={"#FF8F20"}
+               color={"white"}
+               _hover={{
+                 bg: "white",
+                 color: "#FF8F20",
+                 border: "2px solid #FF8F20",
+               }}
+               borderRadius={5}
+               onClick={() => handleOpen(_id)}
+             >
+               {(page - 1) * 5 + ind + 1}
+             </Button>
+
+             <Button
+               bg={"white"}
+               width={100}
+               border={"2px solid #FF8F20"}
+               color={"#FF8F20"}
+               borderRadius={5}
+               _hover={{ bg: "#FF8F20", color: "white" }}
+               onClick={() => handleDelete(_id)}
+             >
+               DELETE
+             </Button>
+           </HStack>
+               </Stack>
+               </HStack>
+             <Stack py={3} display={{base:"flex",md:"none",sm:"none"}} >
+               <Text as='cite' color={"#FF8F20"} noOfLines={2} fontSize={18} fontWeight={"semibold"}>
+                 {name}
+               </Text>
+               <Divider bg="#025D84" h={"1px"} />
+               <Stack
+                 justifyContent={"space-between"}
+                 border={"0px solid red"}
+                 mt={2}
+               >
+                 <HStack justifyContent={"space-between"} display={{base:"flex",sm:"none",md:"none"}} border={"0px solid black"}>
+                  <Stack>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Category
+                   </Text>
+                   <Text color={"#025D84"} fontWeight={"semibold"}>{category}</Text>
+                   </Stack>
+                   <Stack>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Flavour
+                   </Text>
+                   <Text color={"#025D84"} fontWeight={"semibold"}>{flavour}</Text>
+                   </Stack>
+                   <Stack>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Stock
+                   </Text>
+                   <Text color={"#025D84"} fontWeight={"semibold"}>{stock}</Text>
+                   </Stack>
+                 </HStack>
+                 <Divider bg="#025D84" h={"1px"} />
+                 <HStack justifyContent={"space-between"} border={"0px solid black"}>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     MRP :{" "}
+                     <span
+                       style={{
+                         textDecoration: "line-through",
+                         color: "#025D84",
+                       }}
+                     >
+                       ₹ {mrp}
+                     </span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Price :{" "}
+                     <span style={{ color: "#025D84" }}>₹ {price}</span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Discount :{" "}
+                     <span style={{ color: "#025D84" }}>{discount}%</span>
+                   </Text>
+                 </HStack>
+               </Stack>
+             </Stack>
+           </Stack>
+           <HStack border={"0px solid black"} display={{base:"flex",md:"none",sm:"none"}} justifyContent={"center"}  pb={3} >
+           <Button
+               bg={"white"}
+               width={100}
+               border={"2px solid #FF8F20"}
+               color={"#FF8F20"}
+               borderRadius={5}
+               _hover={{ bg: "#FF8F20", color: "white" }}
+               onClick={() => handleOpen(_id)}
+             >
+               UPDATE
+             </Button>
+
+             <Button
+               bg={"#FF8F20"}
+               color={"white"}
+               _hover={{
+                 bg: "white",
+                 color: "#FF8F20",
+                 border: "2px solid #FF8F20",
+               }}
+               borderRadius={5}
+               onClick={() => handleOpen(_id)}
+             >
+               {(page - 1) * 5 + ind + 1}
+             </Button>
+
+             <Button
+               bg={"white"}
+               width={100}
+               border={"2px solid #FF8F20"}
+               color={"#FF8F20"}
+               borderRadius={5}
+               _hover={{ bg: "#FF8F20", color: "white" }}
+               onClick={() => handleDelete(_id)}
+             >
+               DELETE
+             </Button>
+           </HStack>
+        
+       </Stack>
+     <Stack w={"100%"} boxShadow={"lg"} bg={"white"} borderRadius={"lg"} display={{base:"none",sm:"none",md:"none",lg:"block"}} >
         <HStack width={"100%"} spacing={0} justifyContent={"space-between"} px={3} gap={5} >
-          <HStack spacing={4} border={"1px solid red"} alignItems={"flex-start"} >
-  <Box py={2} >
+          <HStack spacing={6} border={"0px solid red"} width={"90%"} alignItems={"flex-start"} >
+  <Box py={2} width={"12%"} >
     <Image
       src={image[0]}
       alt={name}
-      width={"100px"}
+      //width={"130px"}
       borderRadius={5}
       ring={3}
       ringColor={"#025D84"}
     />
   </Box>
-  <HStack py={2} >
-  <Stack spacing='3' border={"1px solid black"}  >
-      <Text>
+  <HStack py={2} width={"88%"} boxShadow={"md"} px={2} >
+  <Stack spacing='3' border={"0px solid black"}  width={"100%"}  >
+      <Text as='cite' color={"#FF8F20"} fontSize={19} fontWeight={"semibold"}>
       {name}
       </Text>
-      <Text color='blue.600' fontSize='2xl'>
-        $450
-      </Text>
+      <Divider bg="#025D84" h={"0.5px"} />
+      <HStack justifyContent={"space-between"} border={"0px solid black"}>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Category :{" "}
+                     <span
+                       style={{
+                         color: "#025D84",
+                       }}
+                     >
+                       {category}
+                     </span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Flavour :{" "}
+                     <span style={{ color: "#025D84" }}>{flavour}</span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Stock :{" "}
+                     <span style={{ color: "#025D84" }}>{stock}</span>
+                   </Text>
+                 </HStack>
+      <Divider bg="#025D84" h={"0.5px"} />
+                 <HStack justifyContent={"space-between"} border={"0px solid black"}>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     MRP :{" "}
+                     <span
+                       style={{
+                         textDecoration: "line-through",
+                         color: "#025D84",
+                       }}
+                     >
+                       ₹ {mrp}
+                     </span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Price :{" "}
+                     <span style={{ color: "#025D84" }}>₹ {price}</span>
+                   </Text>
+                   <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                     Discount :{" "}
+                     <span style={{ color: "#025D84" }}>{discount}%</span>
+                   </Text>
+                 </HStack>
     </Stack>
-    <Divider />
   </HStack>
   </HStack>
   <Stack border={"0px solid black"} >
-      <Button variant='solid' bg={"#FF8F20"} color={"white"} borderRadius={5} >
-        UPDATE
-      </Button>
-      
-      <Button variant='ghost' bg={"#FF8F20"} color={"white"} borderRadius={5}>
-        DELETE
-      </Button>
+  <Button
+               bg={"white"}
+               width={100}
+               border={"2px solid #FF8F20"}
+               color={"#FF8F20"}
+               borderRadius={5}
+               _hover={{ bg: "#FF8F20", color: "white" }}
+               onClick={() => handleOpen(_id)}
+             >
+               UPDATE
+             </Button>
+
+             <Button
+               bg={"#FF8F20"}
+               color={"white"}
+               _hover={{
+                 bg: "white",
+                 color: "#FF8F20",
+                 border: "2px solid #FF8F20",
+               }}
+               borderRadius={5}
+               onClick={() => handleOpen(_id)}
+             >
+               {(page - 1) * 5 + ind + 1}
+             </Button>
+
+             <Button
+               bg={"white"}
+               width={100}
+               border={"2px solid #FF8F20"}
+               color={"#FF8F20"}
+               borderRadius={5}
+               _hover={{ bg: "#FF8F20", color: "white" }}
+               onClick={() => handleDelete(_id)}
+             >
+               DELETE
+             </Button>
   </Stack>
   </HStack>
-</Card>
-      </Td>
-    </Tr>
+</Stack>
+   </Box>
+   </>
   );
 };
 

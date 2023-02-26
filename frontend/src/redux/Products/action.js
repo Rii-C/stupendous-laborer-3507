@@ -17,13 +17,13 @@ export const ProductFailureAction = ()=>{
 }
 
 
-export const GetData = (page,limit) => (dispatch) => {
+export const GetData = (payload) => (dispatch) => {
   dispatch(ProductRequestAction())
 //   axios.get(`http://localhost:1010/products`)
 axios({
     method:"get",
     baseURL:"http://localhost:8000/product",
-    params:{_page:page,_limit:limit}
+    params:payload
 })
 .then((res)=>{
     // console.log(res.headers["x-total-count"])
