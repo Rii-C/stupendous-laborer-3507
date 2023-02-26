@@ -16,11 +16,12 @@ import { ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS, GET_PRODUCTS_ERROR, GET_PR
   
   // GET-FUNCTION
   
-  export const getProductData = () => async (dispatch) => {
+  export const getProductData = (page,setTotalPage) => async (dispatch) => {
     dispatch({ type: GET_PRODUCTS_LOADING });
     try {
-      let data = await getAdminProductAPI();
-      dispatch({ type: GET_PRODUCT_SUCCESS, payload: data });
+      let data = await getAdminProductAPI(page);
+      setTotalPage(data.TotalCount);
+      dispatch({ type: GET_PRODUCT_SUCCESS, payload: data.ProductData });
     } catch (error) {
       dispatch({ type: GET_PRODUCTS_ERROR });
     }
@@ -51,10 +52,10 @@ import { ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS, GET_PRODUCTS_ERROR, GET_PR
   //UPDATE-FUNCTION
   
   export const updateProductData =
-    (id, newPrice, newDiscount, newMrp) => async (dispatch) => {
+    (id,newMrp, newPrice, newDiscount) => async (dispatch) => {
       dispatch({ type: GET_PRODUCTS_LOADING });
       try {
-        await updateAdminProductAPI(id, newPrice, newDiscount, newMrp);
+        await updateAdminProductAPI(id, newMrp, newPrice, newDiscount);
         dispatch({ type: UPDATE_PRODUCT_SUCCESS });
       } catch (error) {
         dispatch({ type: GET_PRODUCTS_ERROR });

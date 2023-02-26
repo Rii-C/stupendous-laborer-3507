@@ -11,7 +11,7 @@ const q = query.q || ""
 
 const sort = query._sort || null
 const order = query._order || null
-const limit = query._limit || null
+const limit = query._limit || 5
 const page = query._page || 1
 let discount = query.discount || 0
 let rating = query.rating || 0
@@ -34,10 +34,10 @@ else{
  Skip= (page-1)*limit
 }
 
-
+const TotalCount = await ProductModel.countDocuments();
 const ProductData = await ProductModel.find({name:{$regex:q},...query,discount:{$gte:+discount},rating:{$gte:+rating}}).sort(_sorting).skip(Skip).limit(limit)
 
- res.send(ProductData)
+ res.send({ProductData,TotalCount})
 })
 
 

@@ -1,7 +1,7 @@
 import axios from 'axios';
 //GET-API
-export const getAdminProductAPI=async()=>{
- let res = await axios.get('http://localhost:8000/total/product');
+export const getAdminProductAPI=async(page)=>{
+ let res = await axios.get(`http://localhost:8000/total/product?_page=${page}`);
  return res.data;
 }
 
@@ -18,11 +18,11 @@ return res.data;
 }
 
 //UPDATE-FUNCTION
-export const updateAdminProductAPI=async(id,newPrice,newDiscount,newMrp)=>{
+export const updateAdminProductAPI=async(id,newMrp,newPrice,newDiscount)=>{
     let res = await axios.patch(`http://localhost:8000/product/update/${id}`,{
-        discount:newPrice,
-        price:newDiscount,
-        mrp:newMrp
+        mrp:newMrp,
+        price:newPrice,
+        discount:newDiscount,
     });
     return res.data;
     }

@@ -2,7 +2,7 @@ import {Routes,Route} from 'react-router-dom'
 import {Home} from "../pages/Home"
 import {Signup} from '../pages/Signup'
 import {Login} from '../pages/Login'
-import {NotFound} from '../pages/NotFound'
+import NotFound from '../pages/NotFound'
 import {Payment} from '../pages/Payment'
 import {ProductDetails} from '../pages/ProductDetails'
 import {Products} from '../pages/Products'
