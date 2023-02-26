@@ -6,19 +6,23 @@ import {
     Heading,
     Image,
     Input,
+    InputGroup,
+    InputLeftAddon,
+    Select,
     Spinner,
     Stack,
+    Text,
     useToast,
   } from '@chakra-ui/react'
   import axios from 'axios'
-//   import { useRouter } from 'next/router'
   
   import React, { useState } from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
   
   const obj = {
     name: '',
     username: '',
-    email: '',
+    email: "",
     password: '',
     gender : "",
     phone: '',
@@ -26,7 +30,7 @@ import {
   }
   const Registering = () => {
     const toast = useToast()
-    // const router = useRouter()
+    const navigate = useNavigate()
     const [load, setLoad] = useState(false)
     const [text, setText] = useState(obj)
   
@@ -37,8 +41,8 @@ import {
   
     const { email, password, name, phone, username, gender } = text
   
-    // console.log('ok', text)
     const handleSubmit = async () => {
+      console.log('ok', text)
       if (email !== '' && password !== '' && name !== '' && username !== '' && gender !== '' && phone !== '' ) {
         setLoad(true)
         await axios.post('http://localhost:8000/user/register', text)
@@ -47,19 +51,19 @@ import {
             console.log(res)
             toast({
               title: 'User registered',
-              position: 'top-right',
+              position: 'bottom-right',
               status: 'success',
               duration: 2000,
               isClosable: true,
             })
-            // router.replace('/login') 
+            return navigate("/login")
           })
           .catch((err) => {
             setLoad(false)
             console.log(err)
             toast({
               title: 'User is already registered',
-              position: 'top-right',
+              position: 'bottom-right',
               status: 'error',
               duration: 1000,
               isClosable: true,
@@ -70,7 +74,7 @@ import {
       } else {
         toast({
           title: 'Input fields first',
-          position: 'top-right',
+          position: 'bottom-right',
           status: 'warning',
           duration: 2000,
           isClosable: true,
@@ -94,7 +98,7 @@ import {
               />
             </FormControl>
             <FormControl id="username">
-              <FormLabel> username</FormLabel>
+              <FormLabel> Username</FormLabel>
               <Input
                 name="username"
                 onChange={handleChange}
@@ -111,7 +115,6 @@ import {
                 name="email"
                 type="email"
                 isRequired={true}
-                
               />
             </FormControl>
             <FormControl id="password">
@@ -124,26 +127,28 @@ import {
                 isRequired={true}
               />
             </FormControl>
-            <FormControl id="">
-              <FormLabel>gender</FormLabel>
-              <Input
-                name="gender"
-                onChange={handleChange}
-                value={text.gender}
-                type="text"
-                isRequired={true}
-              />
+            <FormControl id="gender">
+              <FormLabel>Gender</FormLabel>
+              <Select onChange={handleChange} placeholder='Select gender' name="gender">
+                <option value='Male'>Male</option>
+                <option value='Female'>Female</option>
+              </Select>
             </FormControl>
             <FormControl id="phone">
-              <FormLabel>phone </FormLabel>
-              <Input
-                name="phone"
-                onChange={handleChange}
-                value={text.phone}
-                type="number"
-                isRequired={true}
-              />
-            </FormControl>
+              <FormLabel>phone</FormLabel>
+              <InputGroup>
+                <InputLeftAddon children='+91'/>
+                <Input type='number'
+                  name="phone"
+                  onChange={handleChange}
+                  value={text.phone}
+                  />
+              </InputGroup>
+            </FormControl><br/>
+
+            <Link to='/login'>
+              <Text textAlign={"end"} fontWeight={400} color={"blue"}>Click here if already register</Text>
+            </Link>
   
             <Button onClick={handleSubmit} colorScheme={'blue'} variant={'solid'}>
               {load ? <Spinner /> : 'Sign up'}
