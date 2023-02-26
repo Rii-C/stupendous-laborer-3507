@@ -22,6 +22,7 @@ import { HamburgerIcon, CloseIcon} from '@chakra-ui/icons';
 import {BsFillBellFill } from "react-icons/bs";
 import {RiAccountPinCircleFill,RiLogoutCircleFill} from "react-icons/ri";
 import Logo from "../asset/webLogo.png";
+import { useNavigate } from 'react-router-dom';
 
 const Links = [{path:'/admin/dashboard',name:'Dashboard'}, {path:'/admin/add',name:'Add-Products'}, {path:'/admin/products',name:'Products'},{path:'/admin/place/orders',name:'Orders'}];
 
@@ -44,7 +45,7 @@ const NavLink = ({ children }) => (
 
 export default function AdminNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const navigate = useNavigate();
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} paddingY={2} boxShadow={"md"} zIndex={999} pos={"fixed"} top={0} left={0} right={0} >
@@ -97,11 +98,13 @@ export default function AdminNavbar() {
           icon={<RiAccountPinCircleFill color='#257395' />}
         />Profile</MenuItem>
                 <MenuDivider />
-                <MenuItem> <IconButton
+                <MenuItem onClick={()=> navigate("/")
+                } > <IconButton
           size="lg"
           variant="ghost"
           aria-label="open menu"
           icon={<RiLogoutCircleFill color='#257395' />}
+
         />Logout</MenuItem>
               </MenuList>
             </Menu>

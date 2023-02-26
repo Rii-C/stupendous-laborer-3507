@@ -39,14 +39,14 @@ const AddProducts = () => {
   return (
     <Box>
         <AdminNavbar/>
-        <Box mt={5} >
+        <Box mt={10} >
         <Flex
         align={'center'}
         justify={'center'}
         bg={useColorModeValue('white', 'gray.800')}>
-        <Stack spacing={8} mx={'auto'} width={'40%'} py={12} px={6}>
+        <Stack spacing={8} mx={'auto'} width={{base:"100%",sm:"90%",md:"80%",lg:"40%"}} py={12} px={6}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'}>ADD PRODUCTS</Heading>
+            <Heading fontSize={'3xl'} color={"#025D84"} >ADD PRODUCTS</Heading>
           </Stack>
           <Box
             rounded={'lg'}

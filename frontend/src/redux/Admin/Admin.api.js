@@ -5,6 +5,12 @@ export const getAdminProductAPI=async(page)=>{
  return res.data;
 }
 
+export const getAdminTotalPlacedOrdersAPI=async(page)=>{
+    let res = await axios.get(`http://localhost:8000/total/place/order?_page=${page}`);
+    //console.log(res);
+    return res.data;
+   }
+
 export const getAdminUsersAPI=async()=>{
  let res = await axios.get('http://localhost:8000/user');
  return res.data;
@@ -26,6 +32,22 @@ export const updateAdminProductAPI=async(id,newMrp,newPrice,newDiscount)=>{
     });
     return res.data;
     }
+
+export const updateShippingAdminTotalPlacedOrdersAPI=async(id)=>{
+    let res = await axios.patch(`http://localhost:8000/total/place/order/update/${id}`,{
+      shipping:true
+    });
+    console.log(res.data)
+    return res.data;
+    }    
+
+export const updateDelivergAdminTotalPlacedOrdersAPI=async(id)=>{
+    let res = await axios.patch(`http://localhost:8000/total/place/order/update/${id}`,{
+        deliver:true
+    })
+    return res.data;
+    }    
+    
 
 //DELETE-FUNCTION
 export const deleteAdminProductAPI=async(id)=>{

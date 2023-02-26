@@ -32,16 +32,15 @@ const AllProducts = () => {
   const [discount, setDiscount] = useState("");
   const [id, setId] = useState("");
   const [page, setPage] = useState(1);
-  const [totalPage,setTotalPage]=useState(0);
-  const { Product } = useSelector((store) => store.adminReducer);
+  const { Product,TotalCount } = useSelector((store) => store.adminReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProductData(page,setTotalPage));
+    dispatch(getProductData(page));
   }, [page]);
-
+ console.log(TotalCount);
   const handleDelete = (id) => {
-    dispatch(deleteProductData(id)).then(() => dispatch(getProductData(page,setTotalPage)));
+    dispatch(deleteProductData(id)).then(() => dispatch(getProductData(page)));
   };
   const handleChangeByPage = (val) => {
     const newPage=page+val;
@@ -54,11 +53,11 @@ const AllProducts = () => {
   }
 
   const handleLastPage=()=>{
-  getProductData(setPage(Math.ceil(totalPage/5)))  
+  getProductData(setPage(Math.ceil(TotalCount/5)))  
   }
   const handleUpdate = () => {
     dispatch(updateProductData(id, mrp, price, discount)).then(() => {
-      dispatch(getProductData(page,setTotalPage));
+      dispatch(getProductData(page));
       onClose();
       setDiscount("");
       setPrice("");
@@ -179,7 +178,7 @@ const AllProducts = () => {
               backgroundColor={"#28C2C4"}
               border={"0px solid gray"}
               _hover={{bg:"white",color:"#28C2C4",border:"2px solid #28C2C4"}}
-              isDisabled={page===Math.ceil(totalPage/5)}
+              isDisabled={page===Math.ceil(TotalCount/5)}
             >
               Next
             </Button>
@@ -188,7 +187,7 @@ const AllProducts = () => {
               backgroundColor={"#28C2C4"}
               color={"#025D84"}
               border={"0px solid gray"}
-              isDisabled={page===Math.ceil(totalPage/5)}
+              isDisabled={page===Math.ceil(TotalCount/5)}
               onClick={handleLastPage}
               _hover={{bg:"white",color:"#28C2C4",border:"2px solid #28C2C4"}}
             >
