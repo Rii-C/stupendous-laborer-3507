@@ -1,5 +1,5 @@
-import { deleteAdminProductAPI, getAdminProductAPI, getAdminUsersAPI, postAdminProductAPI, updateAdminProductAPI } from "./Admin.api";
-import { ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCT_SUCCESS, GET_USERS_SUCCESS, UPDATE_PRODUCT_SUCCESS } from "./Admin.types";
+import { deleteAdminProductAPI, getAdminProductAPI, getAdminTotalPlacedOrdersAPI, getAdminUsersAPI, postAdminProductAPI, updateAdminProductAPI, updateDelivergAdminTotalPlacedOrdersAPI, updateShippingAdminTotalPlacedOrdersAPI } from "./Admin.api";
+import { ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCT_SUCCESS, GET_TOTAL_COUNT, GET_TOTAL_PLACED_ORDERS_COUNT, GET_TOTAL_PLACED_ORDER_SUCCESS, GET_USERS_SUCCESS, UPDATE_DELIVER_TOTAL_PLACED_ORDER_SUCCESS, UPDATE_PRODUCT_SUCCESS, UPDATE_SHIPPING_TOTAL_PLACED_ORDER_SUCCESS } from "./Admin.types";
 
 //POST-FUNCTION
 
@@ -16,11 +16,23 @@ import { ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS, GET_PRODUCTS_ERROR, GET_PR
   
   // GET-FUNCTION
   
-  export const getProductData = () => async (dispatch) => {
+  export const getProductData = (page) => async (dispatch) => {
     dispatch({ type: GET_PRODUCTS_LOADING });
     try {
-      let data = await getAdminProductAPI();
-      dispatch({ type: GET_PRODUCT_SUCCESS, payload: data });
+      let data = await getAdminProductAPI(page);
+      dispatch({ type: GET_PRODUCT_SUCCESS, payload: data.ProductData });
+      dispatch({type:GET_TOTAL_COUNT,payload:data.TotalCount})
+    } catch (error) {
+      dispatch({ type: GET_PRODUCTS_ERROR });
+    }
+  };
+
+  export const getTotalPlacedOrdersData = (page) => async (dispatch) => {
+    dispatch({ type: GET_PRODUCTS_LOADING });
+    try {
+      let data = await getAdminTotalPlacedOrdersAPI(page);
+      dispatch({ type: GET_TOTAL_PLACED_ORDER_SUCCESS, payload: data.TotalOrdersData});
+      dispatch({type:GET_TOTAL_PLACED_ORDERS_COUNT,payload:data.TotalOrdersCount})
     } catch (error) {
       dispatch({ type: GET_PRODUCTS_ERROR });
     }
@@ -51,11 +63,33 @@ import { ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS, GET_PRODUCTS_ERROR, GET_PR
   //UPDATE-FUNCTION
   
   export const updateProductData =
-    (id, newPrice, newDiscount, newMrp) => async (dispatch) => {
+    (id,newMrp, newPrice, newDiscount) => async (dispatch) => {
       dispatch({ type: GET_PRODUCTS_LOADING });
       try {
-        await updateAdminProductAPI(id, newPrice, newDiscount, newMrp);
+        await updateAdminProductAPI(id, newMrp, newPrice, newDiscount);
         dispatch({ type: UPDATE_PRODUCT_SUCCESS });
+      } catch (error) {
+        dispatch({ type: GET_PRODUCTS_ERROR });
+      }
+    };
+
+    export const updateTotalPlacedOrderShipping =
+    (id) => async (dispatch) => {
+      dispatch({ type: GET_PRODUCTS_LOADING });
+      try {
+        await updateShippingAdminTotalPlacedOrdersAPI(id);
+        dispatch({ type: UPDATE_SHIPPING_TOTAL_PLACED_ORDER_SUCCESS });
+      } catch (error) {
+        dispatch({ type: GET_PRODUCTS_ERROR });
+      }
+    };
+
+    export const updateTotalPlacedOrderDeliver =
+    (id) => async (dispatch) => {
+      dispatch({ type: GET_PRODUCTS_LOADING });
+      try {
+        await updateDelivergAdminTotalPlacedOrdersAPI(id);
+        dispatch({ type: UPDATE_DELIVER_TOTAL_PLACED_ORDER_SUCCESS });
       } catch (error) {
         dispatch({ type: GET_PRODUCTS_ERROR });
       }
