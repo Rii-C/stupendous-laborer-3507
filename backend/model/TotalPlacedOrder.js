@@ -17,6 +17,8 @@ const TotalPlaceOrderSchema = mongoose.Schema(
     flavour:String,
     description: Object,
     category:String,
+    shipping:{type:Boolean,default:false},
+    deliver:{type:Boolean,default:false}
   },
   { versionKey: false }
 );

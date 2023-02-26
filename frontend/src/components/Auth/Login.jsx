@@ -9,18 +9,19 @@ import {
   Input,
   Spinner,
   Stack,
+  Text,
   useToast
 } from "@chakra-ui/react";
 import axios from "axios";
-  // import Link from "next/link";
-//   import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { isAuth } from "../../redux/Authentication/action";
-import { Link } from "react-router-dom";
+
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { isAuth , isNotAuth} from "../../redux/Authentication/action";
+
 const obj = {
   email: "",
-    password: "",
+  password: "",
   status:false
 };
 const Logging = () => {
@@ -28,55 +29,63 @@ const Logging = () => {
   const dispatch = useDispatch();
   const [load, setLoad] = useState(false);
   const [text, setText] = useState(obj);
-//   const router =useRouter()
+  const navigate = useNavigate()
   const handleChange = (e) => {
       const { type, checked, value, name } = e.target;
       const inputValue = type === "checkbox" ? checked : value;
     setText({...text, [name]: inputValue});
   };
 
+
+
   const {email, password,status} = text;
   
-    console.log("ok",text)
+    // console.log("ok",text)
   const handleSubmit = async() => {
     if (email !== "" && password !== "") {
-      setLoad(true);
-    await axios.post("http://localhost:8000/user/login",{email:email,password:password,status:status})
-        .then((res) => {
-          setLoad(false);
-          toast({
-            title: "Logged in",
-            position: "top-right",
-            status: "success",
-            duration: 3000,
-            isClosable: true,
+      if(email==="s@gmail.com" && password === "s12345"){
+        console.log("admin")
+        return navigate("/admin/dashboard")
+      }else{
+        setLoad(true);
+      await axios.post("http://localhost:8000/user/login",{email:email,password:password,status:status})
+          .then((res) => {
+            setLoad(false);
+            toast({
+              title: "Logged in",
+              position: "bottom-right",
+              status: "success",
+              duration: 3000,
+              isClosable: true,
+            });
+            localStorage.setItem("token",res.data.token)
+            console.log(res.data.token)
+            dispatch(isAuth(res.data.token));
+            return navigate("/")
+          })
+          .catch((err) => {
+            setLoad(false);
+            console.log(err);
+            toast({
+              title: "Invalid credentials",
+              position: "bottom-right",
+              status: "error",
+              duration: 2000,
+              isClosable: true,
+            });
+            
           });
-          localStorage.setItem("token",res.data.token)
-          console.log(res.data.token)
-          dispatch(isAuth(res.data.token));
-          // router.back()
-        })
-        .catch((err) => {
-          setLoad(false);
-          console.log(err);
-          toast({
-            title: "Invalid credentials",
-            position: "top-right",
-            status: "error",
-            duration: 2000,
-            isClosable: true,
-          });
-        });
-
-      setText(obj);
+        setText(obj);
+      }
     } else {
       toast({
         title: "Input fields first",
-        position: "top-right",
+        position: "bottom-right",
         status: "warning",
         duration: 2000,
         isClosable: true,
       });
+     
     }
   };
 
@@ -117,9 +126,12 @@ const Logging = () => {
               >
                 Remember me
               </Checkbox>
-              {/* <Link href={"#"} color={"blue.500"}>
+              {/* <Link href={"/"} color={"blue.500"}>
                 Forgot password?
               </Link> */}
+            <Link to='/signup'>
+              <Text textAlign={"end"} fontWeight={400} color={"blue"}>Click here to Register</Text>
+            </Link>
             </Stack>
             <Link to='/products/wheyproteins'>
 
@@ -130,7 +142,9 @@ const Logging = () => {
               >
               {load ? <Spinner /> : "Sign in"}
             </Button>
+
               </Link>
+
           </Stack>
         </Stack>
       </Flex>

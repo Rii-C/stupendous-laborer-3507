@@ -30,7 +30,7 @@ app.use("/product",ProductRouter);
 
 app.use("/total/product",TotalRouter);
 
-app.use("total/place/order",TotalPlaceOrderRouter);
+app.use("/total/place/order",TotalPlaceOrderRouter);
 
 app.use("/cart",authorization,CartRouter);
 

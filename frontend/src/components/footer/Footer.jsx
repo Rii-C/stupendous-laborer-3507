@@ -5,6 +5,7 @@ import {
   SimpleGrid,
   Stack,
   Text,
+  Icon,
   Flex,
   useColorModeValue,
   Center,
@@ -222,5 +223,7 @@ export default function Footer() {
       </Container>
       
     </Box>
+    
+
   );
 }
