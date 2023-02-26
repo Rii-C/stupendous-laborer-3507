@@ -31,7 +31,7 @@ export const Navbar = () => {
         <div className="navtopbody">
           
           <div className="mainlogo" >
-          <div className="opencrson" ><IoReorderFourSharp/></div> <img src={weblogo} alt="" onClick={()=>navigate("/")}/>
+          <div className="opencrson" ><IoReorderFourSharp/></div> <img src={weblogo} alt="" style={{cursor:"pointer"}} onClick={()=>navigate("/")}/>
           </div>
           <div className="searchboxdic">
             <span className={styles.search_div}>

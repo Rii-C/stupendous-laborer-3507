@@ -7,6 +7,8 @@ import { useDispatch,useSelector } from 'react-redux'
 import { getAddress,addAddress } from '../redux/Address/action'
 import { useNavigate,Navigate } from 'react-router-dom'
 import Loading from '../components/Card/Loading'
+import CardNavbar from '../components/Card/CardNavbar'
+
 const initialAddress={
   name:"",
   mobile:"",
@@ -60,6 +62,8 @@ if(isLoading){
 
 
   return (
+    <>
+    <CardNavbar/>
     <Flex direction={{base:"column", md:"row"}}  gap={10} justifyContent="center">
     <Box w="100%" m="auto">
     {res?<AddressForm handleSubmit={handleSubmit} initialAddress={initialAddress} />:<AddressCard/>}
@@ -69,6 +73,7 @@ if(isLoading){
     </Box>
     
     </Flex>
+    </>
   )
 }
 

@@ -6,6 +6,8 @@ import {useSelector,useDispatch} from "react-redux"
 import Loading from '../components/Card/Loading'
 import EmptyCart from '../components/Card/EmptyCart'
 import { getCardData } from '../redux/Cart/action'
+import CardNavbar from '../components/Card/CardNavbar'
+
 
 export const Cart = () => {
   const isLoading=useSelector(store=>store.cartReducer.isLoading)
@@ -34,10 +36,12 @@ export const Cart = () => {
     return <Loading/>
   }
 
-  return (
-    <Box w={{lg:"90%"}} m="auto">
+  return (<>
+  <CardNavbar/>
+      <Box w={{lg:"90%"}} m="auto">
 {cartCount>0?<CartBody/>:<EmptyCart/>}
     </Box>
+  </>
     
   )
 }
