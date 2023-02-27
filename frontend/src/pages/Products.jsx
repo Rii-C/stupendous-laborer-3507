@@ -70,7 +70,7 @@ const HandleCategory = (e)=>{
     // setSearchParams({sort:sortData,page,limit})
     // __________________--------------------________
     let obj = {}
-    if(sortData == "Pricelth" || sortData == "pricehtl" || sortData == "discountlth" || sortData == "discounthtl" || sortData == "ratinghtl" || sortData == "popularity"){
+    if(sortData === "Pricelth" || sortData === "pricehtl" || sortData === "discountlth" || sortData === "discounthtl" || sortData === "ratinghtl" || sortData === "popularity"){
       obj.sort = sortData
     }
 
@@ -89,12 +89,12 @@ const HandleCategory = (e)=>{
 //   value:"20%+And+Above"
 // })
 
-if(discountFilter.ischecked && (discountFilter.value==20 || discountFilter.value==40 || discountFilter.value==60)){
+if(discountFilter.ischecked && (discountFilter.value===20 || discountFilter.value===40 || discountFilter.value===60)){
   obj.discount = discountFilter.value
 }
 
 
-if(ratingFilter.ischecked && (ratingFilter.value==1 || ratingFilter.value==2 || ratingFilter.value==3 || ratingFilter.value==4)){
+if(ratingFilter.ischecked && (ratingFilter.value===1 || ratingFilter.value===2 || ratingFilter.value===3 || ratingFilter.value===4)){
   obj.rating = ratingFilter.value
 }
 
@@ -118,25 +118,25 @@ if(category.length>0){
 
   let _order="asc"
   let _sort = "name"
-  if(sortData=="pricelth"){
+  if(sortData==="pricelth"){
 _order = "asc"
 _sort = "price"
   }
-  else if(sortData=="pricehtl"){
+  else if(sortData==="pricehtl"){
     _order="desc"
     _sort = "price"
   }
 
-  else if(sortData=="discountlth"){
+  else if(sortData==="discountlth"){
     _order = "asc"
     _sort = "discount"
   }
 
-  else if(sortData=="discounthtl"){
+  else if(sortData==="discounthtl"){
     _order="desc"
     _sort = "discount"
   }
-  else if(sortData=="ratinghtl"){
+  else if(sortData==="ratinghtl"){
     _order="desc"
     _sort = "rating"
   }
@@ -151,12 +151,12 @@ payload._sort = _sort
 
 
 
-if(discountFilter.value==20 || discountFilter.value==40 || discountFilter.value==60){
+if(discountFilter.value===20 || discountFilter.value===40 || discountFilter.value===60){
   payload.discount = discountFilter.value
 }
 
 
-if(ratingFilter.value==1 || ratingFilter.value==2 || ratingFilter.value==3 || ratingFilter.value==4){
+if(ratingFilter.value===1 || ratingFilter.value===2 || ratingFilter.value===3 || ratingFilter.value===4){
   payload.rating = ratingFilter.value
 }
 
@@ -186,7 +186,7 @@ delete payload._limit
 delete payload._page
 axios({
   method: "get",
-  baseURL:"http://localhost:8000/product",
+  baseURL:"https://outstanding-outfit-seal.cyclic.app/product",
   params:payload
 })
 .then((res)=>{

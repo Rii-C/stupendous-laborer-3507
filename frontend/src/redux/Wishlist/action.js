@@ -21,7 +21,7 @@ export const GetWishData = (dispatch) => {
   dispatch(WishlistProductRequestAction())
 axios({
     method:"get",
-    baseURL:"http://localhost:8000/wishlist"
+    baseURL:"https://outstanding-outfit-seal.cyclic.app/wishlist"
 })
 .then((res)=>{
 dispatch(WishlistProductSuccessAction(res.data))

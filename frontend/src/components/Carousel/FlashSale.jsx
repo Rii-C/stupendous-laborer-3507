@@ -44,7 +44,7 @@ const {carouselData,isLoading}  = useSelector((store)=>{
 
 {carouselData && 
 carouselData.map((el,index)=>{
-    if(el.code=="flash_sale"){
+    if(el.code==="flash_sale"){
         return <ProductCard key={index} {...el}/>
     }
         

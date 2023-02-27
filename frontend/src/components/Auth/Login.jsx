@@ -15,8 +15,8 @@ import {
 import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import { isAuth , isNotAuth} from "../../redux/Authentication/action";
+import { Link, useNavigate } from "react-router-dom";
+import { isAuth } from "../../redux/Authentication/action";
 
 const obj = {
   email: "",
@@ -50,7 +50,7 @@ const Logging = () => {
         return navigate("/admin/dashboard")
       }else{
         setLoad(true);
-      await axios.post("http://localhost:8000/user/login",{email:email,password:password,status:status})
+      await axios.post("https://outstanding-outfit-seal.cyclic.app/user/login",{email:email,password:password,status:status})
           .then((res) => {
             setLoad(false);
             toast({

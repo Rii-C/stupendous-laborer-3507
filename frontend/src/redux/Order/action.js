@@ -34,7 +34,7 @@ export const UpdateOrder=()=>{
 export const getOrderData=(token)=>async (dispatch)=>{
     dispatch(OrdergetRequestAction)
   try {
-        const res = await fetch("http://localhost:8000/place/order", {
+        const res = await fetch("https://outstanding-outfit-seal.cyclic.app/place/order", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -54,7 +54,7 @@ export const deleteItemFromOrder=(id,token)=>async(dispatch)=>{
 
     try{
        
-        const res = await fetch(`http://localhost:8000/place/order/delete/${id}`,{
+        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/place/order/delete/${id}`,{
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -75,7 +75,7 @@ export const addToOrder=(payload,token)=>async(dispatch)=>{
 
     try{
       
-        const res = await fetch(`http://localhost:8000/place/order/add`,{
+        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/place/order/add`,{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -96,7 +96,7 @@ export const updateOrder=(payload,id,token)=>async(dispatch)=>{
 
     try{
         
-        const res = await fetch(`http://localhost:8000/place/order/update/${id}`,{
+        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/place/order/update/${id}`,{
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",

@@ -73,9 +73,9 @@ const AllProducts = () => {
       <AdminNavbar />
       <Box mt={"90px"}>
         <HStack bg={"#025D84"} width={"100%"} >
-          <Text color={"white"} px={5} py={1} fontWeight={"semibold"} >Products</Text>
+          <Text color={"white"} px={5} py={1} fontWeight={"semibold"} >TOTAL PRODUCTS : {TotalCount}</Text>
         </HStack>
-        <Box>
+        <Box width={"100%"} >
               {Product.length !== 0 &&
                 Product?.map((el, i) => (
                   <Tablecard
