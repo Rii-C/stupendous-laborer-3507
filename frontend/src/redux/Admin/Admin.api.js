@@ -12,7 +12,7 @@ export const getAdminTotalPlacedOrdersAPI=async()=>{
    }
 
 export const getAdminUsersAPI=async()=>{
- let res = await axios.get('http://localhost:8000/user');
+ let res = await axios.get('https://outstanding-outfit-seal.cyclic.app/user');
  return res.data;
 }
 
