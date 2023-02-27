@@ -45,7 +45,7 @@ const {token} = useSelector((store)=>{
 
 React.useEffect(()=>{
 
-        axios.get("http://localhost:8000/wishlist",{
+        axios.get("https://outstanding-outfit-seal.cyclic.app/wishlist",{
             headers:{
                 Authorization:token
             }
@@ -70,7 +70,7 @@ React.useEffect(()=>{
         .catch((err)=>console.log(err))
 
 // ------------------------------------------------------------------------------------------------
-        axios.get("http://localhost:8000/cart",{
+        axios.get("https://outstanding-outfit-seal.cyclic.app/cart",{
             headers:{
                 Authorization:token
             }
@@ -113,7 +113,7 @@ deleteId = wishlistData[i]._id
     if(x){
 axios({
     method:"delete",
-    baseURL:`http://localhost:8000/wishlist/delete/${deleteId}`,
+    baseURL:`https://outstanding-outfit-seal.cyclic.app/wishlist/delete/${deleteId}`,
     headers:{
         Authorization:token
     }
@@ -126,7 +126,7 @@ axios({
         
 axios({
     method:"post",
-    baseURL:"http://localhost:8000/wishlist/add",
+    baseURL:"https://outstanding-outfit-seal.cyclic.app/whishlist/add",
     data:obj,
     headers:{
         Authorization:token
@@ -175,7 +175,7 @@ quantity = CartData[i].quantity
         // console.log(quantity,"new quantity")
 axios({
     method:"patch",
-    baseURL:`http://localhost:8000/cart/update/${patchId}`,
+    baseURL:`https://outstanding-outfit-seal.cyclic.app/cart/update/${patchId}`,
     headers:{
         Authorization:token
     },
@@ -193,7 +193,7 @@ axios({
         // dispatch(addToCart(obj))
         axios({
             method:"post",
-            baseURL:`http://localhost:8000/cart/add`,
+            baseURL:`https://outstanding-outfit-seal.cyclic.app/cart/add`,
             headers:{
                 Authorization:token
             },
