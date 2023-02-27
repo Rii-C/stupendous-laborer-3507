@@ -86,7 +86,25 @@ const AdminDashboard = () => {
         mt={100}
         border={"0px solid black"}
       >
-           <Stack border={"0px solid black"} width={"80%"} mt={10}>
+        <HStack
+          border={"0px solid black"}
+          justifyContent={"space-between"}
+          px={5}
+        >
+          <HStack bg={"#26B0AB"} boxShadow={"lg"} py={10} px={5} borderRadius={10}>
+            <Heading color={"#025D84"} >Total Products : {TotalCount ? TotalCount : 0}</Heading>
+          </HStack>
+          <HStack boxShadow={"lg"} bg={"#26B0AB"} py={10} px={5} borderRadius={10}>
+            <Heading color={"#025D84"} >
+              Total Placed Orders :{" "}
+              {TotalPlacedOrderCount ? TotalPlacedOrderCount : 0}
+            </Heading>
+          </HStack>
+          <HStack boxShadow={"lg"} bg={"#26B0AB"} py={10} px={5} borderRadius={10}>
+            <Heading color={"#025D84"}>Total Users : {Users.length ? Users.length : 0}</Heading>
+          </HStack>
+        </HStack>
+        <Stack border={"0px solid black"} width={"80%"} mt={10}>
           <Chart
             type="pie"
             height={400}
@@ -116,24 +134,6 @@ const AdminDashboard = () => {
             }}
           ></Chart>
         </Stack>
-        <HStack
-          border={"0px solid black"}
-          justifyContent={"space-between"}
-          px={5}
-        >
-          <HStack bg={"#26B0AB"} boxShadow={"lg"} py={10} px={5} borderRadius={10}>
-            <Heading color={"#025D84"} >Total Products : {TotalCount ? TotalCount : 0}</Heading>
-          </HStack>
-          <HStack boxShadow={"lg"} bg={"#26B0AB"} py={10} px={5} borderRadius={10}>
-            <Heading color={"#025D84"} >
-              Total Placed Orders :{" "}
-              {TotalPlacedOrderCount ? TotalPlacedOrderCount : 0}
-            </Heading>
-          </HStack>
-          <HStack boxShadow={"lg"} bg={"#26B0AB"} py={10} px={5} borderRadius={10}>
-            <Heading color={"#025D84"}>Total Users : {Users.length ? Users.length : 0}</Heading>
-          </HStack>
-        </HStack>
       </Flex>
     </Box>
   );
