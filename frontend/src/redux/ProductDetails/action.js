@@ -22,14 +22,14 @@ export const GetData = (id) => (dispatch) => {
 
 axios({
     method:"get",
-    baseURL:"http://localhost:8000/product"
+    baseURL:"https://outstanding-outfit-seal.cyclic.app/product"
 // url:`/${id}`
 })
 .then((res)=>{
     // console.log(res)
    res = res.data
     for(let i=0; i<res.length;i++){
-        if(res[i]._id==id){
+        if(res[i]._id===id){
             dispatch(SuccessAction(res[i]))
             break;
         }

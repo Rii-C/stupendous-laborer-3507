@@ -44,7 +44,7 @@ const {carouselData,isLoading}  = useSelector((store)=>{
 
 {carouselData && 
 carouselData.map((el,index)=>{
-    if(el.code=="fit_food_range"){
+    if(el.code==="fit_food_range"){
         return <ProductCard key={index} {...el}/>
     }
         

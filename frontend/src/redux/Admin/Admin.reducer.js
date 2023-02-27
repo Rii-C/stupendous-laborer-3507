@@ -1,5 +1,5 @@
 
-import { ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCT_SUCCESS, GET_TOTAL_COUNT, GET_TOTAL_PLACED_ORDERS_COUNT, GET_TOTAL_PLACED_ORDER_SUCCESS, GET_USERS_SUCCESS, UPDATE_DELIVER_TOTAL_PLACED_ORDER_SUCCESS, UPDATE_PRODUCT_SUCCESS, UPDATE_SHIPPING_TOTAL_PLACED_ORDER_SUCCESS } from "./Admin.types"
+import { ADD_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS, DELETE_TOTAL_PLACED_ORDER_SUCCESS, GET_PRODUCTS_ERROR, GET_PRODUCTS_LOADING, GET_PRODUCT_SUCCESS, GET_TOTAL_COUNT, GET_TOTAL_PLACED_ORDERS_COUNT, GET_TOTAL_PLACED_ORDER_SUCCESS, GET_USERS_SUCCESS, UPDATE_DELIVER_TOTAL_PLACED_ORDER_SUCCESS, UPDATE_PRODUCT_SUCCESS, UPDATE_SHIPPING_TOTAL_PLACED_ORDER_SUCCESS } from "./Admin.types"
 
 const initialState = {
     loading: false,
@@ -94,6 +94,13 @@ export const adminReducer = (state = initialState, { type, payload }) => {
             }
         }
         case DELETE_PRODUCT_SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                error: false,
+            }
+        }
+        case DELETE_TOTAL_PLACED_ORDER_SUCCESS:{
             return {
                 ...state,
                 loading: false,

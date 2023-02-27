@@ -17,7 +17,7 @@ import {
   import axios from 'axios'
   
   import React, { useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
   
   const obj = {
     name: '',
@@ -45,7 +45,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
       console.log('ok', text)
       if (email !== '' && password !== '' && name !== '' && username !== '' && gender !== '' && phone !== '' ) {
         setLoad(true)
-        await axios.post('http://localhost:8000/user/register', text)
+        await axios.post('https://outstanding-outfit-seal.cyclic.app/user/register', text)
           .then((res) => {
             setLoad(false)
             console.log(res)

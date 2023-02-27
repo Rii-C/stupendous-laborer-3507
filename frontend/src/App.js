@@ -22,7 +22,7 @@ function App() {
     <div className="App">
     
    
-{res||res1||res2?<CardNavbar/>:<Navbar/>}
+{/* {res||res1||res2?<CardNavbar/>:<Navbar/>} */}
  <AllRoutes/>
 
     </div>

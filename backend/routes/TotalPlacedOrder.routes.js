@@ -62,4 +62,14 @@ TotalPlaceOrderRouter.patch("/update/:id", async (req, res) => {
   }
 });
 
+TotalPlaceOrderRouter.delete("/delete/:id", async (req, res) => {
+  const id = req.params.id
+  try {
+    await TotalPlaceOrderModel.findByIdAndDelete({_id:id});
+    res.send({ message: "Order has been deleted successfully to the total place order's database" });
+  } catch (error) {
+    res.send({ message: "Cannot delete the place order to the total place order's database", error: error.message });
+  }
+});
+
 module.exports={TotalPlaceOrderRouter};

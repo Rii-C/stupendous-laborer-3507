@@ -15,6 +15,7 @@ export const ADD_PRODUCT_SUCCESS='add/product';
 //DELETE-TYPE
 
 export const DELETE_PRODUCT_SUCCESS='delete/product';
+export const DELETE_TOTAL_PLACED_ORDER_SUCCESS='delete/totalPlacedOrder'
 
 //UPDATE_TYPE
 

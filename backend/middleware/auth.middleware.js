@@ -8,7 +8,7 @@ if(token){
             console.log(err);
         }else if(decoded){
             req.body.user = decoded.UserId;
-            console.log(decoded);
+            //console.log(decoded);
             next();
         }else{
           res.send({message:"You have to login first"})

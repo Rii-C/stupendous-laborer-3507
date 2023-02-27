@@ -35,7 +35,7 @@ export const getCardData=(token)=>async (dispatch)=>{
     console.log(token)
     dispatch(CartgetRequestAction)
   try {
-        const res = await fetch("http://localhost:8000/cart/", {
+        const res = await fetch("https://outstanding-outfit-seal.cyclic.app/cart/", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
@@ -55,7 +55,7 @@ export const deleteItemFromCart=(id,token)=>async(dispatch)=>{
 
     try{
        
-        const res = await fetch(`http://localhost:8000/cart/delete/${id}`,{
+        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/cart/delete/${id}`,{
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -75,7 +75,7 @@ export const deleteAllItemFromCart=(id,token)=>async(dispatch)=>{
 console.log(id)
     try{
        
-        const res = await fetch(`http://localhost:8000/cart/deleteAll/${id}`,{
+        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/cart/deleteAll/${id}`,{
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
@@ -95,7 +95,7 @@ export const addToCart=(payload,token)=>async(dispatch)=>{
 
     try{
       
-        const res = await fetch(`http://localhost:8000/cart/add`,{
+        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/cart/add`,{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -116,7 +116,7 @@ export const updateCart=(payload,id,token)=>async(dispatch)=>{
 
     try{
         
-        const res = await fetch(`http://localhost:8000/cart/update/${id}`,{
+        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/cart/update/${id}`,{
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",

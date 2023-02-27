@@ -23,7 +23,7 @@ export const GetData =  (dispatch) => {
 //   axios.get(`http://localhost:1010/products`)
 axios({
     method:"get",
-    baseURL:"http://localhost:8000/product/carousel"
+    baseURL:"https://outstanding-outfit-seal.cyclic.app/product/carousel"
 })
 .then((res)=>{
 dispatch(CarouselSuccessAction(res.data))

@@ -22,7 +22,7 @@ export const GetData = (payload) => (dispatch) => {
 //   axios.get(`http://localhost:1010/products`)
 axios({
     method:"get",
-    baseURL:"http://localhost:8000/product",
+    baseURL:"https://outstanding-outfit-seal.cyclic.app/product",
     params:payload
 })
 .then((res)=>{
