@@ -26,6 +26,7 @@ dispatch(GetData)
 },[])
   return (
     <>
+    <Navbar/>
     <Dropdown/>
     <div className={style.div}>
       <div className={style.text}>App Sale Is Now Live</div>

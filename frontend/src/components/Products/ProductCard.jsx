@@ -285,7 +285,7 @@ else{
             </div>
 
 {/* <div> */}
-    <Text noOfLines={[2,2,2,2,2]}>
+    <Text className={styles.name} noOfLines={[2,2,2,2,2]}>
     {/* //  className={styles.name} */}
     
 

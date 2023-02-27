@@ -8,6 +8,7 @@ import { GetData } from '../redux/Products/action'
 import axios from 'axios'
 import { Desclaimer } from '../components/Products/Desclaimer'
 import { useSearchParams } from 'react-router-dom'
+import { Navbar } from '../components/Navbar/Navbar'
 
 
 export const Products = () => {
@@ -209,6 +210,7 @@ const {products,isLoading} = useSelector((store)=>{
 
   return (
     <>
+    <Navbar/>
     <nav>
     <Nav/>
     </nav>

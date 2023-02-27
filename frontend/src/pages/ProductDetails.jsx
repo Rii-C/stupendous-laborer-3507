@@ -7,6 +7,7 @@ import {useDispatch,useSelector} from 'react-redux'
 import { Left } from '../components/ProductDetails/Left'
 import { Right } from '../components/ProductDetails/Right'
 import { Description } from '../components/ProductDetails/Description'
+import { Navbar } from '../components/Navbar/Navbar'
 
 export const ProductDetails = () => {
 
@@ -28,6 +29,7 @@ dispatch(GetData(id))
 
 
   return (<>
+  <Navbar/>
     <div className={styles.container}>
       <Nav/>
       <div className={styles.Box}>

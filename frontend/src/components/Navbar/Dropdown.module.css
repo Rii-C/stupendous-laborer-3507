@@ -6,9 +6,9 @@
     align-items: center;
     gap: 20px;
     position:sticky;
-    top: 0;
+    top: 90px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    z-index: 1000;
+    z-index: 100;
 }
 .navSubDiv1{
     width: 13%;
