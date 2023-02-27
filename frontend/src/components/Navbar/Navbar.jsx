@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import  "./Navbar.css";
 import styles from "./Dropdown.module.css";
 import { Link ,useNavigate} from "react-router-dom";
@@ -9,13 +9,20 @@ import {CiShoppingCart} from "react-icons/ci"
 import {IoReorderFourSharp} from "react-icons/io5"
 import { useDispatch, useSelector } from "react-redux";
 import { isNotAuth} from "../../redux/Authentication/action";
+import { getCardData } from "../../redux/Cart/action";
 
 export const Navbar = () => {
   const dispatch = useDispatch()
-
+  const cartCount=useSelector(store=>store.cartReducer.cartCount)
   const {token} = useSelector((store)=>{
     return {token:store.authReducer.token}
   })
+  
+  useEffect(()=>{
+    dispatch(getCardData(token))
+      },[])
+     
+
 
   const handleLog = () =>{
  
@@ -50,7 +57,7 @@ export const Navbar = () => {
             
           }
             
-              <h1 className="acountbuton20"><Link to="/cart"><CiShoppingCart className="naviconhgf5545"/></Link></h1>
+              <div style={{display:"inline-flex",border:"0px solid black"}} className="acountbuton20"><Link to="/cart" ><CiShoppingCart className="naviconhgf5545"/> </Link><b style={{color:"white",backgroundColor:"#FF8F20",padding:"0px 5px 0px 5px",borderRadius:"45%",marginLeft:"-10px",marginBottom:"18px"}} >{cartCount?cartCount:0}</b></div>
             
             
           </div>

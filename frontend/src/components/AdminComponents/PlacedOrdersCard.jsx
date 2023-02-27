@@ -8,6 +8,9 @@ import {
   HStack,
   Badge,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+
+import { DynamicDate } from "../ProductDetails/DynamicDate";
 
 const PlacedOrdersCard = ({
   _id,
@@ -26,7 +29,16 @@ const PlacedOrdersCard = ({
   handleShipping,
   handleDelete,
 }) => {
-  //console.log(_id);
+
+  const [d,setDay] = useState(0);
+  const [m,setMonth]=useState("");
+  useEffect(()=>{
+    const {day,month} = DynamicDate();
+    setDay(day);
+    setMonth(month);
+   
+  },[])
+  console.log(d,m);
   return (
     <>
       <Box
@@ -372,7 +384,7 @@ const PlacedOrdersCard = ({
                 />
               </Box>
               <HStack py={2} width={"88%"} boxShadow={"md"} px={2}>
-                <Stack spacing="3" border={"0px solid black"} width={"100%"}>
+                <Stack spacing={4} border={"0px solid black"} width={"100%"}>
                   <HStack
                     border={"0px solid black"}
                     justifyContent={"space-between"}
@@ -413,7 +425,7 @@ const PlacedOrdersCard = ({
                     justifyContent={"space-between"}
                     border={"0px solid black"}
                   >
-                    <Text color={"#00B8B9"} fontWeight={"semibold"}>
+                    <Text color={"#00B8B9"} noOfLines={1} fontWeight={"semibold"}>
                       Description :{" "}
                       <span
                         style={{
@@ -423,6 +435,13 @@ const PlacedOrdersCard = ({
                         {description.product_details[0]}
                       </span>
                     </Text>
+                    {/* <Text color={"#00B8B9"} >Delivery Date :  <span
+                        style={{
+                          color: "#025D84",
+                        }}
+                      >
+                        {d},{m}
+                      </span> </Text> */}
                   </HStack>
                   <Divider bg="#26B0AB" h={"1px"} />
                   <HStack

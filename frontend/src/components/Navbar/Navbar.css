@@ -138,7 +138,7 @@ height: 100%;
 .moba{
     display: none;
  }
-@media screen and (max-width: 780px) {
+@media screen and (min-width:100px) and (max-width: 780px) {
     .searchboxdic{
         display:none;
         align-items: center;
@@ -180,7 +180,10 @@ height: 100%;
         gap: 50px;
     }
     .acountbuton{
-        display: none;
+        display: inline-flex;
+        width: auto;
+        padding: 10px ;
+        font-size: 10px;
     }
     .acountbuton2{
        

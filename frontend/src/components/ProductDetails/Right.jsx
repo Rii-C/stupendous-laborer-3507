@@ -71,7 +71,7 @@ React.useEffect(()=>{
                 setWishlistData(res.data)
                 let x= false
                 for(let i =0; i<res.data.length; i++){
-                    if(res.data[i].name==name 
+                    if(res.data[i].name===name 
                       // && res.data[i].user==userLoggedId
                       ){
                         setHeart(false)
@@ -93,11 +93,11 @@ React.useEffect(()=>{
         })
         .then((res)=>{
             // console.log(res.data)
-            if(res.data[0]){
-                setCartData(res.data)
+            if(res.data.CartData[0]){
+                setCartData(res.data.CartData)
                 let x= false
-                for(let i =0; i<res.data.length; i++){
-                    if(res.data[i].name==name 
+                for(let i =0; i<res.data.CartData.length; i++){
+                    if(res.data.CartData[i].name===name 
                       // && res.data[i].user==userLoggedId
                       ){
                         setHeart(false)
@@ -185,7 +185,7 @@ const HandleAddtoCart = ()=>{
         let quantity;
         let patchId = "nothing"
         for(let i=0; i<CartData.length; i++){
-            if(CartData[i].name==name){
+            if(CartData[i].name===name){
 x = true
 
 patchId = CartData[i]._id
@@ -217,7 +217,7 @@ console.log("quantity is increased",quantity)
           headers:{
               Authorization:token
           },
-          data:{...data,quantity:1}
+          data:{...data,quantity:prdQuantity}
       })
 
 
@@ -296,13 +296,13 @@ console.log("quantity is increased",quantity)
 
 <div style={{position:"relative",paddingLeft:"5%"}}>
 <span  className={styles.tooltiptext}>
-   {heart==true?"Add to wishlist":"Added to wishlist"}
+   {heart===true?"Add to wishlist":"Added to wishlist"}
   </span>
   {
     token ?
-<img className={styles.staringImage} onClick={HandleWishlist} src={heart==true?"https://static1.hkrtcdn.com/hknext/static/media/pdp/unliked_product.svg":"https://static1.hkrtcdn.com/hknext/static/media/pdp/liked_product.svg"} alt="wishlist"/>
+<img className={styles.staringImage} onClick={HandleWishlist} src={heart===true?"https://static1.hkrtcdn.com/hknext/static/media/pdp/unliked_product.svg":"https://static1.hkrtcdn.com/hknext/static/media/pdp/liked_product.svg"} alt="wishlist"/>
 : <Link to='/login'>
-  <img className={styles.staringImage} onClick={HandleWishlist} src={heart==true?"https://static1.hkrtcdn.com/hknext/static/media/pdp/unliked_product.svg":"https://static1.hkrtcdn.com/hknext/static/media/pdp/liked_product.svg"} alt="wishlist"/>
+  <img className={styles.staringImage} onClick={HandleWishlist} src={heart===true?"https://static1.hkrtcdn.com/hknext/static/media/pdp/unliked_product.svg":"https://static1.hkrtcdn.com/hknext/static/media/pdp/liked_product.svg"} alt="wishlist"/>
 </Link>
 }
 </div>

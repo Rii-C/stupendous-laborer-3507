@@ -52,11 +52,11 @@ React.useEffect(()=>{
         })
         .then((res)=>{
            
-            if(res.data[0]){
+            if(res.data){
                 setWishlistData(res.data)
                 let x= false
                 for(let i =0; i<res.data.length; i++){
-                    if(res.data[i].name==name
+                    if(res.data[i].name===name
                         //  && res.data[i].user==userLoggedId
                          ){
                         setHeart(false)
@@ -77,10 +77,10 @@ React.useEffect(()=>{
         })
         .then((res)=>{
             // console.log(res.data)
-            if(res.data[0]){
-                setCartData(res.data)
-                for(let i =0; i<res.data.length; i++){
-                    if(res.data[i].name==name 
+            if(res.data.CartData){
+                setCartData(res.data.CartData)
+                for(let i =0; i<res.data.CartData.length; i++){
+                    if(res.data.CartData[i].name===name 
                         // && res.data[i].user == userLoggedId
                         ){
                         setHeart(false)
@@ -102,7 +102,7 @@ const HandleWishlist = ()=>{
         let x = false
         let deleteId = "nothing"
         for(let i=0; i<wishlistData.length; i++){
-            if(wishlistData[i].name==name 
+            if(wishlistData[i].name===name 
                 // && wishlistData[i].user == userLoggedId
                 ){
 x = true
@@ -147,6 +147,30 @@ axios({
 
 setHeart(!heart)
 
+axios.get("https://outstanding-outfit-seal.cyclic.app/wishlist",{
+    headers:{
+        Authorization:token
+    }
+})
+.then((res)=>{
+   
+    if(res.data){
+        setWishlistData(res.data)
+        let x= false
+        for(let i =0; i<res.data.length; i++){
+            if(res.data[i].name===name
+                //  && res.data[i].user==userLoggedId
+                 ){
+                setHeart(false)
+                x = true
+                break;
+            }
+        }
+
+    }
+})
+.catch((err)=>console.log(err))
+
 }
 
 }
@@ -161,7 +185,7 @@ const HandleAddtoCart = ()=>{
         let quantity;
         let patchId = "nothing"
         for(let i=0; i<CartData.length; i++){
-            if(CartData[i].name==name 
+            if(CartData[i].name===name 
                 // && CartData[i].user == userLoggedId
                 ){
 x = true
@@ -210,6 +234,28 @@ console.log(res,"Item has been added")
     }
 
 setCartButton(true)
+
+axios.get("https://outstanding-outfit-seal.cyclic.app/cart",{
+            headers:{
+                Authorization:token
+            }
+        })
+        .then((res)=>{
+            // console.log(res.data)
+            if(res.data.CartData){
+                setCartData(res.data.CartData)
+                for(let i =0; i<res.data.CartData.length; i++){
+                    if(res.data.CartData[i].name===name 
+                        // && res.data[i].user == userLoggedId
+                        ){
+                        setHeart(false)
+                        break;
+                    }
+                }
+
+            }
+        })
+        .catch((err)=>console.log(err))
 
 }
 else{

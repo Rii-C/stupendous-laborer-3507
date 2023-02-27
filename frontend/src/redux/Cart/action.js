@@ -35,7 +35,7 @@ export const getCardData=(token)=>async (dispatch)=>{
     console.log(token)
     dispatch(CartgetRequestAction)
   try {
-        const res = await fetch("https://outstanding-outfit-seal.cyclic.app/cart/", {
+        const res = await fetch("https://outstanding-outfit-seal.cyclic.app/cart", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",

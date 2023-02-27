@@ -16,14 +16,14 @@ dispatch(GetData)
     },[])
     
     const HandleLeft = ()=>{
-        let one = document.getElementById('one')
+        let one = document.getElementById('three3')
         let width = one.clientWidth
         one.scrollLeft -= width
     }
     
     
     const HandleRight = ()=>{
-    let one = document.getElementById('one')
+    let one = document.getElementById('three3')
     let width = one.clientWidth
 one.scrollLeft += width
 }
@@ -40,7 +40,7 @@ const {carouselData,isLoading}  = useSelector((store)=>{
         <div className={styles.container}>
         {/* <div className={styles.left} onClick={HandleLeft}>Left</div> */}
         <FontAwesomeIcon className={styles.left} onClick={HandleLeft} icon={faChevronLeft}/>
-        <div id='one' className={styles.carousel}>
+        <div id='three3' className={styles.carousel}>
 
 {carouselData && 
 carouselData.map((el,index)=>{

@@ -6,19 +6,19 @@ import { Flex, Image } from '@chakra-ui/react';
 
 
 const Dropdown = () => {
-  const [show, setShow] = useState(false);
+  //const [show, setShow] = useState(false);
 
   const [hover1, setHover1] = useState(false);
   const [hover3, setHover3] = useState(false);
   const [hover4, setHover4] = useState(false);
 
-  show
-    ? (document.querySelector("body").style.overflow = "hidden")
-    : (document.querySelector("body").style.overflow = "");
+  // show
+  //   ? (document.querySelector("body").style.overflow = "hidden")
+  //   : (document.querySelector("body").style.overflow = "");
 
 
   return (
-    <div className={styles.navMainDiv}>
+    <div className={styles.navMainDiv} style={{border:"1px solid red"}} >
   <div className={styles.navSubDiv2}>
         <div className={styles.dropdown}>
           <p className={`${styles.dropbtn} ${hover1 && styles.tabStyles}`}>
