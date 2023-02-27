@@ -18,7 +18,7 @@ const Dropdown = () => {
 
 
   return (
-    <div className={styles.navMainDiv} style={{border:"1px solid red"}} >
+    <div className={styles.navMainDiv} >
   <div className={styles.navSubDiv2}>
         <div className={styles.dropdown}>
           <p className={`${styles.dropbtn} ${hover1 && styles.tabStyles}`}>
