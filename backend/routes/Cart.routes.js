@@ -16,9 +16,21 @@ CartRouter.get("/", async (req, res) => {
 
 CartRouter.post("/add", async (req, res) => {
   try {
-    const CartData = new CartModel(req.body);
-    await CartData.save();
-    res.send({ message: "Product has been added successfully to the cart" });
+    let name = req.body.name
+    let product = await CartModel.findOne({name})
+    // console.log(product,name)
+    
+    if(product){
+      product.quantity = product.quantity+req.body.quantity
+      
+await CartModel.findByIdAndUpdate({_id:product["_id"]},product)
+    }
+    else{  
+      const CartData = new CartModel(req.body);
+      await CartData.save();
+    }
+    // res.send({ message: "Product has been added successfully to the cart" });
+
   } catch (error) {
     res.send({ message: "Cannot add product to the cart", error: error.message });
   }
