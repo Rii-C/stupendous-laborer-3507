@@ -10,6 +10,7 @@ import {IoReorderFourSharp} from "react-icons/io5"
 import { useDispatch, useSelector } from "react-redux";
 import { isNotAuth} from "../../redux/Authentication/action";
 import { getCardData } from "../../redux/Cart/action";
+import { SearchBar } from "../SearchBar";
 
 export const Navbar = () => {
   const dispatch = useDispatch()
@@ -43,8 +44,9 @@ export const Navbar = () => {
           <div className="searchboxdic">
             <span className={styles.search_div}>
               <button className={styles.searchbtn} ><FiSearch /></button>
-              <input type="text" placeholder='Search for products  brands...'
-                className={styles.search} />
+              {/* <input type="text" placeholder='Search for products  brands...'
+                className={styles.search} /> */}
+                <SearchBar/>
             </span>
           </div>
           

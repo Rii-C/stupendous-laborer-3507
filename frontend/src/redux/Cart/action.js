@@ -104,9 +104,9 @@ export const addToCart=(payload,token)=>async(dispatch)=>{
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
-    //    console.log(res_1,"this is the only one")
+
        dispatch(AddtoCart)
-       dispatch(getCardData(token))
+    //    dispatch(getCardData(token))
     }catch(err){
         console.log(err)
     }

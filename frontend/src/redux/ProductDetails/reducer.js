@@ -15,7 +15,7 @@ export const reducer = (state=InitialState,{type,payload})=>{
     case PRODUCT_DETAILS_SUCCESS: {
       // console.log(payload.image)
       return {...state,data:payload,isLoading:false}};
-    case PRODUCT_DETAILS_FAILURE: {return {...state,isError:false}};
+    case PRODUCT_DETAILS_FAILURE: {return {...state,isError:false,isLoading:false}};
     default: return state;
    }
 }

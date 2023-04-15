@@ -9,11 +9,11 @@ import {reducer as wishlistReducer} from './Wishlist/reducer'
 import {reducer as addressReducer} from "./Address/reducer"
 import {adminReducer} from "../redux/Admin/Admin.reducer"
 import {reducer as orderReducer} from "../redux/Order/reducer"
+import {reducer as searchReducer} from './Search/reducer'
 
 
 
-
-const rootReducer = combineReducers({authReducer,productsReducer,productDetailsReducer,cartReducer,wishlistReducer,addressReducer,adminReducer,carouselReducer,orderReducer})
+const rootReducer = combineReducers({authReducer,productsReducer,productDetailsReducer,cartReducer,wishlistReducer,addressReducer,adminReducer,carouselReducer,orderReducer,searchReducer})
 
 
 

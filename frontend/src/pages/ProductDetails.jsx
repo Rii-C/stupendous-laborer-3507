@@ -16,7 +16,9 @@ export const ProductDetails = () => {
 
   React.useEffect(()=>{
 dispatch(GetData(id))
-  },[])
+},[id])
+
+
 
 
   const {data,isLoading} = useSelector((store)=>{
@@ -32,10 +34,13 @@ dispatch(GetData(id))
   <Navbar/>
     <div className={styles.container}>
       <Nav/>
+      {
+        isLoading?"Loading...":
       <div className={styles.Box}>
         <Left/>
         <Right/>
       </div>
+      }
     <Description/>
     </div>
   </>
