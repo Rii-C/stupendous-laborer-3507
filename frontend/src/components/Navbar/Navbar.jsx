@@ -59,7 +59,9 @@ export const Navbar = () => {
             
           }
             
-              <div style={{display:"inline-flex",border:"0px solid black"}} className="acountbuton20"><Link to="/cart" ><CiShoppingCart className="naviconhgf5545"/> </Link><b style={{color:"white",backgroundColor:"#FF8F20",padding:"0px 5px 0px 5px",borderRadius:"45%",marginLeft:"-10px",marginBottom:"18px"}} >{cartCount?cartCount:0}</b></div>
+              <div style={{display:"inline-flex",border:"0px solid black"}} className="acountbuton20"><Link to="/cart" ><CiShoppingCart className="naviconhgf5545"/> </Link><b style={{color:"white",backgroundColor:"#FF8F20",padding:"0px 5px 0px 5px",borderRadius:"45%",marginLeft:"-10px",marginBottom:"18px"}} >
+                {/* {cartCount?cartCount:0} */}
+              </b></div>
             
             
           </div>

@@ -8,7 +8,7 @@ import StarRatings from 'react-star-ratings';
 import { DynamicDate } from './DynamicDate'
 import axios from 'axios'
 import { addToCart } from '../../redux/Cart/action'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 
 export const Right = () => {
@@ -21,7 +21,7 @@ const [showDay,setShowDay] = React.useState(4)
 const [showMonth,setShowMonth] = React.useState("January")
 const [prdQuantity,setPrdQuantity] = React.useState(1)
 const dispatch = useDispatch()
-
+const navigate = useNavigate()
 
 const {data,isLoading,name}  = useSelector((store)=>{
   return {data:store.productDetailsReducer.data,isLoading:store.productDetailsReducer.isLoading,name:store.productDetailsReducer.data.name}
@@ -160,6 +160,8 @@ dispatch(addToCart(obj,token))
 
 }
 
+navigate("/cart")
+
 
 }
 // -----------------------------------
@@ -297,9 +299,8 @@ Inclusive of all taxes
     <FontAwesomeIcon className={styles.carticon} icon={faCartShopping}/>
     {
       token?
-      <Link to='/cart'>
     <span>Add to Cart</span>
-    </Link>:
+    :
     <Link to='/login'>
     <span>Add to Cart</span>
     </Link>

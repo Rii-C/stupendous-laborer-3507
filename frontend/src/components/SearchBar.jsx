@@ -25,17 +25,18 @@ const {queryHandler,outcome,setOutcome,suggestions,dispatchOutcome} = useContext
 const HandleActiveSuggestions = (e)=>{
 
 if(e.keyCode===13 && outcome !==""){
+
     let id;
     for(let i=0; i<suggestions.length; i++){
         if(outcome==suggestions[i].name){
-            id = suggestions[i].id
+            id = suggestions[i]["_id"]
             break;
         }
     }
     if(id){
         setInput("")
         setOutcome("")
-        return navigate(`/products/skincare/${id}`)
+        return navigate(`/products/wheyproteins/${id}`)
     }
     else{
 
@@ -57,6 +58,7 @@ scrollDiv.current.scrollTop -=30
             break;
 
     case 40:
+        
        
          if(activeOption>=4 && activeOption <=suggestions.length-1){
             scrollDiv.current.scrollTop +=30
@@ -105,7 +107,7 @@ const HandleOutcome = (e)=>{
   return (
     <div  onKeyUp={HandleActiveSuggestions} >
         <div>
-    <input type="text" className={styles.input}  placeholder="Search for Medicines and Health Products"  value={input} onChange={HandleInputChange}/>
+    <input type="text" className={styles.input}  placeholder="Search for Health Products"  value={input} onChange={HandleInputChange}/>
         </div>
 
 <div
