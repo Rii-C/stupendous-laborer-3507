@@ -95,7 +95,7 @@ export const addToCart=(payload,token)=>async(dispatch)=>{
 
     try{
       
-        const res = await fetch(`http:localhost:8000/cart/add`,{
+        const res = await fetch(`https://healthkart-backend.onrender.com/cart/add`,{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
