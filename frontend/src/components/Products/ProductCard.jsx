@@ -24,7 +24,7 @@ const [heart,setHeart] = React.useState(true)
 const[cartButton,setCartButton] = React.useState(false)
 
 const [wishlistData,setWishlistData] = React.useState([])
-const [CartData,setCartData]  = React.useState([])
+
 
 const dispatch = useDispatch()
 
@@ -32,13 +32,6 @@ const {token} = useSelector((store)=>{
     return {token:store.authReducer.token}
   })
   
-// console.log(token,"this is token")
-// const userLoggedId = useSelector((store)=>{
-//     return {userLoggedId:store.authReducer.userDetails._id}
-// })
-
-// console.log(wishlistData,token)
-// console.log(CartData,"there is the cart data")
 
 
 
@@ -57,7 +50,6 @@ React.useEffect(()=>{
                 let x= false
                 for(let i =0; i<res.data.length; i++){
                     if(res.data[i].name===name
-                        //  && res.data[i].user==userLoggedId
                          ){
                         setHeart(false)
                         x = true
@@ -69,28 +61,6 @@ React.useEffect(()=>{
         })
         .catch((err)=>console.log(err))
 
-// ------------------------------------------------------------------------------------------------
-        axios.get("https://outstanding-outfit-seal.cyclic.app/cart",{
-            headers:{
-                Authorization:token
-            }
-        })
-        .then((res)=>{
-            // console.log(res.data)
-            if(res.data.CartData){
-                setCartData(res.data.CartData)
-                for(let i =0; i<res.data.CartData.length; i++){
-                    if(res.data.CartData[i].name===name 
-                        // && res.data[i].user == userLoggedId
-                        ){
-                        setHeart(false)
-                        break;
-                    }
-                }
-
-            }
-        })
-        .catch((err)=>console.log(err))
     
 },[])
   
@@ -181,83 +151,16 @@ axios.get("https://outstanding-outfit-seal.cyclic.app/wishlist",{
 const HandleAddtoCart = ()=>{
 
     if(token){
-        let x = false
-        let quantity;
-        let patchId = "nothing"
-        for(let i=0; i<CartData.length; i++){
-            if(CartData[i].name===name 
-                // && CartData[i].user == userLoggedId
-                ){
-x = true
 
-patchId = CartData[i]._id
-quantity = CartData[i].quantity
-    }
-}
-    if(x){
-        quantity  = +quantity + 1
-        // console.log(quantity,"new quantity")
-axios({
-    method:"patch",
-    baseURL:`https://outstanding-outfit-seal.cyclic.app/cart/update/${patchId}`,
-    headers:{
-        Authorization:token
-    },
-    data:{quantity:quantity}
-})
-.then((res)=>{
-
-})
-.catch((err)=>console.log(err))
-    }
-    else{
         let obj = {
-            name,image,stock,quantity:1,premium,mrp,price,discount,code,product_benefits,reviews,rating,flavour,description,category
-        }
-        // dispatch(addToCart(obj))
-        axios({
-            method:"post",
-            baseURL:`https://outstanding-outfit-seal.cyclic.app/cart/add`,
-            headers:{
-                Authorization:token
-            },
-            data:obj
-        })
-
-.then((res)=>{
-console.log(res,"Item has been added")
-})
-.catch((err)=>{
-    console.log(err)
-    console.log("did not add the item")
-})
-    }
-
-setCartButton(true)
-
-axios.get("https://outstanding-outfit-seal.cyclic.app/cart",{
-            headers:{
-                Authorization:token
-            }
-        })
-        .then((res)=>{
-            // console.log(res.data)
-            if(res.data.CartData){
-                setCartData(res.data.CartData)
-                for(let i =0; i<res.data.CartData.length; i++){
-                    if(res.data.CartData[i].name===name 
-                        // && res.data[i].user == userLoggedId
-                        ){
-                        setHeart(false)
-                        break;
+                     name,image,stock,quantity:1,premium,mrp,price,discount,code,product_benefits,reviews,rating,flavour,description,category
                     }
-                }
 
-            }
-        })
-        .catch((err)=>console.log(err))
 
-}
+    dispatch(addToCart(obj,token))
+            
+            setCartButton(true)
+    }
 else{
     return <Navigate to="/login"/>
 }
@@ -330,20 +233,16 @@ else{
                <img className={styles.mark} src="https://static1.hkrtcdn.com/hknext/static/media/common/variant/Vegetarian.svg" alt='mark'/>
             </div>
 
-{/* <div> */}
     <Text className={styles.name} noOfLines={[2,2,2,2,2]}>
-    {/* //  className={styles.name} */}
     
 
     {name}
 
     </Text>
-{/* </div> */}
 
 
 
 <div className={styles.priceDiscount} >
-{/* ₹ */}
 <span className={styles.price}>₹{price}</span>
 <span className={styles.mrp}>₹{mrp}</span>
 <span className={styles.discount} style={{whiteSpace:"nowrap"}}>{discount}% off</span>

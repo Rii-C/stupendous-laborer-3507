@@ -95,7 +95,7 @@ export const addToCart=(payload,token)=>async(dispatch)=>{
 
     try{
       
-        const res = await fetch(`https://outstanding-outfit-seal.cyclic.app/cart/add`,{
+        const res = await fetch(`http:localhost:8000/cart/add`,{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -104,7 +104,7 @@ export const addToCart=(payload,token)=>async(dispatch)=>{
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
-       console.log(res_1)
+    //    console.log(res_1,"this is the only one")
        dispatch(AddtoCart)
        dispatch(getCardData(token))
     }catch(err){
