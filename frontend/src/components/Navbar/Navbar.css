@@ -80,7 +80,9 @@ position: sticky; top:0;
 height: 100%;
 }
 .acountbuton{
-    height: 40px;
+    /* height: 40px;
+     */
+     padding:7px 5px;
     /* border: 1px solid red; */
     /* padding: ; */
     background-color: rgb(0,181,183);

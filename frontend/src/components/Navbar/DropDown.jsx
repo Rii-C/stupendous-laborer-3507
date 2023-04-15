@@ -16,9 +16,23 @@ const Dropdown = () => {
   //   ? (document.querySelector("body").style.overflow = "hidden")
   //   : (document.querySelector("body").style.overflow = "");
 
+  window.onscroll = ()=>{
+    // let height =
+           if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+            let drop =       document.getElementById("drop")
+  
+              drop.style.display = "none"
+            }
+            else {
+              let drop =       document.getElementById("drop")
+  
+              drop.style.display = "block"
+              }
+        }
+
 
   return (
-    <div className={styles.navMainDiv} >
+    <div className={styles.navMainDiv} id='drop' >
   <div className={styles.navSubDiv2}>
         <div className={styles.dropdown}>
           <p className={`${styles.dropbtn} ${hover1 && styles.tabStyles}`}>

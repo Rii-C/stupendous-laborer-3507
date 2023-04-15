@@ -9,6 +9,7 @@
     top: 90px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     z-index: 1000;
+    margin-bottom: 20px;
 }
 .navSubDiv1{
     width: 13%;
@@ -59,28 +60,7 @@
     -ms-transition:font-weight ease-out 0.1s;
     -o-transition:font-weight ease-out 0.1s;
   }
-  
-  /* .dropbtn:hover {
-      transition:font-weight ease-in 0.1s;
-      -webkit-transition:font-weight ease-in 0.1s;
-      -moz-transition:font-weight ease-in 0.1s;
-      -ms-transition:font-weight ease-in 0.1s;
-      -o-transition:font-weight ease-in 0.1s;
-      font-weight: 400;
-      border-bottom:2px solid #ee4a1b;
-  } */
-  
-  /* .tabStyles {
-      transition:font-weight ease-in 0.1s;
-      -webkit-transition:font-weight ease-in 0.1s;
-      -moz-transition:font-weight ease-in 0.1s;
-      -ms-transition:font-weight ease-in 0.1s;
-      -o-transition:font-weight ease-in 0.1s;
-      font-weight: 400;
-      border-bottom:2px solid #ee4a1b;
-  } */
-  
-  
+ 
   
   .dropdownContent {
     display: none;
@@ -138,44 +118,7 @@
     gap: 2vw;
     justify-content: center;
   }
-  /* .loginSignButtom{
-    width: 130px;
-    height: 40px;
-    border: 1px solid rgb(94, 93, 93);
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 10px;
-    color: rgb(245, 69, 98);
-  }
-   */
-  /* .dropdown:hover > .dropdownContentProfile {
-    display: block;
-  }
-   */
   
-  /* .dropdownContentProfile a {
-    color: black; 
-    padding: 1.1vh 0; 
-    text-decoration: none;
-    display: block;
-    font-weight: 400;
-    transition:font-weight ease-out 0.05s;
-    -webkit-transition:font-weight ease-out 0.05s;
-    -moz-transition:font-weight ease-out 0.05s;
-    -ms-transition:font-weight ease-out 0.05s;
-    -o-transition:font-weight ease-out 0.05s;
-  } */
-  
-  /* .dropdownContentProfile a:hover {
-    font-weight: 400;
-    transition:font-weight ease-in 0.05s;
-    -webkit-transition:font-weight ease-in 0.05s;
-    -moz-transition:font-weight ease-in 0.05s;
-    -ms-transition:font-weight ease-in 0.05s;
-    -o-transition:font-weight ease-in 0.05s;
-  } */
-
-  /* //search box part */
 
   .search{
     
@@ -222,8 +165,8 @@
   display: none;
 }
 
-@media (max-width: 1024px) {
-
+@media (max-width: 800px) {
+.navMainDiv{display: none;}
   .navSubDiv2{
     display: none;
   }
@@ -247,6 +190,7 @@
 
 @media (max-width: 480px) {
 
+  .navMainDiv{display: none;}
   .navSubDiv2{
     display: none;
   }

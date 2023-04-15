@@ -1,6 +1,14 @@
 .Box{max-height:98px; overflow: auto; width:300px;margin: auto;margin-top:10px;  position: absolute; top:20px; background-color: white;}
 
+.container{display: flex; justify-content: space-between; padding: 0 40px;height:70px; align-items: center; border-bottom: 1px solid rgb(209, 209, 209); }
+
+.container img{height:60px; width:60px;}
+.search{ display: flex; justify-content: center; background-color: whitesmoke; padding:0 7px; gap:5px;}
+
+
 .item{height:20px; padding:5px; cursor: pointer; text-align: left; padding-left: 10px;  top:10px; background-color: white; display: flex; flex-direction: column; align-items: center;  } 
+
+.side{display: flex; align-items: center; gap:10px; justify-content: center;}
 
 .Box::-webkit-scrollbar {
     width: 10px;
@@ -19,3 +27,16 @@
   }
 
 .input{ padding:0 0 0px 5px;width:320px; font-size: 15px; height:100%;border:none;outline:none; background-color: whitesmoke; height:40px;}
+
+.menu{display: none;}
+.bars{font-size: 20px; margin-left: 20px;}
+.login{background-color: rgb(0,181,183);
+color:white; padding:4px 10px; border-radius: 4px;
+}
+
+@media screen and (min-width: 100px) and (max-width:800px){
+  .search{display: none;}
+  .container{padding:0 20px;}
+  .container img{height:50px; width:50px;}
+  .menu{display: block;}
+}

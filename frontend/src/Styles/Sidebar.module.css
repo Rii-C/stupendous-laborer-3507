@@ -1,0 +1,8 @@
+.container{width:270px; background-color: rgb(59, 59, 59); color:white; position: absolute; z-index: 1000000; height:100%; display: flex; flex-direction: column; gap:20px; padding-left:20px; padding-top: 20px; }
+
+.container img{height:70px; width:70px;}
+
+.head{display: flex; justify-content: space-between; margin-right: 20px;}
+.close{font-size: 20px; margin-top: 20px; cursor: pointer;  }
+
+.close:hover{color:red;}

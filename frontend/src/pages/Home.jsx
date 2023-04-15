@@ -1,13 +1,11 @@
 import React from 'react'
-import {Box, Center, Flex, Image, center } from '@chakra-ui/react'
+import {Box, Center, Flex, Image, center, useStatStyles } from '@chakra-ui/react'
 import style from '.././Styles/Home/Home.module.css'
 import {Navbar} from '.././components/Navbar/Navbar'
 import Carousal from '../components/Home/ImgCarousel'
 import Carousal2 from '../components/Home/Img2Carousel'
 import WhyHealth from '../components/Home/WhyHealth'
 import Footer from '../components/footer/Footer'
-import Download from '../components/Home/Download'
-import HKprim from '../components/Home/HKprim'
 import { Link } from 'react-router-dom'
 import { Dropdown } from '../components/Navbar/DropDown'
 import {useDispatch} from 'react-redux'
@@ -19,11 +17,19 @@ import PickDay from '../components/Carousel/PickDay'
 import PriceSlash from '../components/Carousel/PriceSlash'
 import Recently from '../components/Carousel/Recently'
 import WorkoutEssentials from '../components/Carousel/WorkoutEssentials'
+import { useState } from 'react'
 export const Home = () => {
   const dispatch = useDispatch()
   React.useEffect(()=>{
 dispatch(GetData)
 },[])
+
+
+const [show,setShow] = useState(false)
+
+
+
+
   return (
     <>
     <Navbar/>
@@ -119,24 +125,14 @@ dispatch(GetData)
         <div style={{height:"10px", backgroundColor:"#F4F4F4" }}>
             <hr />
         </div>
-      <div>
-        <Download/>
-      </div>
-      <div style={{height:"10px", backgroundColor:"#F4F4F4" }}>
-            <hr />
-        </div>
+     
+      
         <div>
           <Recently/>
         </div>
-        <div style={{height:"10px", backgroundColor:"#F4F4F4" }}>
-            <hr />
-        </div>
-      <div>
-        <HKprim/>
-      </div>
-      <div style={{height:"10px", backgroundColor:"#F4F4F4" }}>
-            <hr />
-        </div>
+        
+     
+    
       <div>
         <Footer/>
       </div>
