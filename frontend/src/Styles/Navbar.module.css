@@ -1,4 +1,4 @@
-.Box{max-height:98px; overflow: auto; width:300px;margin: auto;margin-top:10px;  position: absolute; top:20px; background-color: white;}
+.Box{max-height:150px; overflow: auto; width:460px;margin: auto;margin-top:10px;   position: absolute; top:40px; background-color: white; z-index:999;}
 
 .container{display: flex; justify-content: space-between; padding: 0 40px;height:70px; align-items: center; border-bottom: 1px solid rgb(209, 209, 209); }
 
@@ -6,7 +6,7 @@
 .search{ display: flex; justify-content: center; background-color: whitesmoke; padding:0 7px; gap:5px;}
 
 
-.item{height:20px; padding:5px; cursor: pointer; text-align: left; padding-left: 10px;  top:10px; background-color: white; display: flex; flex-direction: column; align-items: center;  } 
+.item{height:30px; padding:5px; cursor: pointer; text-align: left; padding-left: 10px;  top:10px; background-color: white; display: flex; flex-direction: column; align-items: center;  } 
 
 .side{display: flex; align-items: center; gap:10px; justify-content: center;}
 
@@ -26,7 +26,7 @@
     background: #555; 
   }
 
-.input{ padding:0 0 0px 5px;width:320px; font-size: 15px; height:100%;border:none;outline:none; background-color: whitesmoke; height:40px;}
+.input{ padding:0 0 0px 5px;width:450px;; font-size: 15px; height:100%;border:none;outline:none; background-color: whitesmoke; height:40px;}
 
 .menu{display: none;}
 .bars{font-size: 20px; margin-left: 20px;}

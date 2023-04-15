@@ -107,7 +107,7 @@ const HandleOutcome = (e)=>{
   return (
     <div  onKeyUp={HandleActiveSuggestions} >
         <div>
-    <input type="text" className={styles.input}  placeholder="Search for Health Products"  value={input} onChange={HandleInputChange}/>
+    <input type="text"  className={styles.input}  placeholder="Search for Health Products"  value={input} onChange={HandleInputChange}/>
         </div>
 
 <div
@@ -118,7 +118,7 @@ ref={scrollDiv}
     {
         suggestions.map((item,index)=>{
             return (
-                <Text fontSize="10px" noOfLines={[0,0,0,0,0]} key = {index} onClick={()=>HandleItem(item.name)} className={styles.item} 
+                <Text fontSize="14px" noOfLines={[0,0,0,0,0]} key = {index} onClick={()=>HandleItem(item.name)} className={styles.item} 
                 style={{background:activeOption == index+1?"whitesmoke":"white"}}
                 onMouseOver={()=>setActiveOption(index+1)}>
                     {item.name}
