@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import  "./Navbar.css";
+
 import styles from "../../Styles/Navbar.module.css";
 import { Link ,useNavigate} from "react-router-dom";
 import weblogo from "../asset/webLogo.png"
@@ -20,7 +20,7 @@ export const Navbar = () => {
   const [show,setShow] = React.useState(false)
 
   const dispatch = useDispatch()
-  const cartCount=useSelector(store=>store.cartReducer.cartCount)
+  const cartCount=useSelector(store=>store.cartReducer.cart.length)
   const {token} = useSelector((store)=>{
     return {token:store.authReducer.token}
   })
@@ -76,7 +76,7 @@ const close = ()=>{
       }
       </div>
 
-      <div className={styles.cart}><Link to="/cart" ><CiShoppingCart className="naviconhgf5545"/> </Link><b>
+      <div><Link to="/cart" ><CiShoppingCart  className={styles.cart} style={{fontSize:"20px"}}/> </Link><b>
             {/* {cartCount?cartCount:0} */}
        </b></div>
 

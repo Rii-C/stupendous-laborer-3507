@@ -10,7 +10,6 @@ import {useSelector,useDispatch} from 'react-redux'
 import axios from 'axios'
 import { addToCart } from '../../redux/Cart/action'
 import { updateCart } from '../../redux/Cart/action'
-// import { getCardData } from '../../redux/Cart/action'
 
 
 

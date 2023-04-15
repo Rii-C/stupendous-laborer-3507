@@ -13,15 +13,14 @@ export const Cart = () => {
   const isLoading=useSelector(store=>store.cartReducer.isLoading)
   const token=useSelector(store=>store.authReducer.token)
   
+  const cartCount=useSelector(store=>store.cartReducer.cartCount)
 
   const dispatch=useDispatch()
-  console.log(token)
   useEffect(()=>{
     dispatch(getCardData(token))
-      },[])
-      const cartCount=useSelector(store=>store.cartReducer.cartCount)
+      },[cartCount])
 
-
+console.log(cartCount)
  
 
   

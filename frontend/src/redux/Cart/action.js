@@ -106,7 +106,7 @@ export const addToCart=(payload,token)=>async(dispatch)=>{
         const res_1= await res.json();
 
        dispatch(AddtoCart)
-    //    dispatch(getCardData(token))
+
     }catch(err){
         console.log(err)
     }

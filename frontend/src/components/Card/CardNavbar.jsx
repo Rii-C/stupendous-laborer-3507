@@ -25,7 +25,7 @@ const CardNavbar = () => {
     <Flex justify="center" alignItems="center" m={5} h="100px" mt={5} boxShadow='xs' p='10' rounded='md' bg='white' >
     <Box >
     <Link to="/" style={{cursor:"pointer"}} >
-    <Image src={logo} alt="logo" w={{base:"50%",md:"30%"}}/>
+    <Image src={logo} alt="logo"  w={{base:"50%",md:"30%"}}/>
     </Link>
     </Box>
   <Box>
