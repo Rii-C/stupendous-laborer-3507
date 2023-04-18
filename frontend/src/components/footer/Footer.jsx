@@ -164,44 +164,46 @@ export default function Footer() {
           </Box>
 
           <Box>
-            <Flex p={6} gap='3'>
-                <Image 
+            <div style={{display:"flex",gap:"6px",flexWrap:"wrap",marginTop:"20px"}} >
+                <img 
+                style={{objectFit:"cover",width:"90px",height:"40px"}}
                 src='https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay1.svg'
                 objectFit="cover"
                 alt='banks'
                 sizes='10%'
                 />
-                <Image 
+                <img 
+                 style={{objectFit:"cover",width:"90px",height:"40px"}}
                 src='https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay2.svg'
-                objectFit="cover"
+                
                 alt='banks'
-                sizes='10%'
+                
                 />
-                <Image 
+                <img   style={{objectFit:"cover",width:"90px",height:"40px"}}
                 src='https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay3.svg'
-                objectFit="cover"
+                
                 alt='banks'
-                sizes='10%'
+                
                 />
-                <Image 
+                <img  style={{objectFit:"cover",width:"90px",height:"40px"}}
                 src='https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay4.svg'
-                objectFit="cover"
+                
                 alt='banks'
-                sizes='10%'
+                
                 />
-                <Image 
+                <img  style={{objectFit:"cover",width:"90px",height:"40px"}}
                 src='https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay5.svg'
-                objectFit="cover"
+                
                 alt='banks'
-                sizes='10%'
+                
                 />
-                <Image 
+                <img  style={{objectFit:"cover",width:"90px",height:"40px"}}
                 src='https://static1.hkrtcdn.com/hknext/static/media/common/footer/pay6.svg'
-                objectFit="cover"
+                
                 alt='banks'
-                sizes='10%'
+                
                 />
-            </Flex>
+            </div>
           </Box>
 
         {/**------------------------------------------------------------------------------ */}
@@ -214,18 +216,18 @@ export default function Footer() {
         <Text fontSize="14px" w="90%" m="auto" textAlign="center"></Text>
       </Center>
 
-      <Flex fontSize={"sm"} justifyContent={'space-between'} color={'#A9B0B1'}>
+      <div style={{color:"#A9B0B1",display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:"20px"}}>
         <Text>Copyright © 2023, HealthKart.com, or its affiliates</Text>
-        <SimpleGrid column={{base:1, md:8, sm:8}} spacing={8} >
-            <Flex  gap={5}>
-                <Text>Terms & Conditons  </Text>|
-                <Text>Delivery Policy  </Text>|
-                <Text>Privacy Policy </Text>|
-                <Text>Disclaimer  </Text>|
-                <Text>Return Policy </Text>
-            </Flex>
+        <SimpleGrid spacing={8} >
+            <div style={{display:"flex",gap:"7px",flexWrap:"wrap"}}>
+                <p>Terms & Conditons  </p>
+                <p>Delivery Policy  </p>
+                <p>Privacy Policy </p>
+                <p>Disclaimer  </p>
+                <p>Return Policy </p>
+            </div>
         </SimpleGrid>
-      </Flex>
+      </div>
       </Container>
       
     </Box>

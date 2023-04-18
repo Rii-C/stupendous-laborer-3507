@@ -33,7 +33,9 @@ const [show,setShow] = useState(false)
   return (
     <>
     <Navbar/>
-    <Dropdown/>
+  <div className={style.dropdown}>
+  <Dropdown/>
+  </div>
     <div className={style.div}>
       <div className={style.text}>App Sale Is Now Live</div>
       <div>
@@ -75,17 +77,12 @@ const [show,setShow] = useState(false)
         </div>
       <div className={style.divAd} >
         <h1 className={style.H1}>Top Selling Combos</h1>
-      <Flex  width={['100%', '50%']}
-            margin="auto"
-            flexDirection={'row'}
-            alignItems="center"
-            justifyContent="center"
-            gap={[4, 2]} >
-          <Image w={"50%"} src ="https://img9.hkrtcdn.com/24441/bnr_2444088_o.jpg" borderRadius={8}/>
-          <Image  w={"50%"} src ="https://img1.hkrtcdn.com/24441/bnr_2444090_o.jpg" borderRadius={8}/>
-          <Image  w={"50%"} src ="https://img1.hkrtcdn.com/24442/bnr_2444190_o.jpg" borderRadius={8}/>
-          <Image  w={"50%"} src ="https://img3.hkrtcdn.com/24442/bnr_2444192_o.jpg" borderRadius={8}/>
-      </Flex>
+      <div  style={{display:"flex",justifyContent:"center",gap:"2%"}} >
+          <img style={{width:"23%"}} src ="https://img9.hkrtcdn.com/24441/bnr_2444088_o.jpg" />
+          <img   style={{width:"23%"}}  src ="https://img1.hkrtcdn.com/24441/bnr_2444090_o.jpg" />
+          <img   style={{width:"23%"}}  src ="https://img1.hkrtcdn.com/24442/bnr_2444190_o.jpg" />
+          <img   style={{width:"23%"}}  src ="https://img3.hkrtcdn.com/24442/bnr_2444192_o.jpg" />
+      </div>
       </div>
       <div style={{height:"10px", backgroundColor:"#F4F4F4" }}>
             <hr />
