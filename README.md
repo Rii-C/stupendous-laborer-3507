@@ -29,8 +29,7 @@ Note: please refresh product details / cart page if you don't get updated data
    4. Add to cart, Increase and Decrease quantity, Remove from cart
    5. Edit Address Info
    6. Payment functionality
-   7. Payment  functionality
-   8. Place order
+   7. Place order
    
 ## Admin Side
    1. Login, Logout
