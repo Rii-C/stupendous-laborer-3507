@@ -1,4 +1,4 @@
-Note:Please refresh product details / cart page if you don't get updated data
+Note: please refresh product details / cart page if you don't get updated data
 
 # <p align="center" >vigorwizard.com</p>  
   <div align="center" ><a href="https://healthkart-ten.vercel.app/">Deployed Link</a> | <a href="https://healthkart-backend.onrender.com/">Server Link</a> </div>
@@ -39,10 +39,12 @@ Note:Please refresh product details / cart page if you don't get updated data
    4. Order Handling
    
    
-   ##Client Side
+   
+   
+   ### Client Side
    Login Template: {username:"juan@gmail.com",password:123456}
    
-   ## Admin Side
+   ### Admin Side
    Login: {username:"s@gmail.com",password:"s12345"}
    
    
