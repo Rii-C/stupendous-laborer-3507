@@ -42,7 +42,10 @@ export default function Footer() {
         objectFit="cover"/>
         </Box>
         <Box display={'Flex'} >
-        <SimpleGrid columns={{ base: 1, sm: 5, md: 6 }} spacing={9} fontSize="sm">
+
+
+        <SimpleGrid columns={{ base: 1, sm: 2, md: 3,lg: 4,
+  xl:5,'2xl':6}} spacing={9} fontSize="sm">
             
           <Stack align={'flex-start'} textAlign={'left'} color={'#A9B0B1'}>
             <ListHeader>HealthKart</ListHeader>
@@ -90,8 +93,7 @@ export default function Footer() {
             <Link href={'#'}>0124-4616444</Link>
             <Link href={'#'}>The Presidency Tower, Tower-B, 2nd Floor, 46/4, Mehrauli Rd opp. government girls college, Anamika Enclave, Sector 14, Gurugram, Haryana</Link>
           </Stack>
-        </SimpleGrid>
-          <Box justifyContent="center" textAlign={'left'} backgroundColor ={'white'} color={'black'} width={'120%'} padding={'20px'} borderRadius={'7px'} lineHeight={'30px'}  >
+          {/* <Box justifyContent="center" textAlign={'left'} backgroundColor ={'white'} color={'black'} width={'90%'} padding={'20px'} borderRadius={'7px'} lineHeight={'30px'}  >
             <Text fontWeight="500">Subscribe</Text>
             <InputGroup size='md'>
             <Input
@@ -154,7 +156,11 @@ export default function Footer() {
           </Box>
         </Stack>
 
-          </Box>
+          </Box> */}
+        </SimpleGrid>
+
+
+        
           </Box>
 
           <Box>
