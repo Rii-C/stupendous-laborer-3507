@@ -13,6 +13,7 @@ export const Cart = () => {
   const isLoading=useSelector(store=>store.cartReducer.isLoading)
   const token=useSelector(store=>store.authReducer.token)
   
+  const cartCount=useSelector(store=>store.cartReducer.cartCount)
 
   const dispatch=useDispatch()
   useEffect(()=>{
@@ -25,8 +26,6 @@ export const Cart = () => {
   
 
  
-
-  
 
 
   if(isLoading){
