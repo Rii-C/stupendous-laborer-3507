@@ -1,3 +1,5 @@
+{Note:Please refresh product details / cart page if you don't get updated data}
+
 # <p align="center" >vigorwizard.com</p>  
   <div align="center" ><a href="https://healthkart-ten.vercel.app/">Deployed Link</a> | <a href="https://healthkart-backend.onrender.com/">Server Link</a> </div>
   
@@ -35,3 +37,13 @@
    2. Add new products to db
    3. Update/Delete existing product
    4. Order Handling
+   
+   
+   ##Client Side
+   Login Template: {username:"juan@gmail.com",password:123456}
+   
+   ## Admin Side
+   Login: {username:"s@gmail.com",password:"s12345"}
+   
+   
+   
