@@ -21,7 +21,7 @@ export const Cart = () => {
 
   useEffect(()=>{
     dispatch(getCardData(token))
-    dispatch(getAddress(token))
+  
       },[])
      
  

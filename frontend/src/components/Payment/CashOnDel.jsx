@@ -16,9 +16,7 @@ const CashOnDel = () => {
   const token=useSelector(store=>store.authReducer.token)
 
   const dispatch=useDispatch()
-  useEffect(()=>{
-dispatch(getCardData(token))
-  },[dispatch,deleteAllItemFromCart])
+
 
   const data=useSelector(store=>store.cartReducer.cart)
   

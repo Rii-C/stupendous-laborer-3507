@@ -83,8 +83,8 @@
 }
 
 .quickBuy{
-    padding-left:10px; padding-right: 10px;height:35px; font-size: 17px; font-weight: 500; cursor: pointer; display: flex; gap:10px; align-items: center; background-color: #ff8914; color:white;border:1px solid #ff8914; border-radius: 5px;
-    width:99px;
+    padding-left:10px; display: inline-block; padding-right: 10px;height:35px; font-size: 17px; font-weight: 500; cursor: pointer; display: flex; gap:10px; align-items: center; background-color: #ff8914; color:white;border:1px solid #ff8914; border-radius: 5px;
+   
 }
 
 .quickBuy:hover{

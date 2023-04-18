@@ -29,13 +29,13 @@ export const UpdateAddres=()=>{
 
 
 export const getAddress=(token)=>async (dispatch)=>{
-    dispatch(AddressgetRequestAction())
+    dispatch(AddressgetRequestAction)
   try {
         const res = await fetch("https://outstanding-outfit-seal.cyclic.app/address", {
             method: "GET",
             headers: {
                 "Content-type": "application/json",
-                "authorization":token 
+                "authorization": token
             },
         });
         const res_1 = await res.json();
@@ -43,7 +43,7 @@ export const getAddress=(token)=>async (dispatch)=>{
         dispatch(AddressgetSuccessAction(res_1.data));
     } catch (err) {
         console.log(err);
-        dispatch(AddressgetFailureAction());
+        dispatch(AddressgetFailureAction);
     }
 }
 
@@ -55,14 +55,15 @@ export const addAddress=(payload,token)=>async(dispatch)=>{
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "authorization":token 
+                "authorization": token
+            
             },
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(AddAddress())
-       dispatch(getAddress(token))
+       dispatch(getAddress())
      
     }catch(err){
         console.log(err)
@@ -77,13 +78,13 @@ export const deleteAddress=(id,token)=>async(dispatch)=>{
             method: "DELETE",
             headers: {
                 "Content-type": "application/json",
-                "authorization":token 
+                "authorization": token
             },
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(DeleteAddress)
-       dispatch(getAddress(token))
+       dispatch(getAddress())
        
     }catch(err){
         console.log(err)
@@ -99,16 +100,15 @@ export const updateAddress=(payload,id,token)=>async(dispatch)=>{
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",
-                "authorization":token 
+                "authorization": token
             },
             body:JSON.stringify(payload)
         });
         const res_1= await res.json();
        console.log(res_1)
        dispatch(UpdateAddres)
-       dispatch(getAddress(token))
+       dispatch(getAddress())
     }catch(err){
         console.log(err)
     }
 }
-

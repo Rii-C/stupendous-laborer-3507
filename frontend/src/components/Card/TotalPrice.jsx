@@ -35,7 +35,10 @@ const Totalprice = ({data}) => {
 const handleClick=()=>{
   navigate("/address")
 }
-  
+
+useEffect(()=>{
+  dispatch(getAddress(token))
+    },[])
 
   // console.log(sumPrice(data),summrp(data))
   const totalprice=sumPrice(data)
@@ -44,6 +47,7 @@ const handleClick=()=>{
   if(data.length===0){
     res=true
   }
+
   
   
 
