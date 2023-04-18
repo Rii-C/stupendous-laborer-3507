@@ -10,8 +10,11 @@
    5. React 
    6. Redux
    
+   
 ## Features
-   1. Signup,Login,Logout
+
+# Client Side
+   1. Signup, Login, Logout
    2. Search Engine
    2. Sorting,Filtering
    3. Pagination
@@ -20,3 +23,9 @@
    6. Payment functionality
    7. Payment  functionality
    8. Place order
+
+# Admin Side
+   1. Login, Logout
+   2. Add new products to db
+   3. Update/Delete existing product
+   4. Order Handling
