@@ -1,6 +1,6 @@
 ![HealthKart](https://healthkart-ten.vercel.app/static/media/webLogo.93e99be5e0849bd646d7.png)
 
-## HealthKart.com <a href="https://healthkart-ten.vercel.app/">Live site</a>
+## HealthKart.com <a href="https://healthkart-ten.vercel.app/">Deployed Link</a>
 ##  <a href="https://healthkart-backend.onrender.com/">Server Link</a>
 ## Tech Stacks:
    1. HTML
