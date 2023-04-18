@@ -23,9 +23,7 @@ const OrderSummary = () => {
   // console.log(token)
 
   
-   useEffect(()=>{
-    dispatch(getCardData(token))
- },[dispatch])
+
 
     const data=useSelector(store=>store.cartReducer.cart)||[]
 

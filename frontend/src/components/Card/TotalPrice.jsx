@@ -27,12 +27,8 @@ const Totalprice = ({data}) => {
   const navigate=useNavigate()
   const dispatch=useDispatch()
    const token=useSelector(store=>store.authReducer.token)
-  // const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2M2Y2NmU1YThlZDZkNmEwMDU1MDY4ZjIiLCJpYXQiOjE2Nzc0MTUyMTN9.oZkzJSpa-K3tpJOzpx1GwJgf8Q53oZUEZ818XXyev70"
-  // console.log(token)
-  useEffect(()=>{
-    dispatch(getAddress(token))
-   
-  },[])
+ 
+
 
   const Address=useSelector(store=>store.addressReducer.Address)
 
