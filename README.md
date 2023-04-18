@@ -41,7 +41,7 @@ Note: please refresh product details / cart page if you don't get updated data
    
    
    
-   ### Login
+   ## Login
    * Client Template: {email:"juan@gmail.com",password:123456}
    * Admin:           {email:"s@gmail.com",password:"s12345"}
    * Username must be unique
