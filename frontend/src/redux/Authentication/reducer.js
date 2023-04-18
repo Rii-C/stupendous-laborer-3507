@@ -1,10 +1,10 @@
 import {Log_in, Log_out} from "./actionType";
 
-const count = localStorage.getItem("token")
+const count = JSON.parse(localStorage.getItem("user"))
 
 const initState = {
   
-  token: count || null,
+  token: count && count.token || null,
   userDetails:{}
 };
 

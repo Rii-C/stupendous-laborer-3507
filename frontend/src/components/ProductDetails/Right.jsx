@@ -157,10 +157,14 @@ const HandleAddtoCart = ()=>{
 
 
 dispatch(addToCart(obj,token))
+return navigate("/cart")
 
 }
 
-navigate("/cart")
+else{
+  return navigate("/login")
+}
+
 
 
 }
@@ -297,14 +301,9 @@ Inclusive of all taxes
   </div>
   <div onClick={HandleAddtoCart} className={styles.cartbtn}>
     <FontAwesomeIcon className={styles.carticon} icon={faCartShopping}/>
-    {
-      token?
+    
     <span>Add to Cart</span>
-    :
-    <Link to='/login'>
-    <span>Add to Cart</span>
-    </Link>
-    }
+    
   </div>
 
   {

@@ -13,23 +13,21 @@ export const Cart = () => {
   const isLoading=useSelector(store=>store.cartReducer.isLoading)
   const token=useSelector(store=>store.authReducer.token)
   
-  const cartCount=useSelector(store=>store.cartReducer.cartCount)
 
   const dispatch=useDispatch()
   useEffect(()=>{
     dispatch(getCardData(token))
-      },[cartCount])
+      },[])
 
-console.log(cartCount)
- 
-
-  
 
  
 
   
-  // const res=(cart.length===0)
-  // console.log(res);
+
+ 
+
+  
+
 
   if(isLoading){
     return <Loading/>

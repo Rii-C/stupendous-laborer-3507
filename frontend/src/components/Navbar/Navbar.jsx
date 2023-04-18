@@ -39,8 +39,8 @@ const close = ()=>{
 
   const handleLog = () =>{
  
-      localStorage.setItem("token", JSON.stringify(null))
-      dispatch(isNotAuth(null))
+      localStorage.setItem("user", JSON.stringify({token:null}))
+      dispatch(isNotAuth(false))
   }
 
   const navigate=useNavigate()

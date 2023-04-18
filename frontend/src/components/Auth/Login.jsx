@@ -60,7 +60,7 @@ const Logging = () => {
               duration: 3000,
               isClosable: true,
             });
-            localStorage.setItem("token",res.data.token)
+            localStorage.setItem("user",JSON.stringify({token:res.data.token}))
             console.log(res.data.token)
             dispatch(isAuth(res.data.token));
             return navigate("/")
