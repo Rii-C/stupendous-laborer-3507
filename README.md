@@ -41,16 +41,16 @@ Note: please refresh product details / cart page if you don't get updated data
    
    
    
-   ### Client Side
-   Login Template: {email:"juan@gmail.com",password:123456}
-
+   ### Login
+   * Client Template: {email:"juan@gmail.com",password:123456}
+   * Admin:           {email:"s@gmail.com",password:"s12345"}
+   * Username must be unique
    * Length of password must be greater than 5 and less than 11
    * Length of mobile number must be 10
-   * Username must be unique
+
    
-   
-   ### Admin Side
-   Login: {email:"s@gmail.com",password:"s12345"}
+  
+
    
    ### Payment
    Please Select Cash Payment only
