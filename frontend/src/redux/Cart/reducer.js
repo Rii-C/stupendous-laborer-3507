@@ -16,13 +16,13 @@ export const reducer = (state=InitialState,{type,payload})=>{
     case CARTGET_SUCCESS: {
       
       return {...state,cart:payload.CartData,cartCount:payload.CartCount,isLoading:false}};
-    case CARTGET_FAILURE: {return {...state,isError:true}};
+    case CARTGET_FAILURE: {return {...state,isError:true,isLoading:false}};
 
-    case DELETE_DATA:{return {...state,isLoading:false,isError:false}}
+    case DELETE_DATA:{return {...state,isError:false}}
    
-    case ADDTOCART:{return {...state,isloading:false,isError:false }}
+    case ADDTOCART:{return {...state,isError:false }}
 
-    case UPDATE_CART:{return {...state,isLoading:false,isError:false}}
+    case UPDATE_CART:{return {...state,isError:false}}
 
 
     default: return state;

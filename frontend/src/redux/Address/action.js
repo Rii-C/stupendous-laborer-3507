@@ -29,7 +29,7 @@ export const UpdateAddres=()=>{
 
 
 export const getAddress=(token)=>async (dispatch)=>{
-    dispatch(AddressgetRequestAction)
+    dispatch(AddressgetRequestAction())
   try {
         const res = await fetch("https://outstanding-outfit-seal.cyclic.app/address", {
             method: "GET",
@@ -43,7 +43,7 @@ export const getAddress=(token)=>async (dispatch)=>{
         dispatch(AddressgetSuccessAction(res_1.data));
     } catch (err) {
         console.log(err);
-        dispatch(AddressgetFailureAction);
+        dispatch(AddressgetFailureAction());
     }
 }
 

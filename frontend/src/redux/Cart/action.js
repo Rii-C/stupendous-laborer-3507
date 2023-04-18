@@ -32,8 +32,7 @@ export const update=()=>{
 
 
 export const getCardData=(token)=>async (dispatch)=>{
-    console.log(token)
-    dispatch(CartgetRequestAction)
+    dispatch(CartgetRequestAction())
   try {
         const res = await fetch("https://outstanding-outfit-seal.cyclic.app/cart", {
             method: "GET",
@@ -43,11 +42,11 @@ export const getCardData=(token)=>async (dispatch)=>{
             },
         });
         const res_1 = await res.json();
-        console.log(res_1);
+        console.log(res_1,"this is cart DATa oyouosus");
         dispatch(CartgetSuccessAction(res_1));
     } catch (err) {
         console.log(err);
-        dispatch(CartgetFailureAction);
+        dispatch(CartgetFailureAction());
     }
 }
 
@@ -64,7 +63,7 @@ export const deleteItemFromCart=(id,token)=>async(dispatch)=>{
         });
         const res_1= await res.json();
        console.log(res_1)
-       dispatch(DeleteItemCart)
+       dispatch(DeleteItemCart())
        dispatch(getCardData(token))
     }catch(err){
         console.log(err)
@@ -84,7 +83,7 @@ console.log(id)
         });
         const res_1= await res.json();
        console.log(res_1)
-       dispatch(DeleteItemCart)
+       dispatch(DeleteItemCart())
        dispatch(getCardData(token))
     }catch(err){
         console.log(err)
@@ -105,7 +104,8 @@ export const addToCart=(payload,token)=>async(dispatch)=>{
         });
         const res_1= await res.json();
 
-       dispatch(AddtoCart)
+       dispatch(AddtoCart())
+
 
     }catch(err){
         console.log(err)
@@ -126,7 +126,7 @@ export const updateCart=(payload,id,token)=>async(dispatch)=>{
         });
         const res_1= await res.json();
        console.log(res_1)
-       dispatch(update)
+       dispatch(update())
        dispatch(getCardData(token))
     }catch(err){
         console.log(err)

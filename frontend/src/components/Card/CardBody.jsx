@@ -12,15 +12,13 @@ import { useNavigate } from 'react-router-dom'
 
 const CartBody = () => {
 
-   const dispatch=useDispatch()
+
    const data=useSelector(store=>store.cartReducer.cart)||[]
     const token=useSelector(store=>store.authReducer.token)
 
   
 
-    useEffect(()=>{
-       dispatch(getCardData(token))
-    },[dispatch])
+ 
 
    
     

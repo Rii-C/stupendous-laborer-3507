@@ -16,11 +16,11 @@ const InitialState = {
         case ADDRESSGET_SUCCESS: {return {...state,Address:payload,isLoading:false}};
         case ADDRESSGET_FAILURE: {return {...state,isError:true,isAddress:false}};
     
-        case DELETE_ADDRESS:{return {...state,isLoading:false,isError:false}}
+        case DELETE_ADDRESS:{return {...state,isError:false}}
        
-        case ADD_ADDRESS:{return {...state,isloading:false,isError:false }}
+        case ADD_ADDRESS:{return {...state,isError:false }}
     
-        case UPDATE_ADDRESS:{return {...state,isLoading:false,isError:false}}
+        case UPDATE_ADDRESS:{return {...state,isError:false}}
     
     
         default: return state;
