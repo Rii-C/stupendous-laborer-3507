@@ -17,6 +17,9 @@ Note: please refresh product details / cart page if you don't get updated data
    4. Java Script
    5. React 
    6. Redux
+   7. Express.js
+   8. MongoDB
+   9. Node.js
    
    
 # Features
